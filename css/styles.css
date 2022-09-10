@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    background-color: #f5f5f5;
+}
+
+.logo-bora {
+    display: flex;
+    align-items: flex-end;
+
+    font-size: 12px;
+    color: #ed9700;
+}
+
+.logo-bora img {
+    width: 90px;
+    padding: 5px 0;
+}
+
+.logo-bora p {
+    margin-left: -10px; /* margem negativa, aguardando logo recortado */
+}
+
+.login {
+    display: flex;
+    align-items: center;
+
+    width: 160px;
+    height: 42px; 
+    
+    margin: 10px 15px;
+    background-color: rgba(39, 32, 32, 0.35);
+}
+
+.login img {
+    width: 28px;
+    margin: 0 8px;
+}
+
+.login a {
+    color: #fdfdfd;
+    text-decoration: none;
+    font-size: 13px
+}
+
+ul.nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+    height: 30px;
+
+    background: linear-gradient(180deg, #FB9600 0%, rgba(223, 61, 10, 0.39) 100%);
+    mix-blend-mode: normal;
+    border: 1px solid rgba(39, 32, 32, 0.50);
+
+    list-style-type: none;
+    /* Não conseguimos colocar o blur */
+}
+
+.nav-bar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 12px;
+
+    padding: 0 5px
+}
+
+main {
+    height: 500px;
+}
+
+footer {
+    background-color: #363636;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:10px;
+    color: #ffffff;
+    font-size: 10px;
+
+}
+.institucional-footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.institucional-footer img{
+    width: 70px;
+
+}
+
+.institucional-links{
+    display: flex;
+    flex-direction: column;
+}
+
+.institucional-links a {
+    padding: 3px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.redes-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.redes-footer img{
+    width: 25px;
+    align-self: center;
+}
+
+.pagamentos-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.pagamentos-footer img{
+    width: 25px;
+}
+
+.pagamentos-footer div{
+    flex-wrap: wrap;
+    width: 70%;
+}

@@ -81,10 +81,6 @@ ul.nav-bar {
   padding: 0 5px;
 }
 
-main {
-  height: 500px;
-}
-
 footer {
   background-color: #363636;
   display: flex;
@@ -144,7 +140,7 @@ footer {
 }
 
 .banner-carrossel {
-  background-image: url("/img/carrossel.png");
+  background-image: url("../img/carrossel.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100px;
@@ -158,6 +154,22 @@ footer {
   margin: auto;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+.imgs-categorias{
+display: flex;
+flex-direction: row;
+/* Lembrar Media Query Desktop */
+justify-content: center; 
+align-items: center;
+flex-wrap: wrap;
+width: 90%;
+height: 50%;
+margin:auto;
+
+
+}
+.imgs-categorias img{
+  width: 100%
 }
 
 .arrow {

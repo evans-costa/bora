@@ -12,6 +12,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center; /*login centralizado*/
 
   background-color: #f5f5f5;
 }

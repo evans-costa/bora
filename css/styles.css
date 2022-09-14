@@ -13,8 +13,9 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center; /*login centralizado*/
-
-  background-color: #f5f5f5;
+  box-shadow: 0px 2px 10px 0px #fc5c0040;
+  height: 15vh;
+  /* background-color: #ff9a3c; */
 }
 
 .logo-bora {
@@ -35,19 +36,16 @@ header {
 }
 
 .login {
-  display: flex;
-  align-items: center;
-
-  width: 160px;
-  height: 42px;
-
+  width: 100px;
   margin: 10px 15px;
-  background-color: rgba(39, 32, 32, 0.35);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .login img {
   width: 28px;
-  margin: 0 8px;
+  /* margin: 0 8px; */
 }
 
 .login a {
@@ -156,21 +154,19 @@ footer {
   margin-top: 15px;
   margin-bottom: 15px;
 }
-.imgs-categorias{
-display: flex;
-flex-direction: row;
-/* Lembrar Media Query Desktop */
-justify-content: center; 
-align-items: center;
-flex-wrap: wrap;
-width: 90%;
-height: 50%;
-margin:auto;
-
-
+.imgs-categorias {
+  display: flex;
+  flex-direction: row;
+  /* Lembrar Media Query Desktop */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 50%;
+  margin: auto;
 }
-.imgs-categorias img{
-  width: 100%
+.imgs-categorias img {
+  width: 100%;
 }
 
 .arrow {

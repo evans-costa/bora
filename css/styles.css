@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+  font-family: open-sans, Helvetica, sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /*login centralizado*/
+  box-shadow: 0px 2px 10px 0px #fc5c0040;
+  height: 15vh;
+  /* background-color: #ff9a3c; */
+}
+
+.logo-bora {
+  display: flex;
+  align-items: flex-end;
+
+  font-size: 12px;
+  color: #ed9700;
+}
+
+.logo-bora img {
+  width: 90px;
+  padding: 5px 0;
+}
+
+.logo-bora p {
+  margin-left: -10px; /* margem negativa, aguardando logo recortado */
+}
+
+.login {
+  width: 100px;
+  margin: 10px 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login img {
+  width: 28px;
+  /* margin: 0 8px; */
+}
+
+.login a {
+  color: #fdfdfd;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+ul.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  margin: 0;
+
+  height: 30px;
+
+  background: linear-gradient(180deg, #fb9600 0%, rgba(223, 61, 10, 0.39) 100%);
+  mix-blend-mode: normal;
+  border: 1px solid rgba(39, 32, 32, 0.5);
+
+  list-style-type: none;
+  /* Não conseguimos colocar o blur */
+}
+
+.nav-bar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+
+  padding: 0 5px;
+}
+
+footer {
+  background-color: #363636;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  color: #ffffff;
+  font-size: 10px;
+}
+.institucional-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.institucional-footer img {
+  width: 70px;
+}
+
+.institucional-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.institucional-links a {
+  padding: 3px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.redes-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.redes-footer img {
+  width: 25px;
+  align-self: center;
+}
+
+.pagamentos-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.pagamentos-footer img {
+  width: 25px;
+}
+
+.pagamentos-footer div {
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.banner-carrossel {
+  background-image: url("../img/carrossel.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100px;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.imgs-categorias {
+  display: flex;
+  flex-direction: row;
+  /* Lembrar Media Query Desktop */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 50%;
+  margin: auto;
+}
+.imgs-categorias img {
+  width: 100%;
+}
+
+.arrow {
+  border-radius: 50%;
+  border: none;
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(111, 104, 104, 0.72);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.categorias {
+  background: linear-gradient(180deg, #fb9600 0%, rgba(223, 61, 10, 0.39) 100%);
+  color: #fff2f2;
+  width: 100%;
+  text-align: center;
+}

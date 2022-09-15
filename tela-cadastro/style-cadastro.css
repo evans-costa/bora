@@ -1,0 +1,274 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    padding: 31px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-form {
+    width: 80%;
+    /* height: 90%;  */
+    box-shadow: 5px 5px 10px black;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #1e1a1ab0;
+    justify-content: center;
+}
+
+.logo-saudacao img {
+    width: 100px;
+    height: 110px;
+}
+
+.logo-saudacao span {
+    color: white;
+    font-family:sans-serif;
+    font-size: 16px;
+    margin-left: 3px;
+}
+
+.logo-saudacao {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.tela-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #363636;
+    max-width: 40%;
+}
+
+.login-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.login-button button {
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ff7a00;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.login-button span {
+    font-family: sans-serif;
+    color: #ffffff;
+    text-align: center;
+}
+
+.encontre-experiencia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.encontre-experiencia span {
+    text-align: center;
+    font-family: sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.form {
+    width: 60%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid #363636;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.input-box input {
+    padding: 8px;
+    border: none;
+    box-shadow: 1px 1px 6px #000;
+}
+
+.title-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-form h1 {
+    color: #000;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.input-box label {
+    font-family: sans-serif;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.input-box input::placeholder {
+    color: #000000be;
+}
+
+.genero-grupo {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 5px;
+}
+
+.genero-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.genero-input input {
+    margin-right: 5px;
+    
+}
+
+.genero-input label {
+    font-family: sans-serif;
+    color: white;
+
+}
+
+.genero-titulo span {
+    color: #ffffff;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.genero-titulo {
+    margin-top: 10px;
+}
+
+.endereco {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.endereco-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: space-between;
+
+}
+
+.endereco-input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.endereco-input label {
+    font-family: sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.endereco-input input {
+    padding: 8px;
+    box-shadow: 1px 1px 6px #000;
+}
+
+.endereco-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+.endereco-title span {
+    font-family: sans-serif;
+    color: #ffffff;
+    text-align: center;
+    font-size: 25px;
+}
+
+.finalizar-title {
+    margin-top: 20px;
+
+}
+
+.finalizar-title h2 {
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+}
+
+.senha {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+
+.senha-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.senha-inputs label {
+    font-family: sans-serif;
+    color: #ffffff;
+
+}
+
+.senha-inputs input {
+    padding: 8px;
+    box-shadow: 1px 1px 6px #000;
+}
+ 
+.button-cadastrar button {
+    padding: 10px;
+    width: 40%;
+    cursor: pointer;
+    background-color: #ff7a00;
+    color: #ffffff;
+    border: none;
+    
+}
+
+.button-cadastrar {
+    margin-top: 10px;
+}

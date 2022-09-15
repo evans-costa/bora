@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Cadastro</title>
+    <link rel="stylesheet" href="style-cadastro.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+
+    <div class="container-form">
+        <div class="tela-login">
+            <div class="logo-saudacao">
+                <img src="img/logo 3.png" alt="logo bora">
+                <span>Bem Vindo(a)</span>
+            </div>
+
+            <div class="encontre-experiencia">
+                <span>Encontre novas experiências para experimentar!</span>
+            </div>
+
+            <div class="login-button">
+                <span>Ja tem uma conta? entre agora mesmo</span>
+                <button type="submit">Entrar</button>
+            </div>
+        </div>
+
+        <div class="form">
+            <form action="#" method="post">
+                <div class="title-form">
+                    <h1>Realize seu cadastro preenchendo as informações abaixo:</h1>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="primeironome">Primeiro Nome</label>
+                        <input type="text" name="primeironome" id="primeironome" placeholder="Digite seu primeiro nome" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="sobrenome">Sobrenome</label>
+                        <input type="text" name="sobrenome" id="sobrenome" placeholder="Digite seu Sobrenome" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" name="telefone" id="telefone" placeholder="ex:(xx)-xxxx-xxxx" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" id="email" placeholder="ex: email@me" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="cpf">CPF</label>
+                        <input type="number" name="cpf" id="cpf" placeholder="Digite seu CPF" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="aniversario">Data de Nascimento</label>
+                        <input type="date" name="aniversario" id="aniversario" placeholder="ex: xx/xx/xxxx" required>
+                    </div>
+
+                </div>
+
+                <div class="genero-inputs">
+                    <div class="genero-titulo">
+                        <span>Gênero</span>
+                    </div>
+
+                    <div class="genero-grupo">
+                        <div class="genero-input">
+                            <input type="radio" name="genero" id="female">
+                            <label for="female">Feminino</label>
+                        </div>
+
+                        <div class="genero-input">
+                            <input type="radio" name="genero" id="male">
+                            <label for="male">Masculino</label>
+                        </div>
+
+                        <div class="genero-input">
+                            <input type="radio" name="genero" id="none">
+                            <label for="none">Prefiro não informar</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="endereco">
+                    <div class="endereco-title">
+                        <span>Endereço</span>
+                    </div>
+
+                    <div class="endereco-inputs">
+
+                        <div class="endereco-input">
+                            <label for="rua">Rua</label>
+                            <input type="text" name="rua" id="rua" placeholder="nome da rua" required>
+                        </div>
+
+                        <div class="endereco-input">
+                            <label for="numero">número</label>
+                            <input type="number" name="numero" id="numero" placeholder="numero da casa" required>
+                        </div>
+
+                        <div class="endereco-input">
+                            <label for="cep">CEP</label>
+                            <input type="number" name="cep" id="cep" placeholder="Digite o CEP" required>
+                        </div>
+
+                        <div class="endereco-input">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" name="cidade" id="cidade" placeholder="Cidade" required>
+                        </div>
+
+                        <div class="endereco-input">
+                            <label for="estado">Estado</label>
+                            <input type="text" name="estado" id="estado" placeholder="ex:SP" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="finalizar-cadastro">
+                    <div class="finalizar-title">
+                        <h2>Finalizar Cadastro</h2>
+                    </div>
+
+                    <div class="senha">
+                        <div class="senha-inputs">
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+                        </div>
+
+                        <div class="senha-inputs">
+                            <label for="confirmar-senha">Confirme sua Senha</label>
+                            <input type="password" name="confirmar-senha" id="confirmar-senha" placeholder="Confirme sua senha" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-cadastrar">
+                    <button type="submit">Cadastrar</button>
+                </div>
+            </form>
+        </div> 
+    </div>
+
+
+</body>
+</html>

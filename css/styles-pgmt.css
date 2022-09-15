@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /*login centralizado*/
+  box-shadow: 0px 2px 10px 0px #fc5c0040;
+  height: 15vh;
+  /* background-color: #ff9a3c; */
+}
+
+.logo-bora {
+  display: flex;
+  align-items: center;
+
+  font-size: 23px;
+  color: #ed9700;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
+
+.logo-bora img {
+  width: 90px;
+  padding: 5px 0;
+}
+
+.logo-bora p {
+  margin-left: -10px; /* margem negativa, aguardando logo recortado */
+}
+
+.login {
+  width: 100px;
+  margin: 10px 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login img {
+  width: 28px;
+  /* margin: 0 8px; */
+}
+
+.login a {
+  color: #fdfdfd;
+  text-decoration: none;
+  font-size: 13px;
+}
+.texto-titulo-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.titulo-pagamento {
+    font-size: 32px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #FFFF
+
+}
+
+header img {
+    width: 90px;
+    padding: 5px 0px;
+}
+
+.titulo-pgm-box {
+    display: flex;
+    flex-direction: row;
+    margin: 22px 3px;
+    background-color: #515153;
+    justify-content: space-between;
+    padding: 12px;
+    height: 500px;
+    width: 440px;
+    box-shadow: 0px 5px 23px 5px rgba(0, 0, 0, 0.35);
+
+}
+
+.pgm-box-itens {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(247, 231, 231, 0.533);
+    height: 289px;
+    width: 164px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 23px 5px rgba(0, 0, 0, 0.35);
+    padding: 10px;
+
+}
+
+.pgm-box-itens span {
+    border-bottom: 1px solid;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    padding: 4px;
+}
+
+.titulo-pgm-box strong {
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #FFFF;
+    padding: 10px;
+}
+.titulo-pgm{
+    display: flex;
+    justify-content:center;
+    align-items: flex-start;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #FFFF;
+}
+
+.item-comprado {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.formas-de-pgmt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    border-bottom: 10px;
+
+}
+.formas-de-pgmt h3 {
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+color: #FFFF;
+font-size: 12px;
+
+}
+
+.img-pgmt {
+    width: 50px;
+
+
+}
+
+.pgmt-line {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin: 3px;
+    align-items: center;
+    border-bottom: 2px groove #8b7b7b;
+    width: 197px;
+    height: 52px;
+
+}
+
+.formas-de-pgmt span {
+    align-items: center;
+    padding: 5px;
+    color: #ffffff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12px;
+
+}
+.button-pagar{
+  background: #ED9608;
+  border: none;
+  border-radius: 65px;
+  font-weight: 500;
+  margin: 10px 0;
+  padding: 5px;
+  font-size: 16px;
+  color: #fdfdfd;
+}
+.buttonpgmt{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+
+footer {
+    background-color: #363636;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    color: #ffffff;
+    font-size: 10px;
+  }
+  .institucional-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .institucional-footer img {
+    width: 70px;
+  }
+  
+  .institucional-links {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .institucional-links a {
+    padding: 3px;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  .redes-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .redes-footer img {
+    width: 25px;
+    align-self: center;
+  }
+  
+  .pagamentos-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .pagamentos-footer img {
+    width: 25px;
+  }
+  
+  .pagamentos-footer div {
+    flex-wrap: wrap;
+    width: 70%;
+  }

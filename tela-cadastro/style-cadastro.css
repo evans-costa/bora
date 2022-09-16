@@ -35,6 +35,7 @@
     font-family:sans-serif;
     font-size: 16px;
     margin-left: 3px;
+
 }
 
 .logo-saudacao {
@@ -49,7 +50,8 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: #363636;
-    max-width: 40%;
+    /* max-width: 40%; */
+    padding: 15px;
 }
 
 .login-button {
@@ -107,6 +109,7 @@
     padding: 10px;
     justify-content: space-between;
     border-bottom: 1px solid #363636;
+    gap: 10px;
 }
 
 .input-box {
@@ -148,6 +151,7 @@
     justify-content: space-between;
     margin: 5px;
     padding: 5px;
+    gap: 5px;
 }
 
 .genero-input {
@@ -189,6 +193,7 @@
     flex-wrap: wrap;
     padding: 10px;
     justify-content: space-between;
+    gap: 5px;
 
 }
 
@@ -241,14 +246,14 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    
+    gap: 10px;
 }
 
 .senha-inputs {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .senha-inputs label {
@@ -264,14 +269,100 @@
  
 .button-cadastrar button {
     padding: 10px;
-    width: 40%;
+    width: 188px;
     cursor: pointer;
     background-color: #ff7a00;
     color: #ffffff;
     border: none;
+    margin-left: 2px;
     
 }
 
 .button-cadastrar {
     margin-top: 10px;
+}
+
+@media(min-width:367px) {
+    .form {
+        padding: 0;
+        width: 90%;
+        margin:auto;
+        padding: 20px;
+    }
+
+    .tela-login {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        gap: 10px;
+
+    }
+
+    .logo-saudacao {
+        display: block;
+    }
+
+    .input-box input {
+        width: 100%;
+        
+    }
+    
+
+}
+
+
+
+@media(min-width:600px) {
+    .input-box input{
+        width: 100%;
+    }
+
+    .input-group {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .input-box {
+        margin: px;
+    }
+
+    .endereco-inputs {
+        padding: 0;
+    }
+
+    .endereco-inputs input {
+        width: 100%;
+        
+    }
+}
+
+@media(min-width:700px) {
+    .tela-login {
+        flex-direction: row;
+        width: 90%;
+    }
+}
+
+@media(min-width:869px) {
+    
+
+    .form{
+        width: 60%;
+    }
+
+    .tela-login {
+        width: 40%;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .logo-saudacao span {
+        font-size: 25px;
+    }
+
+    .encontre-experiencia span {
+        font-size: 30px;
+    }
+
 }

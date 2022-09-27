@@ -24,7 +24,7 @@
         <section class="evento1">
             <div class="info-evento1">
                 <img src="../eventos/img/paintball.jpg" alt="paintball image">
-                <h3>Campeonato de Paintball em Atibaia</h3>
+                <h1>Campeonato de Paintball em Atibaia</h1>
             </div>
 
             <div class="detalhes-evento">
@@ -52,13 +52,26 @@
                 </div>
                 <div>
                     <details>
-                        <summary>Fotos</summary>
+                        <summary>Fotos (clique para ampliar)</summary>
                         <div id="fotos-evento-paintball">
-                            <img src="../eventos/img/paintball-02.jpg" alt="armas de paibntball expostas">
-                            <img src="../eventos/img/paintball-03.jpg" alt="campo de paintball com obstáculos">
-                            <img src="../eventos/img/paintball-04.jpg" alt="atirador mirando atrás de uma parede">
-                            <img src="../eventos/img/paintball-05.jpg" alt="equipe de paintball se movimentando">
+                            <img class="photo-event" src="../eventos/img/paintball-02.jpg" alt="armas de paibntball expostas">
+                            <div id="myModal" class="modal">
+                                <img class="modal-content" id="img01">
+                            </div>
+                            <img class="photo-event" src="../eventos/img/paintball-03.jpg" alt="campo de paintball com obstáculos">
+                            <div id="myModal" class="modal">
+                                <img class="modal-content" id="img01">
+                            </div>
+                            <img class="photo-event" src="../eventos/img/paintball-04.jpg" alt="atirador mirando atrás de uma parede">
+                            <div id="myModal" class="modal">
+                                <img class="modal-content" id="img01">
+                            </div>
+                            <img class="photo-event" src="../eventos/img/paintball-05.jpg" alt="equipe de paintball se movimentando">
+                            <div id="myModal" class="modal">
+                                <img class="modal-content" id="img01">
+                            </div>
                         </div>
+                        
                     </details>
                 </div>
                 <div>
@@ -79,39 +92,41 @@
                 </button>
             </div>
         </section>
-        
 
     </main>
-</body>
 
-<footer>
-    <section class="institucional-footer">
-        <div>
-            <img src="..//img/logo-bora.svg" alt="Logo bora" />
-        </div>
-        <div class="institucional-links">
-            <a href="#">Quem somos </a>
-            <a href="#">Fale conosco </a>
-        </div>
-    </section>
-    <section class="pagamentos-footer">
-        <p>Metodos de pagamento:</p>
-        <div>
-            <img src="..//img/mastercard-logo.svg" alt="Logo Mastercard" />
-            <img src="..//img/visa-logo.png" alt="Logo Visa" />
-            <img src="..//img/amex-logo.png" alt="Logo American Express" />
-            <img src="..//img/elo-logo.png" alt="Logo Elo" />
-            <img src="..//img/boleto-logo.png" alt="Logo Boleto" />
-            <img src="..//img/pix-logo.png" alt="Logo Pix" />
-        </div>
-    </section>
-    <section class="redes-footer">
-        <p>Nossas redes:</p>
-        <div>
-            <a href="#"> <img src="..//img/face-logo.png" alt="Logo Facebook" /></a>
-            <a href="#"> <img src="..//img/twitter-logo.png" alt="Logo Twitter"/></a> 
-            <a href="#"> <img src="..//img/insta-logo.png" alt="Logo Instagram"/></a>
-        </div>
-    </section>
-</footer>
+    <footer>
+        <section class="institucional-footer">
+            <div>
+                <img src="..//img/logo-bora.svg" alt="Logo bora" />
+            </div>
+            <div class="institucional-links">
+                <a href="#">Quem somos </a>
+                <a href="#">Fale conosco </a>
+            </div>
+        </section>
+        <section class="pagamentos-footer">
+            <p>Metodos de pagamento:</p>
+            <div>
+                <img src="..//img/mastercard-logo.svg" alt="Logo Mastercard" />
+                <img src="..//img/visa-logo.png" alt="Logo Visa" />
+                <img src="..//img/amex-logo.png" alt="Logo American Express" />
+                <img src="..//img/elo-logo.png" alt="Logo Elo" />
+                <img src="..//img/boleto-logo.png" alt="Logo Boleto" />
+                <img src="..//img/pix-logo.png" alt="Logo Pix" />
+            </div>
+        </section>
+        <section class="redes-footer">
+            <p>Nossas redes:</p>
+            <div>
+                <a href="#"> <img src="..//img/face-logo.png" alt="Logo Facebook" /></a>
+                <a href="#"> <img src="..//img/twitter-logo.png" alt="Logo Twitter"/></a> 
+                <a href="#"> <img src="..//img/insta-logo.png" alt="Logo Instagram"/></a>
+            </div>
+        </section>
+    </footer>
+
+    <script src="../eventos/js/eventos.js"></script>
+
+</body>
 </html>

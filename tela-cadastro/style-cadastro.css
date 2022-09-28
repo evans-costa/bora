@@ -103,6 +103,8 @@
 
 }
 
+
+
 .input-group {
     display: flex;
     flex-wrap: wrap;
@@ -121,7 +123,10 @@
 .input-box input {
     padding: 8px;
     border: none;
-    box-shadow: 1px 1px 6px #000;
+    /* box-shadow: 1px 1px 6px #000; */
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #ff7a00;
 }
 
 .title-form {
@@ -212,7 +217,10 @@
 
 .endereco-input input {
     padding: 8px;
-    box-shadow: 1px 1px 6px #000;
+    /* box-shadow: 1px 1px 6px #000; */
+    outline: 0;
+    border: 0;
+    border-bottom: 2px solid #ff7a00;
 }
 
 .endereco-title {
@@ -264,13 +272,17 @@
 
 .senha-inputs input {
     padding: 8px;
-    box-shadow: 1px 1px 6px #000;
+    /* box-shadow: 1px 1px 6px #000; */
+    outline: 0;
+    border: 0;
+    border-bottom: 2px solid #ff7a00;
 }
  
 .button-cadastrar button {
-    padding: 10px;
+    padding: 15px;
     width: 188px;
     cursor: pointer;
+    font-size: 18px;
     background-color: #ff7a00;
     color: #ffffff;
     border: none;

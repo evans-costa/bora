@@ -15,8 +15,29 @@
         <p>Encontre sua tribo!</p>
       </div>
       <div class="login">
-        <img src="img/user1.png" a href="#" alt="user button image" />
-        <img src="img/menu.svg" alt="menu" />
+        <!--Aqui esta a imagem de login, esta comentada para qualquer coisa ativar-->
+        <!-- <div id="img-login">
+
+          <img src="img/user1.png" a href="#" alt="user button image" />
+        </div> -->
+        <div class="menu-bar">
+          <div class="menu-hamburguer " onclick="onClickMenu()">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+
+          </div>
+          <ul class="nav" id="nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Cadastro</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Galeria</a></li>
+          </ul>
+        </div>
+
+        <div class="menu-bg" id="menu-bg"></div>
+        <!--fim do menu-bar-->
       </div>
     </header>
     <main>
@@ -53,37 +74,39 @@
         </div>
       </section>
     </main>
+    <footer>
+      <section class="institucional-footer">
+        <div>
+          <img src="img/logo-bora.svg" alt="Logo bora" />
+        </div>
+        <div class="institucional-links">
+          <a href="#">Quem somos </a>
+          <a href="#">Fale conosco </a>
+        </div>
+      </section>
+      <section class="pagamentos-footer">
+        <p>Metodos de pagamento:</p>
+        <div>
+          <img src="img/mastercard-logo.svg" alt="Logo Mastercard" />
+          <img src="img/visa-logo.png" alt="Logo Visa" />
+          <img src="img/amex-logo.png" alt="Logo American Express" />
+          <img src="img/elo-logo.png" alt="Logo Elo" />
+          <img src="img/boleto-logo.png" alt="Logo Boleto" />
+          <img src="img/pix-logo.png" alt="Logo Pix" />
+        </div>
+      </section>
+      <section class="redes-footer">
+        <p>Nossas redes:</p>
+        <div>
+          <a href="#"> <img src="img/face-logo.png" alt="Logo Facebook" /></a>
+          <a href="#"> <img src="img/twitter-logo.png" alt="Logo Twitter" /></a>
+          <a href="#"> <img src="img/insta-logo.png" alt="Logo Instagram" /></a>
+        </div>
+      </section>
+    </footer>
+
+    <script src="index.js"></script>
   </body>
-  <footer>
-    <section class="institucional-footer">
-      <div>
-        <img src="img/logo-bora.svg" alt="Logo bora" />
-      </div>
-      <div class="institucional-links">
-        <a href="#">Quem somos </a>
-        <a href="#">Fale conosco </a>
-      </div>
-    </section>
-    <section class="pagamentos-footer">
-      <p>Metodos de pagamento:</p>
-      <div>
-        <img src="img/mastercard-logo.svg" alt="Logo Mastercard" />
-        <img src="img/visa-logo.png" alt="Logo Visa" />
-        <img src="img/amex-logo.png" alt="Logo American Express" />
-        <img src="img/elo-logo.png" alt="Logo Elo" />
-        <img src="img/boleto-logo.png" alt="Logo Boleto" />
-        <img src="img/pix-logo.png" alt="Logo Pix" />
-      </div>
-    </section>
-    <section class="redes-footer">
-      <p>Nossas redes:</p>
-      <div>
-        <a href="#"> <img src="img/face-logo.png" alt="Logo Facebook" /></a>
-        <a href="#"> <img src="img/twitter-logo.png" alt="Logo Twitter" /></a>
-        <a href="#"> <img src="img/insta-logo.png" alt="Logo Instagram" /></a>
-      </div>
-    </section>
-  </footer>
 </html>
 
 <!-- <img src="img/mastercard-logo.svg" alt="Logo mastercard"> -->

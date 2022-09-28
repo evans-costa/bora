@@ -150,7 +150,17 @@
 .input-box input::placeholder {
     color: #000000be;
 }
-
+.message-error {
+    color: red;
+    background: #f18b8b;
+    margin:10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    display: none;
+}
 .genero-grupo {
     display: flex;
     justify-content: space-between;

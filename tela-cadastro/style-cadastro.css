@@ -62,9 +62,10 @@
 }
 
 .login-button button {
-    width: 50%;
+    width: 80%;
     margin: auto;
-    padding: 10px;
+    padding: 15px;
+    font-size: 18px;
     margin-bottom: 10px;
     background-color: #ff7a00;
     border: none;
@@ -110,7 +111,7 @@
     flex-wrap: wrap;
     padding: 10px;
     justify-content: space-between;
-    border-bottom: 1px solid #363636;
+    /* border-bottom: 1px solid #363636; */
     gap: 10px;
 }
 
@@ -118,15 +119,17 @@
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+    width: 100%;
 }
 
 .input-box input {
-    padding: 8px;
+    padding: 10px;
     border: none;
     /* box-shadow: 1px 1px 6px #000; */
     border: 0;
     outline: 0;
-    border-bottom: 2px solid #ff7a00;
+    /* border-bottom: 2px solid #ff7a00; */
+    border: 1px solid #ff7a00;
 }
 
 .title-form {
@@ -151,8 +154,8 @@
     color: #000000be;
 }
 .message-error {
-    color: red;
-    background: #f18b8b;
+    color: #B90101;
+    /* background: #f18b8b; */
     margin:10px;
     padding: 10px;
     display: flex;
@@ -226,11 +229,11 @@
 }
 
 .endereco-input input {
-    padding: 8px;
+    padding: 10px;
     /* box-shadow: 1px 1px 6px #000; */
     outline: 0;
     border: 0;
-    border-bottom: 2px solid #ff7a00;
+    border: 1px solid #ff7a00;
 }
 
 .endereco-title {
@@ -281,11 +284,11 @@
 }
 
 .senha-inputs input {
-    padding: 8px;
+    padding: 10px;
     /* box-shadow: 1px 1px 6px #000; */
     outline: 0;
-    border: 0;
-    border-bottom: 2px solid #ff7a00;
+    
+    border: 1px solid #ff7a00;
 }
  
 .button-cadastrar button {
@@ -302,6 +305,12 @@
 
 .button-cadastrar {
     margin-top: 10px;
+    /* padding: 10px; */
+}
+
+#msg-Senha {
+    color: #7a0808;
+    display: none;
 }
 
 @media(min-width:367px) {
@@ -357,6 +366,10 @@
         width: 100%;
         
     }
+
+    
+
+    
 }
 
 @media(min-width:700px) {
@@ -385,6 +398,42 @@
 
     .encontre-experiencia span {
         font-size: 30px;
+    }
+
+}
+
+@media(max-width:600px) {
+    .endereco-input{
+        width: 100%;
+    }
+
+    .senha-inputs {
+        width: 100%;
+        padding: 10px;
+    }
+    .button-cadastrar button {
+        width: 100%;
+        
+    }
+    .button-cadastrar {
+        padding: 10px;
+    }
+
+    
+}
+
+@media(max-width:882px) {
+    .endereco-input{
+        width: 100%;
+    }
+
+    .senha-inputs {
+        width: 100%;
+       
+    }
+
+    .button-cadastrar button {
+        width: 100%;
     }
 
 }

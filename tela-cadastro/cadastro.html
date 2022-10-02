@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="input-box">
-                        <label id="labelcpf" for="cpf">CPF</label>
+                        <label id="labelcpf" for="cpf">Número de CPF</label>
                         <input type="number" name="cpf" id="cpf" placeholder="Digite seu CPF" required >
                     </div>
 
@@ -111,18 +111,21 @@
                     <div class="endereco-inputs">
 
                         <div class="endereco-input">
-                            <label id="labelRua" for="rua">Rua</label>
-                            <input type="text" name="rua" id="rua" placeholder="nome da rua" required>
+                            <label id="labelCep" for="cep">CEP</label>
+                            <input type="number" name="cep" id="cep" placeholder="Digite o CEP" required>
+                            
                         </div>
 
                         <div class="endereco-input">
-                            <label id="labelNumero" for="numero">número</label>
+                            <label id="labelNumero" for="numero">Número</label>
                             <input type="number" name="numero" id="numero" placeholder="numero da casa" required>
                         </div>
 
                         <div class="endereco-input">
-                            <label id="labelCep" for="cep">CEP</label>
-                            <input type="number" name="cep" id="cep" placeholder="Digite o CEP" required>
+                            
+                            <label id="labelRua" for="rua">Rua</label>
+                            <input type="text" name="rua" id="rua" placeholder="nome da rua" required>
+
                         </div>
 
                         <div class="endereco-input">
@@ -146,13 +149,20 @@
                         <div class="senha-inputs">
                             <label id="labelSenha" for="senha">Senha</label>
                             <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+                            
                         </div>
-
+                        
                         <div class="senha-inputs">
                             <label id="labelConfSenha" for="confirmarSenha">Confirme sua Senha</label>
                             <input type="password" name="confirmarSenha" id="confirmaSenha" placeholder="Confirme sua senha" required>
                         </div>
+                        
                     </div>
+                    <small id="msg-Senha">Minimo 1 dígito <br>
+                        um uma letra minúscula <br>
+                        uma letra maiúscula <br>
+                        um caractere especial <br>
+                        8  caracteres</small>
                 </div>
 
                 <div class="button-cadastrar">

@@ -58,6 +58,8 @@ let inputConfSenha = document.getElementById("confirmaSenha");
 let labelConfSenha = document.getElementById("labelConfSenha");
 let validConfSenha = false;
 const msgSenha = document.getElementById("msg-Senha");
+
+
 //função pra validar o primeiro nome
 inputPrimeiroNome.addEventListener("blur", () => {
 
@@ -67,9 +69,7 @@ inputPrimeiroNome.addEventListener("blur", () => {
         inputPrimeiroNome.setAttribute('style', 'border: solid 2px  #B90101');
         validPrimeiroNome = false;
         
-        
 
-        
     } else {
         labelPrimeiroNome.setAttribute('style', 'color: #ffffff');
         inputPrimeiroNome.setAttribute('style', 'border-color: #03A64A');
@@ -96,7 +96,22 @@ inputSobrenome.addEventListener("blur", () => {
         
     }
 })
+
 //função pra validar o telefone
+inputTelefone.addEventListener('keypress', () => {
+    let inputLength = telefone.value.length
+    if (inputLength === 0){
+      telefone.value += '('
+    }
+
+    if (inputLength === 3){
+        telefone.value += ') '
+    }
+    if (inputLength === 9){
+        telefone.value += '-'
+    }
+})
+
 inputTelefone.addEventListener("input", () => {
     if (inputTelefone.value.length < 7) {
         labelTelefone.setAttribute('style', 'color: #B90101');
@@ -114,11 +129,14 @@ inputTelefone.addEventListener("input", () => {
     }
 })
 
+
+//função pra validar o Email
+
 function validarEmail(email) {
     let validEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+([a-z]+)?$/i;
     return validEmail.test(email);
 }
-//função pra validar o Email
+
 inputEmail.addEventListener("input", () => {
     if (validarEmail(inputEmail.value) != true ) {
         labelEmail.setAttribute('style', 'color: #B90101');
@@ -132,10 +150,22 @@ inputEmail.addEventListener("input", () => {
         inputEmail.setAttribute('style', 'border-color: #03A64A');
         labelEmail.innerHTML = 'E-mail'
         validEmail = true;
-       
+
     }
 })
 //função pra validar o CPF
+
+    inputcpf.addEventListener('keypress', () => {
+        let inputLength = inputcpf.value.length
+        if (inputLength === 3 || inputLength === 7){
+          inputcpf.value += '.'
+        }
+
+        if (inputLength === 11){
+            inputcpf.value += '-'
+        }
+    })
+
 inputcpf.addEventListener("input", () => {
     if (inputcpf.value.length < 11) {
         labelcpf.setAttribute('style', 'color: #B90101');
@@ -153,17 +183,14 @@ inputcpf.addEventListener("input", () => {
     }
 })
 
-
-
 // função pra validar o input rua
-inputRua.addEventListener("input", () => {
+inputRua.addEventListener("change", () => {
     if (inputRua.value == "") {
         labelRua.setAttribute('style', 'color: #B90101');
         labelRua.innerHTML = "Nome da rua obrigatório"
         inputRua.setAttribute('style', 'border: solid 2px #B90101')
         validRua = false
-        
-       
+
     } else {
         labelRua.setAttribute('style', 'color: #FFFFFF');
         inputRua.setAttribute('style', 'border-color: #03A64A');
@@ -172,13 +199,12 @@ inputRua.addEventListener("input", () => {
 })
 
 // função do input Numero da rua
-
 inputNumero.addEventListener("input", () => {
     if (inputNumero.value == "") {
         labelNumero.setAttribute('style', 'color: #B90101');
         labelNumero.innerHTML = "Número obrigatório"
         inputNumero.setAttribute('style', 'border: solid 2px #B90101');
-        validNumero =false;
+        validNumero = false;
         
     } else {
         labelNumero.setAttribute('style', 'color: #FFFFFF');
@@ -227,8 +253,6 @@ inputCidade.addEventListener("blur", () => {
         inputCidade.setAttribute('style', 'border-color: #03A64A');
         labelCidade.innerHTML = 'Cidade'
         validCidade = true;
-       
-        
     }
 })
 
@@ -254,7 +278,7 @@ inputEstado.addEventListener("focus", () => {
 //usando o codigo do gato passando em cima do teclado
 
 function validarSenha(senha) {
-    let forcaSenha = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
+    let forcaSenha = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$_*&@#-])[0-9a-zA-Z$_*&@#-]{8,}$/;
     return forcaSenha.test(senha);
 }
 
@@ -304,15 +328,14 @@ inputConfSenha.addEventListener("input", () => {
 
 // função que vai analizar se todos os campos foram preenchidos corretamente
 //se algum campo não for preenchido,uma mensagem de erro aparece no topo do form 
-formCadastro.addEventListener("submit",function cadastrar(event) {
+formCadastro.addEventListener("submit", function cadastrar (event) {
     if (
-        validPrimeiroNome && validSobrenome && validEmail && validEstado && validCidade && validCep && validRua  && validcpf && validSenha && validConfSenha && validNumero && validTelefone
+        validPrimeiroNome && validSobrenome && validEmail && validEstado && validCidade && validCep && validRua && validcpf && validSenha && validConfSenha && validNumero && validTelefone
     ) {
         
-    }else {
+    } else {
         event.preventDefault()
         menssageError.style.display = "block"
         
     }
-
-} );
+});

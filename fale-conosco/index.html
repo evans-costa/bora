@@ -30,11 +30,11 @@
         <div class="nome-email">
           <div class="nome">
             <label form="nome">Seu nome:</label>
-            <input type="text" id="nome" name="nome">
+            <input type="text" id="nome" name="nome" required>
           </div>
           <div class="email">
             <label form="email">E-mail:</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" required>
               <div class="info-email">
                 <p>
                   Caso necessário, retornaremos o contato através deste e-mail.
@@ -46,7 +46,7 @@
           
           <div class="mensagem">
           <label form="text">Mensagem</label>
-          <input type="text" id="mensagem" name="mensagem">
+          <textarea class="mensagem-input" required></textarea>
         </div>
 
         <div class="enviar">
@@ -74,7 +74,7 @@
     </div>
   </section>
   <section class="pagamentos-footer">
-    <p>Metodos de pagamento:</p>
+    <p>Métodos de pagamento:</p>
     <div>
       <img src="img/mastercard-logo.svg" alt="Logo Mastercard" />
       <img src="img/visa-logo.png" alt="Logo Visa" />

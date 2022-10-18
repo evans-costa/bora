@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=, initial-scale=1.0">
-  <link rel="stylesheet" href="stylesheets/styles-fale-conosco.css" />
-  <title>Fale Conosco</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale conosco</title>
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="stylesheets/styles.css" />
+    <link rel="stylesheet" href="stylesheets/styles-fale-conosco.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
 </head>
-
-
 <body>
-  <header>
-      <div class="logo-bora">
-        <img src="/images/index/logo-bora.svg" alt="Site logo">
-          <p> FALE <br> CONOSCO</p>
-      </div>
-  </header>
-
+    <%- include('./partials/header') %>
 
   <main>
     <section class="descricao-fale-conosco">
@@ -59,40 +65,8 @@
 
   </main>
 
-
+  <%- include('./partials/footer') %>
+  <script src="javascripts/index.js"></script>
 </body>
-
-
-<footer>
-  <section class="institucional-footer">
-    <div>
-      <img src="/images/index/logo-bora.svg" alt="Logo bora" />
-    </div>
-    <div class="institucional-links">
-      <a href="#">Quem somos </a>
-      <a href="#">Fale conosco </a>
-    </div>
-  </section>
-  <section class="pagamentos-footer">
-    <p>Métodos de pagamento:</p>
-    <div>
-      <img src="/images/index/mastercard-logo.svg" alt="Logo Mastercard" />
-      <img src="/images/index/visa-logo.png" alt="Logo Visa" />
-      <img src="/images/index/amex-logo.png" alt="Logo American Express" />
-      <img src="/images/index/elo-logo.png" alt="Logo Elo" />
-      <img src="/images/index/boleto-logo.png" alt="Logo Boleto" />
-      <img src="/images/index/pix-logo.png" alt="Logo Pix" />
-    </div>
-  </section>
-  <section class="redes-footer">
-    <p>Nossas redes:</p>
-    <div>
-      <a href="#"> <img src="/images/index/face-logo.png" alt="Logo Facebook" /></a>
-      <a href="#"> <img src="/images/index/twitter-logo.png" alt="Logo Twitter" /></a>
-      <a href="#"> <img src="/images/index/insta-logo.png" alt="Logo Instagram" /></a>
-    </div>
-  </section>
-</footer>
-
 
 </html>

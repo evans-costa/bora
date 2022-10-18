@@ -12,6 +12,7 @@ const pagamentoRouter = require('./routes/rotaPagamento');
 
 const faleConoscoRouter = require("./routes/rotaFaleConosco");
 
+const loginRouter = require('./routes/rotaLogin');
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use('/pagamento', pagamentoRouter);
 //app.use('/faleconosco', faleConoscoRouter);
 
 
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

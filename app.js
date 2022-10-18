@@ -4,10 +4,14 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
-const indexRouter = require("./routes/rotaIndex");
-const eventosRouter = require("./routes/rotaEventos");
-const cadastroRouter = require("./routes/rotaCadastro");
+
+const indexRouter = require('./routes/rotaIndex');
+const eventosRouter = require('./routes/rotaEventos')
+const cadastroRouter = require('./routes/rotaCadastro');
+const pagamentoRouter = require('./routes/rotaPagamento');
+
 const faleConoscoRouter = require("./routes/rotaFaleConosco");
+
 
 const app = express();
 
@@ -21,9 +25,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use('/', indexRouter);
-app.use('/eventos', eventosRouter)
-app.use('/cadastrar', cadastroRouter);
+app.use("/", indexRouter);
+app.use("/eventos", eventosRouter);
+app.use("/cadastrar", cadastroRouter);
 
 
 // catch 404 and forward to error handler

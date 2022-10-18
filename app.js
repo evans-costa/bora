@@ -31,8 +31,7 @@ app.use('/', indexRouter);
 app.use('/eventos', eventosRouter)
 app.use('/cadastrar', cadastroRouter);
 app.use('/pagamento', pagamentoRouter);
-//app.use('/faleconosco', faleConoscoRouter);
-
+app.use('/faleconosco', faleConoscoRouter);
 
 app.use('/login', loginRouter);
 

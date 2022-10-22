@@ -173,28 +173,20 @@
       <p>Ullamco qui eiusmod ut reprehenderit aute nulla Lorem nostrud sit duis cupidatat. Duis ullamco esse aliquip culpa elit esse aute ad deserunt. Aliquip ullamco velit veniam irure est quis. Consectetur excepteur deserunt proident esse enim excepteur nisi minim voluptate dolore commodo cupidatat est.</p></div>
     </div>
    </div>
-   <div class="row d-flex justify-content-center mt-5">
+   <% for (let evento of listaEventos) { %>
+    <div class="row d-flex justify-content-center mt-5">
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top" src="images/index/natureza.jpg" alt="Card image cap" id="imgnatureza">
+        <img class="card-img-top" src="<%=evento.picture%>" alt="Card image cap" id="imgnatureza">
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card">
-        <img class="card-img-top" id="imgnerd" src="images/index/nerd.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <h5 class="card-title"><%=evento.title%></h5>
+          <p class="card-text"><%=evento.description%></p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     </div>
   </div>
+  <% } %>
   <!-- footer -->
   <%- include('./partials/footer') %>
   <script src="javascripts/index.js"></script>

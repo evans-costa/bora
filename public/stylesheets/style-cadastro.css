@@ -137,7 +137,7 @@
 }
 
 .title-form h1 {
-    color: #000;
+    color: white;
     font-family: sans-serif;
     font-size: 20px;
 }
@@ -291,14 +291,12 @@
  
 .button-cadastrar button {
     padding: 15px;
-    width: 188px;
+    width: 204px;
     cursor: pointer;
     font-size: 18px;
     background-color: #ff7a00;
     color: #ffffff;
     border: none;
-    margin-left: 2px;
-    
 }
 
 .button-cadastrar {

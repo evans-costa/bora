@@ -7,11 +7,9 @@ const logger = require("morgan");
 
 const indexRouter = require('./routes/rotaIndex');
 const eventosRouter = require('./routes/rotaEventos')
-const cadastroRouter = require('./routes/rotaCadastro');
+const usersRouter = require('./routes/rotaUsers');
 const pagamentoRouter = require('./routes/rotaPagamento');
-
 const faleConoscoRouter = require("./routes/rotaFaleConosco");
-
 const loginRouter = require('./routes/rotaLogin');
 
 const app = express();
@@ -28,7 +26,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/eventos", eventosRouter);
-app.use("/cadastrar", cadastroRouter);
+app.use("/users", usersRouter);
 app.use('/login', loginRouter);
 app.use('/pagamento',pagamentoRouter);
 app.use('/faleconosco',faleConoscoRouter)

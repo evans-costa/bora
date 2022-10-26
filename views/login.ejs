@@ -1,57 +1,69 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
-    <link rel="stylesheet" href="stylesheets/style-login.css" />
-    <title>Bora</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/stylesheets/style-login.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+  />
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"
+  ></script>
+  <title>Bora - Cadastro</title>
 </head>
-
 <body>
-    <header>
-        <div class="logo-bora">
-            <img src="/images/index/logo-bora.svg" alt="Site logo" />
-            <p>Encontre sua tribo!</p>
-        </div>
-        <div class="login">
-            <img src="/images/index/user1.png" a href="#" alt="user button image" />
-            <img src="/images/index/menu.svg" alt="menu" />
-        </div>
-    </header>
-    <main>
-        <div class="container">
-            <div class="principal">
-                <div class="bem-vindo">
-                    <img src="/images/login/logo-simples.svg" alt="Site logo" />
-                    <h1>Bem <br> vindo(a)!</h1>
-                </div>
-            <div class="cadastre-se">
-                    <p>Não tem uma conta? <br>Realize seu cadastro agora mesmo!</p>
-                    <button class="button-cadastrar style-botoes" type="button"><a href="#">Cadastre-se</a></button>
-                </div>
-            </div>
+  <%- include('./partials/header') %>
+  <div class="container mt-5" id="header-cadastro">
+    <div>
+      <img src="/images/index/logo-branca.svg" alt="" id="imagem-cadastro" />
+    </div>
+    <div>
+      <br />
+      <h3>Seja bem-vindo(a)</h3>
+    </div>
+  </div>
 
-            <div class="identificacao">
-                <h2>Identificação:</h2>
-                <form action="#" method="post">
-                    <label for="input-email"></label>
-                    <input class="input-style" id="input-email" type="email" name="email"
-                        placeholder="Digite seu e-mail" required>
-
-                    <label for="input-senha"></label>
-                    <input class="input-style" id="input-senha" type="password" name="senha"
-                        placeholder="Digite sua senha" required>
-
-                    <button class="button-entrar style-botoes" type="submit">Entrar</button>
-
-                </form>
-                <p>Esqueci minha senha</p>
-            </div>
-        </div>
-    </main>
-    <footer>
-
-    </footer>
+  <div class="container" id="body-cadastro">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Insira seu e-mail</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="E-mail"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >Não compartilharemos seu e-mail.</small
+        >
+      </div>
+      <div class="form-group mt-3">
+        <label for="exampleInputPassword1">Senha</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Insira sua senha"
+        />
+      </div>
+      <div class="form-check mt-3">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1"
+          >Matenha-me conectado</label
+        >
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">Enviar</button>
+    </form>
+    <a href="../html/cadastro.html">Não tem um cadastro? Junte-se a nós!</a>
+  </div>
+  <script src="/javascripts/login.js"></script>
+  <%- include('./partials/footer') %>
 </body>

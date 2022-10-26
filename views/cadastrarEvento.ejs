@@ -15,6 +15,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
+    <link
+    rel="stylesheet"
+    href="/stylesheets/cadastro-eventos.css"
+  />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
@@ -24,38 +28,39 @@
 <body>
 
   <%- include('./partials/header') %>
+  <div class="container" id="criacao-evento">
         <div class="form">
             <form id="form-cadastro" method="post" enctype="multipart/form-data">
                 <div class="title-form">
                     <h1>Cadastrar um novo evento</h1>
                 </div>
-
-                <div class="input-group">
-                    <div class="input-box">
+                </div>
                       <label for="picture">Link da foto</label>
                       <input id="picture" name="picture" type="text"/>
-                    </div>
+                    
 
-                    <div class="input-box">
+
+                    
                       <label for="file">Foto</label>
                       <input id="file" name="file" type="file" accept="image/png, image/jpeg, image/svg"/>
-                    </div>
+                  
 
-                    <div class="input-box">
+               
                       <label for="title">Título do Evento</label>
                       <input id="title" name="title" type="text"/>
-                    </div>
+                   
 
-                    <div class="input-box">
+             
                       <label for="description">Descrição</label>
                       <input id="description" name="description" type="text"/>
-                    </div>
+                  
 
                 <div class="button-cadastrar">
-                    <button type="submit">Cadastrar Novo Evento</button>
+                    <button class="btn btn-primary"type="submit">Cadastrar Novo Evento</button>
                 </div>
             </form>
         </div> 
+      </div>
     </div>
 
     <%- include('./partials/footer') %>

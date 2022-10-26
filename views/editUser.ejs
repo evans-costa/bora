@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tela de Cadastro</title>
+    <title>Editar Usuário</title>
     <link rel="stylesheet" href="/stylesheets/style-cadastro.css" />
     <link rel="stylesheet" href="/stylesheets/styles.css" />
     <link
@@ -24,27 +24,11 @@
   </head>
   <body>
     <%- include('./partials/header') %>
-    <div class="container-form">
-      <div class="tela-login">
-        <div class="logo-saudacao">
-          <img src="/images/cadastro-img/logo 3.png" alt="logo bora" />
-          <span>Bem Vindo(a)</span>
-        </div>
-
-        <div class="encontre-experiencia">
-          <span>Encontre novas experiências para experimentar!</span>
-        </div>
-
-        <div class="login-button">
-          <span>Ja tem uma conta? entre agora mesmo</span>
-          <button type="submit">Entrar</button>
-        </div>
-      </div>
-
+    
       <div class="form">
-        <form id="form-cadastro" action="#" method="POST">
+        <form id="form-cadastro"  method="POST" action="?_method=PUT">
           <div class="title-form">
-            <h1>Realize seu cadastro agora mesmo</h1>
+            <h1>EDITAR CONTA</h1>
           </div>
           <div class="message-error">
             <span>Existem campos que não foram preenchidos corretamente!</span>
@@ -59,7 +43,7 @@
                 type="text"
                 name="primeironome"
                 id="primeironome"
-                placeholder="Digite seu primeiro nome"
+                placeholder="Digite seu primeiro nome" value="<%=user.primeironome%>"
               />
             </div>
 
@@ -92,7 +76,7 @@
                 name="email"
                 id="email"
                 placeholder="ex: email@me"
-                required
+                required 
               />
             </div>
 
@@ -246,7 +230,7 @@
           </div>
 
           <div class="button-cadastrar">
-            <button type="submit">Cadastrar</button>
+            <button type="submit">Editar</button>
           </div>
         </form>
       </div>

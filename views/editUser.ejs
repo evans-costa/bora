@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editar Usuário</title>
-    <link rel="stylesheet" href="/stylesheets/style-cadastro.css" />
-    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <link rel="stylesheet" href="/stylesheets/style-cadastro.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
@@ -21,224 +18,119 @@
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
+    <title>Bora - Cadastro</title>
   </head>
   <body>
     <%- include('./partials/header') %>
-    
-      <div class="form">
-        <form id="form-cadastro"  method="POST" action="?_method=PUT">
-          <div class="title-form">
-            <h1>EDITAR CONTA</h1>
-          </div>
-          <div class="message-error">
-            <span>Existem campos que não foram preenchidos corretamente!</span>
-          </div>
+    <div id="formulario-completo" class = "container ml-1 mt-5">
+    <div class="form">
+        <form id="form-cadastro" method="POST" action="?_method=PUT">
+            <div class="title-form">
+                <h1 id="nossa-comunidade">EDITAR CONTA</h1>
+                
+                <div class="form-group">
+                    <label id="labelPrimeiroNome" for="primeironome">Primeiro Nome</label>
+                    <input type="text" class="form-control" id="primeironome" placeholder="Digite seu primeiro nome" required value="<%=user.primeironome%>"></div>
 
-          <div class="input-group">
-            <div class="input-box">
-              <label id="labelPrimeiroNome" for="primeironome"
-                >Primeiro Nome</label
-              >
-              <input
-                type="text"
-                name="primeironome"
-                id="primeironome"
-                placeholder="Digite seu primeiro nome" value="<%=user.primeironome%>"
-              />
+                <div class="form-group">
+                    <label id="labelSobrenome" for="sobrenome">Sobrenome</label>
+                    <input type="text" class="form-control" id="sobrenome" placeholder="Digite seu Sobrenome" required> </div>
+
+                <div class="form-group">
+                    <label id="labelTelefone" for="telefone">Telefone</label>
+                    <input type="tel" class="form-control" id="telefone" placeholder="ex:(xx)-xxxx-xxxx" required> </div>   
+
+                <div class="form-group">
+                    <label id="labelEmail" for="email">E-mail</label>
+                    <input type="email" class="form-control" id="email" placeholder="ex: email@me" required> </div>
+                    <small id="emailHelp" class="form-text text-muted">Não compartilhamos os dados de nossos usuários</small>
+                
+                <div class="form-group">
+                    <label id="labelcpf" for="cpf">Número de CPF</label>
+                    <input type="number" class="form-control" id="cpf" placeholder="Digite seu CPF" required> </div>
+                
+                <div class="form-group">
+                    <label id="labelAniversario" for="aniversario">Data de Nascimento</label>
+                    <input type="date" class="form-control" id="aniversario" placeholder="ex: xx/xx/xxxx" required> </div>    
             </div>
 
-            <div class="input-box">
-              <label id="labelSobrenome" for="sobrenome">Sobrenome</label>
-              <input
-                type="text"
-                name="sobrenome"
-                id="sobrenome"
-                placeholder="Digite seu Sobrenome"
-                required
-              />
+            <div class="genero-inputs">
+                <div class="genero-titulo">
+                    <span>Gênero</span>
+                </div>
+
+                <div class="genero-grupo">
+                    <div class="genero-input">
+                        <input type="radio" name="genero" id="female">
+                        <label for="female">Feminino</label>
+                    </div>
+
+                    <div class="genero-input">
+                        <input type="radio" name="genero" id="male" >
+                        <label for="male">Masculino</label>
+                    </div>
+
+                    <div class="genero-input">
+                        <input type="radio" name="genero" id="none" >
+                        <label for="none">Prefiro não informar</label>
+                    </div>
+                </div>
             </div>
+            <span id="endereco-texto"><h3>Endereço</h3></span>
 
-            <div class="input-box">
-              <label id="labelTelefone" for="telefone">Telefone</label>
-              <input
-                type="tel"
-                name="telefone"
-                id="telefone"
-                placeholder="Ex:(xx)-xxxx-xxxx"
-                required
-              />
-            </div>
-
-            <div class="input-box">
-              <label id="labelEmail" for="email">E-mail</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="ex: email@me"
-                required 
-              />
-            </div>
-
-            <div class="input-box">
-              <label id="labelcpf" for="cpf">Número de CPF</label>
-              <input
-                type="text"
-                name="cpf"
-                id="cpf"
-                placeholder="Digite seu CPF"
-                required
-              />
-            </div>
-
-            <div class="input-box">
-              <label id="labelAniversario" for="aniversario"
-                >Data de Nascimento</label
-              >
-              <input
-                type="date"
-                name="aniversario"
-                id="aniversario"
-                placeholder="ex: xx/xx/xxxx"
-                required
-              />
-            </div>
-          </div>
-
-          <div class="genero-inputs">
-            <div class="genero-titulo">
-              <span>Gênero</span>
-            </div>
-
-            <div class="genero-grupo">
-              <div class="genero-input">
-                <input type="radio" name="genero" id="female" />
-                <label for="female">Feminino</label>
-              </div>
-
-              <div class="genero-input">
-                <input type="radio" name="genero" id="male" />
-                <label for="male">Masculino</label>
-              </div>
-
-              <div class="genero-input">
-                <input type="radio" name="genero" id="none" />
-                <label for="none">Prefiro não informar</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="endereco">
-            <div class="endereco-title">
-              <span>Endereço</span>
-            </div>
-
-            <div class="endereco-inputs">
-              <div class="endereco-input">
+            <div class="form-group">
                 <label id="labelCep" for="cep">CEP</label>
-                <input
-                  type="text"
-                  name="cep"
-                  id="cep"
-                  placeholder="Digite o CEP"
-                  required
-                />
-              </div>
+                <input type="number" class="form-control" id="cep" placeholder="Digite o CEP" required> </div>
 
-              <div class="endereco-input">
+            <div class="form-group">
                 <label id="labelNumero" for="numero">Número</label>
-                <input
-                  type="text"
-                  name="numero"
-                  id="numero"
-                  placeholder="Número da casa"
-                  required
-                />
-              </div>
+                <input type="number" class="form-control" id="numero" placeholder="numero da casa" required> </div>
 
-              <div class="endereco-input">
+            <div class="form-group">
                 <label id="labelRua" for="rua">Rua</label>
-                <input
-                  type="text"
-                  name="rua"
-                  id="rua"
-                  placeholder="Nome da rua"
-                  required
-                />
-              </div>
-
-              <div class="endereco-input">
+                <input type="text" class="form-control" id="rua" placeholder="nome da rua" required> </div>
+            
+            
+            <div class="form-group">
                 <label id="labelCidade" for="cidade">Cidade</label>
-                <input
-                  type="text"
-                  name="cidade"
-                  id="cidade"
-                  placeholder="Cidade"
-                  required
-                />
-              </div>
+                <input type="text" class="form-control" id="cidade" placeholder="Cidade" required> </div>
 
-              <div class="endereco-input">
-                <label id="labelEstado" for="estado">Estado</label>
-                <input
-                  type="text"
-                  name="estado"
-                  id="estado"
-                  placeholder="Ex: SP"
-                  required
-                />
-              </div>
+                <div class="form-group">
+                    <label id="labelEstado" for="estado">Estado</label>
+                    <input type="text" class="form-control" id="estado" placeholder="ex:SP" required> </div>
+                </div>
+
+
+            <div class="finalizar-cadastro">
+                <div class="finalizar-title">
+                    <h2>Finalizar Cadastro</h2>
+                </div>
+
+                <div class="form-group">
+                    <label id="labelSenha" for="senha">Senha</label>
+                    <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required> </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label id="labelConfSenha" for="confirmarSenha">Confirme sua Senha</label>
+                        <input type="password" class="form-control" id="confirmaSenha" placeholder="Confirme sua senha" required> </div>
+             
+    
+                <div class="container" id="regras-senha">
+                    <p>Sua senha deve conter:</p>
+                     <ul><br>
+                        <li>um uma letra minúscula</li>
+                        <li>uma letra maiúscula</li>
+                        <li>um caractere especial</li>
+                        <li>8 caracteres</li></ul>
+                </div>
+
+            <div class="button-cadastrar">
+                <button type="submit" class="btn btn-primary">Editar</button>
             </div>
-          </div>
-
-          <div class="finalizar-cadastro">
-            <div class="finalizar-title">
-              <h2>Finalizar Cadastro</h2>
-            </div>
-
-            <div class="senha">
-              <div class="senha-inputs">
-                <label id="labelSenha" for="senha">Senha</label>
-                <input
-                  type="password"
-                  name="senha"
-                  id="senha"
-                  placeholder="Digite sua senha"
-                  required
-                />
-              </div>
-
-              <div class="senha-inputs">
-                <label id="labelConfSenha" for="confirmarSenha"
-                  >Confirme sua Senha</label
-                >
-                <input
-                  type="password"
-                  name="confirmarSenha"
-                  id="confirmaSenha"
-                  placeholder="Confirme sua senha"
-                  required
-                />
-              </div>
-            </div>
-            <small id="msg-Senha">
-              Uma letra minúscula <br />
-              Uma letra maiúscula <br />
-              Um caractere especial <br />
-              Mínimo 8 caracteres</small
-            >
-          </div>
-
-          <div class="button-cadastrar">
-            <button type="submit">Editar</button>
-          </div>
         </form>
-      </div>
     </div>
-
-    <%- include('./partials/footer') %>
-
-    <script src="/javascripts/index.js"></script>
-    <script src="/javascripts/cadastro.js"></script>
-  </body>
-</html>
+      </form>
+      <%- include('./partials/footer') %>
+      <script src="/javascripts/cadastro.js"></script>
+      </body>

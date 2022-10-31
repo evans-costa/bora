@@ -24,13 +24,13 @@
     <%- include('./partials/header') %>
     <div id="formulario-completo" class = "container ml-1 mt-5">
     <div class="form">
-        <form id="form-cadastro" action="#" method="post">
+        <form id="form-cadastro" method="POST" action="?_method=PUT">
             <div class="title-form">
-                <h1 id="nossa-comunidade">Faça parte de nossa comunidade</h1>
+                <h1 id="nossa-comunidade">EDITAR CONTA</h1>
                 
                 <div class="form-group">
                     <label id="labelPrimeiroNome" for="primeironome">Primeiro Nome</label>
-                    <input type="text" class="form-control" id="primeironome" placeholder="Digite seu primeiro nome" required></div>
+                    <input type="text" class="form-control" id="primeironome" placeholder="Digite seu primeiro nome" required value="<%=user.primeironome%>"></div>
 
                 <div class="form-group">
                     <label id="labelSobrenome" for="sobrenome">Sobrenome</label>
@@ -126,7 +126,7 @@
                 </div>
 
             <div class="button-cadastrar">
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" class="btn btn-primary">Editar</button>
             </div>
         </form>
     </div>

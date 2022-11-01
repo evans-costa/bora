@@ -28,7 +28,7 @@ app.use(methodOverride('_method'));
 
 app.use("/", indexRouter);
 app.use("/eventos", eventosRouter);
-app.use("/cadastrar", cadastroRouter);
+app.use("/users", usersRouter);
 app.use('/login', loginRouter);
 app.use('/pagamento',pagamentoRouter);
 app.use('/faleconosco',faleConoscoRouter)

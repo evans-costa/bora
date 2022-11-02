@@ -3,6 +3,7 @@ const router = express.Router();
 const LoginController = require("../controllers/LoginController");
 const loginMiddleware = require("../middlewares/LoginMiddleware");
 
+
 router.get("/", LoginController.login);
 router.post(
   "/",
@@ -10,5 +11,4 @@ router.post(
   loginMiddleware.validateUser,
   LoginController.authenticateUser
 );
-
 module.exports = router;

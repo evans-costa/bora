@@ -64,8 +64,16 @@
       </div>
       <button type="submit" class="btn btn-primary mt-2">Enviar</button>
     </form>
+    <% if (errors) { %>
+      <ul>
+        <% for (let error of errors) { %>
+          <li><%=error.msg%></li>
+        <% } %>
+      </ul>
+    <% } %>
     <a href="../html/cadastro.html">Não tem um cadastro? Junte-se a nós!</a>
   </div>
   <script src="/javascripts/login.js"></script>
+
   <%- include('./partials/footer') %>
 </body>

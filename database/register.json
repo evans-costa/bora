@@ -78,5 +78,22 @@
     "estado": "São Paulo",
     "senha": "Birigui@1",
     "confirmarSenha": "Birigui@1"
+  },
+  { "email": "" },
+  { "email": "" },
+  {
+    "primeironome": "Jose Carlos",
+    "sobrenome": "Mendes dos Santos",
+    "telefone": "13444444",
+    "email": "jcarlosmendes@outlook.com",
+    "cpf": "444444444444",
+    "aniversario": "2022-11-23",
+    "genero": "on",
+    "cep": "16201158",
+    "numero": "302",
+    "rua": "jose sanches garcia",
+    "cidade": "Birigüi",
+    "estado": "São Paulo",
+    "senha": "Dh@123456"
   }
 ]

@@ -1,0 +1,12 @@
+function loginSession(req,res) {
+  const usersList = JSON.parse(fs.readFileSync("database/usersRegister.json", "utf-8"))
+  const {email,password} = req.body
+
+  for(let user of usersList) {
+    if(user.email  === email && user.password === password  ) {
+      return res.send('logado')
+    }
+    return res.send('Usuário ou senha incorreta')
+  }
+  
+}

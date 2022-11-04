@@ -24,8 +24,7 @@
     <%- include('./partials/header') %>
     <div id="formulario-completo" class = "container ml-1 mt-5">
     <div class="form">
-        <form id="form-cadastro" action="#" method="post" 
-            enctype="multipart/form-data">
+        <form id="form-cadastro" action="#" method="post" >
             <div class="title-form">
                 <h1 id="nossa-comunidade">Faça parte de nossa comunidade</h1>
                 
@@ -121,17 +120,17 @@
 
                 <div class="genero-grupo">
                     <div class="genero-input">
-                        <input type="radio" name="genero" id="female" >
+                        <input type="radio" name="genero" id="female" value="feminino">
                         <label for="female">Feminino</label>
                     </div>
 
                     <div class="genero-input">
-                        <input type="radio" name="genero" id="male">
+                        <input type="radio" name="genero" id="male" value="masculino">
                         <label for="male">Masculino</label>
                     </div>
 
                     <div class="genero-input">
-                        <input type="radio" name="genero" id="none">
+                        <input type="radio" name="genero" id="none" value="nao-informado">
                         <label for="none">Prefiro não informar</label>
                     </div>
                 </div>

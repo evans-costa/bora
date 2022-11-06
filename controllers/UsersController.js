@@ -1,5 +1,6 @@
 const userModel = require("../models/userModel");
 const { validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
 
 //função que mostra a tela de cadastro
 function cadastrar(req,res) {
@@ -18,9 +19,13 @@ function createUsers(req, res) {
       })
     }
 
-    const { primeironome,sobrenome,telefone, email,cpf,aniversario,genero,cep,numero,rua,cidade,estado,senha, confirmarSenha} = req.body;
+    let userToCreate = {
+      ...req.body,
+      senha: bcrypt.hashSync(req.body.senha,10),
+      confirmaSenha: bcrypt.hashSync(req.body.senha,10),
+    }
 
-    userModel.create(primeironome,sobrenome,telefone,email,cpf,aniversario,genero,cep,numero,rua,cidade,estado,senha, confirmarSenha);
+     userModel.create(userToCreate);
     //redireciona para a Home
      res.redirect("/")
   }

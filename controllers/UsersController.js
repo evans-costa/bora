@@ -9,7 +9,7 @@ function cadastrar(req,res) {
 
 /*Função que cria um novo usuário, recebe uma função create do Model */
 function createUsers(req, res) {
-    //desestruturação de objeto
+    
     const resultValid = validationResult(req);
     
     if(resultValid.errors.length > 0) {
@@ -18,6 +18,19 @@ function createUsers(req, res) {
         oldData: req.body
       })
     }
+    
+    let userExist = userModel.findUserByField('email',req.body.email);
+
+    if(userExist) {
+      return res.render('cadastro',{
+        errors: {
+          email: {
+            msg: 'Este email já esta cadastrado'
+          }
+        },
+        oldData: req.body
+      });
+    }
 
     let userToCreate = {
       ...req.body,
@@ -25,19 +38,13 @@ function createUsers(req, res) {
       confirmaSenha: bcrypt.hashSync(req.body.senha,10),
     }
 
-     userModel.create(userToCreate);
+     userModel.create(userToCreate)
     //redireciona para a Home
      res.redirect("/")
   }
 
-  function editUser(req,res) {
-    const {id} = req.params;
-    const user = userModel.getById(id);
-    return res.render("editUser", { user });
-  }
-
+ 
 module.exports = {
     cadastrar,
     createUsers,
-    editUser,
 }

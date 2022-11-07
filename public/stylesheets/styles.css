@@ -1,3 +1,6 @@
+body {
+  overflow-x: hidden;
+}
 /* botão primário */
 .btn-primary {
   background-color: orange;
@@ -216,7 +219,7 @@ nav {
 
 #footer {
   background-color: #18191a;
-  width: 100vw;
+  width: 100%;
   height: auto;
 }
 
@@ -230,6 +233,8 @@ nav {
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
+  width: 100%;
+  bottom: 0;
 }
 #footer .footer-newsletter {
   padding: 50px 0;

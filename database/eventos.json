@@ -1,2 +1,12 @@
-[{"picture":"images/index/natureza.jpg","title":"Special title treatment","description":"With supporting text below as a natural lead-in to additional content."},{"picture":"images/index/nerd.jpg","title":"Special title treatment","description":"With supporting text below as a natural lead-in to additional content."}]
-
+[
+	{
+		"picture": "images/index/natureza.jpg",
+		"title": "Special title treatment",
+		"description": "With supporting text below as a natural lead-in to additional content."
+	},
+	{
+		"picture": "images/index/nerd.jpg",
+		"title": "Special title treatment",
+		"description": "With supporting text below as a natural lead-in to additional content."
+	}
+]

@@ -20,12 +20,24 @@ function createUsers(req, res) {
     }
     
     let userExist = userModel.findUserByField('email',req.body.email);
+    let cpfExist = userModel.findUserByField('cpf',req.body.cpf);
+
 
     if(userExist) {
       return res.render('cadastro',{
         errors: {
           email: {
             msg: 'Este email já esta cadastrado'
+          }
+        },
+        oldData: req.body
+      });
+    }
+    if(cpfExist) {
+      return res.render('cadastro',{
+        errors: {
+          cpf: {
+            msg: 'Este CPF já esta cadastrado'
           }
         },
         oldData: req.body

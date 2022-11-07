@@ -55,5 +55,43 @@
   "confirmaSenha": "$2b$10$YZbmLDTszJB1rlj4nvXIseg0SkNjQYg9hrJjE0HGDj382NkuDJ.7e",
   "termos": "aceito",
   "politica": "aceito"
+ },
+ {
+  "id": 4,
+  "primeironome": "Jose Carlos",
+  "sobrenome": "Mendes dos Santos",
+  "telefone": "7777777",
+  "email": "teste@gmail.com",
+  "cpf": "99999999999",
+  "aniversario": "2022-11-20",
+  "genero": "masculino",
+  "cep": "16201158",
+  "numero": "302",
+  "rua": "Rua José Sanches Garcia",
+  "cidade": "Birigüi",
+  "estado": "SP",
+  "senha": "$2b$10$bTypRJBQEiVO./PLgZWpB.yagv0uDVqCwEQn/pxv9YnvTiYl1k9kq",
+  "confirmaSenha": "$2b$10$rirhfxbHl16vw.LejByocOwNIsAlctVpvIhTXn99jbiMcOC.PkD9.",
+  "termos": "aceito",
+  "politica": "aceito"
+ },
+ {
+  "id": 5,
+  "primeironome": "Jose Carlos",
+  "sobrenome": "Mendes dos Santos",
+  "telefone": "13444444",
+  "email": "teste4@gmail.com",
+  "cpf": "99999999999",
+  "aniversario": "2022-11-07",
+  "genero": "masculino",
+  "cep": "16201158",
+  "numero": "302",
+  "rua": "Rua José Sanches Garcia",
+  "cidade": "Birigüi",
+  "estado": "SP",
+  "senha": "$2b$10$vaJ21sa1NcbLLwVmmGV7x.x2INdok95mX8en4AJx6TTXGpMdaRHpi",
+  "confirmaSenha": "$2b$10$6aMUmeCR7ZDUaesVgyQOMeTA23bgxZJI5ym9PbncaBWAN5gpYMACS",
+  "termos": "aceito",
+  "politica": "aceito"
  }
 ]

@@ -1,5 +1,9 @@
 /* menu modal */
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 #menu-modal a {
   font-size: larger;
   align-self: center;
@@ -299,7 +303,7 @@ nav {
 }
 
 .finalizar-title {
-  color:rgba(238, 127, 9, 0.9);
+  color: rgba(238, 127, 9, 0.9);
   margin-top: 10px;
 }
 
@@ -307,7 +311,7 @@ nav {
   margin-top: 10px;
 }
 
-.button-cadastrar button{
+.button-cadastrar button {
   width: 40%;
   padding: 10px;
   font-size: 18px;
@@ -322,12 +326,11 @@ nav {
 }
 
 .termos {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-
 
 .termos input {
   width: 22px;
@@ -338,23 +341,21 @@ nav {
 
 #sumary-termos {
   font-size: 18px;
-  color:rgba(238, 127, 9, 0.9);
+  color: rgba(238, 127, 9, 0.9);
 }
-
 
 .tratamento-dados-menu li {
-    font-size: 1rem;
-    margin-bottom: 10px;
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
-
-@media(max-width:768px) {
+@media (max-width: 768px) {
   #formulario-completo {
     width: 80%;
   }
 }
 
-@media(max-width: 425px) {
+@media (max-width: 425px) {
   #formulario-completo {
     width: 90%;
   }
@@ -362,4 +363,3 @@ nav {
     width: 100%;
   }
 }
-

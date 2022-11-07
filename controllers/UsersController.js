@@ -1,5 +1,6 @@
 const userModel = require("../models/userModel");
 const { validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
 
 //função que mostra a tela de cadastro
 function cadastrar(req,res) {
@@ -8,7 +9,7 @@ function cadastrar(req,res) {
 
 /*Função que cria um novo usuário, recebe uma função create do Model */
 function createUsers(req, res) {
-    //desestruturação de objeto
+    
     const resultValid = validationResult(req);
     
     if(resultValid.errors.length > 0) {
@@ -17,22 +18,33 @@ function createUsers(req, res) {
         oldData: req.body
       })
     }
+    
+    let userExist = userModel.findUserByField('email',req.body.email);
 
-    const { primeironome,sobrenome,telefone, email,cpf,aniversario,genero,cep,numero,rua,cidade,estado,senha, confirmarSenha} = req.body;
+    if(userExist) {
+      return res.render('cadastro',{
+        errors: {
+          email: {
+            msg: 'Este email já esta cadastrado'
+          }
+        },
+        oldData: req.body
+      });
+    }
 
-    userModel.create(primeironome,sobrenome,telefone,email,cpf,aniversario,genero,cep,numero,rua,cidade,estado,senha, confirmarSenha);
+    let userToCreate = {
+      ...req.body,
+      senha: bcrypt.hashSync(req.body.senha,10),
+      confirmaSenha: bcrypt.hashSync(req.body.senha,10),
+    }
+
+     userModel.create(userToCreate)
     //redireciona para a Home
      res.redirect("/")
   }
 
-  function editUser(req,res) {
-    const {id} = req.params;
-    const user = userModel.getById(id);
-    return res.render("editUser", { user });
-  }
-
+ 
 module.exports = {
     cadastrar,
     createUsers,
-    editUser,
 }

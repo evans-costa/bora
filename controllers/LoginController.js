@@ -20,6 +20,7 @@ const LoginController = {
     };
     return res.redirect('/')
   },
+
 };
 
 module.exports = LoginController;

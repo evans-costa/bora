@@ -1,12 +1,14 @@
 const { body, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const { jwtKey } = require("../config/secrets.js");
+const userModel = require("../models/userModel");
 
 function validateUser(req, res, next) {
   const errors = validationResult(req);
+  console.log(errors)
   if (!errors.isEmpty()) {
     return res.render("login", {
-      errors: errors.array(),
+      errors: errors.mapped(),
       data: {
         email: req.body.email,
         password: req.body.password,
@@ -16,13 +18,25 @@ function validateUser(req, res, next) {
   next();
 }
 
+const ifEmailExists = ((value, {req}) => {
+  value = 'email'
+  let userEmail = userModel.findUserByField(value, req.body.email)
+  if(!userEmail) {
+    return false
+  } else return true
+})
+
+
 const inputValidation = [
-  body("email").isEmail().withMessage("Digite seu e-mail"),
+  body("email")
+    .notEmpty().withMessage("Digite seu email").bail()
+    .isEmail().withMessage('Digite um email válido').bail()
+    .custom(ifEmailExists).withMessage('Email não cadastrado'),
   body("password")
     .notEmpty()
     .withMessage("Digite sua senha")
-    .isLength({ min: 5 })
-    .withMessage("A senha precisa ter pelo menos 5 caracteres"),
+    .isLength({ min: 8 })
+    .withMessage("A senha precisa ter pelo menos 8 caracteres"),
 ];
 
 function validateToken(req, res, next) {

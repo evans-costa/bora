@@ -172,8 +172,7 @@ inputNumero.addEventListener("input", () => {
 });
 
 //codigo para validar cep usando fetch
-/*quando o cep busca o nome da rua,cida e estado, e carrega nos inputs, é preciso clicar em cima
-se nao clicar aparece como erro, não sei o motivo ainda!!!, mas esta buscando. */
+
 
 inputCep.addEventListener("blur", (event) => {
   const cep = event.target.value;

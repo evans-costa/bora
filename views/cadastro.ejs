@@ -63,7 +63,7 @@
                     <label id="labelTelefone" for="telefone">Telefone</label>
                     <input type="tel" name="telefone" 
                     class="form-control" id="telefone"
-                    placeholder="ex:(xx)-xxxx-xxxx"
+                    placeholder="(xx) xxxx-xxxx"
                     value="<%= locals.oldData ? oldData.telefone: null %>" > 
 
                     <% if(locals.errors && errors.telefone) { %>
@@ -77,7 +77,7 @@
                     <label id="labelEmail" for="email">E-mail</label>
                     <input type="text" name="email" 
                     class="form-control" id="email" 
-                    placeholder="ex: email@me"
+                    placeholder="email@me"
                     value="<%= locals.oldData ? oldData.email: null %>" > 
                     <% if(locals.errors && errors.email) { %>
                         <div class="error-msg">
@@ -104,7 +104,7 @@
                     <label id="labelAniversario" for="aniversario">Data de Nascimento</label>
                     <input type="date" name="aniversario" 
                     class="form-control" id="aniversario"
-                    placeholder="ex: xx/xx/xxxx" 
+                    placeholder="xx/xx/xxxx" 
                     value="<%= locals.oldData ? oldData.aniversario: null %>">
                     
                     <% if(locals.errors && errors.aniversario) { %>
@@ -164,7 +164,7 @@
                 <label id="labelNumero" for="numero">Número</label>
                 <input type="number" name="numero" 
                 class="form-control" id="numero" 
-                placeholder="numero da casa" 
+                placeholder="Número da residência" 
                 value="<%= locals.oldData ? oldData.numero: null %>">
 
                 <% if(locals.errors && errors.numero) { %>
@@ -178,7 +178,7 @@
                 <label id="labelRua" for="rua">Rua</label>
                 <input type="text" name="rua" 
                 class="form-control" id="rua" 
-                placeholder="nome da rua" 
+                placeholder="Nome da rua" 
                 value="<%= locals.oldData ? oldData.rua: null %>">
 
                 <% if(locals.errors && errors.rua) { %>
@@ -206,7 +206,7 @@
                     <label id="labelEstado" for="estado">Estado</label>
                     <input type="text" name="estado" 
                     class="form-control" id="estado" 
-                    placeholder="ex:SP" 
+                    placeholder="Exemplo: SP" 
                     value="<%= locals.oldData ? oldData.estado: null %>">
 
                     <% if(locals.errors && errors.estado) { %>
@@ -241,13 +241,13 @@
                     </div>
                     
                 <div class="container" id="regras-senha">
-                    <p>Sua senha deve conter:</p>
+                    <p>Sua senha deve conter no mínimo:</p>
 
                      <ul>
-                        <li>um uma letra minúscula</li>
-                        <li>uma letra maiúscula</li>
-                        <li>um caractere especial</li>
-                        <li>8 caracteres</li></ul>
+                        <li>Uma letra minúscula</li>
+                        <li>Uma letra maiúscula</li>
+                        <li>Um caractere especial</li>
+                        <li>Pelo menos 8 caracteres</li></ul>
 
                 </div>
             </div>
@@ -256,7 +256,7 @@
                     name="termos"
                     id="termos"
                     value="aceito">
-                <label for="termos">E aceito os<a href="#"> Termos e condições do Programa BORA </a> E os <a href="#"> Termos e condições da conta BORA.</a></label>
+                <label for="termos">Eu aceito os <a href="#">Termos e condições do Programa BORA</a> e os <a href="#">Termos e condições da conta BORA</a></label>
             </div>
 
             <% if(locals.errors && errors.termos) { %>
@@ -270,7 +270,7 @@
                 name="politica" 
                 id="termos"
                 value="aceito">
-                <label for="politica">Autorizo que meus dados sejam tratados de acordo com a<a href="#"> Política de privacidade</a> </label>
+                <label for="politica">Autorizo que meus dados sejam tratados de acordo com a <a href="#">Política de privacidade</a> </label>
             </div>
 
             <% if(locals.errors && errors.politica) { %>

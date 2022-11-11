@@ -1,11 +1,11 @@
 const { body, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
 const { jwtKey } = require("../config/secrets.js");
 const userModel = require("../models/userModel");
 
 function validateUser(req, res, next) {
   const errors = validationResult(req);
-  console.log(errors)
   if (!errors.isEmpty()) {
     return res.render("login", {
       errors: errors.mapped(),
@@ -19,9 +19,16 @@ function validateUser(req, res, next) {
 }
 
 const ifEmailExists = ((value, {req}) => {
-  value = 'email'
-  let userEmail = userModel.findUserByField(value, req.body.email)
+  let userEmail = userModel.findUserByField(value = 'email', req.body.email)
   if(!userEmail) {
+    return false
+  } else return true
+})
+
+const isPasswordCorrect = ((value, {req}) => {
+  let userLogin = userModel.findUserByField(value = 'email', req.body.email)
+  let checkPassword = bcrypt.compareSync(req.body.password, userLogin.senha)
+  if (!checkPassword) {
     return false
   } else return true
 })
@@ -33,10 +40,10 @@ const inputValidation = [
     .isEmail().withMessage('Digite um email válido').bail()
     .custom(ifEmailExists).withMessage('Email não cadastrado'),
   body("password")
-    .notEmpty()
-    .withMessage("Digite sua senha")
-    .isLength({ min: 8 })
-    .withMessage("A senha precisa ter pelo menos 8 caracteres"),
+    .if(ifEmailExists).exists()
+    .notEmpty().withMessage("Digite sua senha").bail()
+    .isLength({ min: 8 }).withMessage("A senha precisa ter pelo menos 8 caracteres").bail()
+    .custom(isPasswordCorrect).withMessage('Senha incorreta!'),
 ];
 
 function validateToken(req, res, next) {

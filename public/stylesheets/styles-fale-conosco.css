@@ -39,7 +39,6 @@ header {
   font-weight: 700;
   font-family: play;
   font-style: normal;
-
 }
 
 main {
@@ -50,7 +49,7 @@ main {
   font-style: normal;
 }
 
-.descricao-fale-conosco p{
+.descricao-fale-conosco p {
   font-size: 12px;
   margin-left: 16px;
   margin-right: 16px;
@@ -59,15 +58,15 @@ main {
 
 form {
   margin-top: 30px;
-  margin-right: 10vw;
-  margin-left: 10vw;
+  /* margin-right: 10vw;
+  margin-left: 10vw; */
   font-size: 12px;
   align-items: center;
 }
 
-.formulario input{
+.formulario input {
   border: 1px solid black;
-  background: #D9D9D9;
+  background: #d9d9d9;
   outline: 0;
 }
 
@@ -89,7 +88,6 @@ form {
 .mensagem {
   display: flex;
   flex-direction: column;
-
 }
 
 .mensagem label {
@@ -101,24 +99,38 @@ form {
   height: 120px;
   margin-top: 4px;
   border: 1px solid black;
-  background: #D9D9D9;
+  background: #d9d9d9;
   outline: 0;
 }
 
-.enviar button {
-  background: #ED9608;
-  border: 1px solid #000000;
-  box-shadow: 0px 4px 6px 5px rgb(0 0 0 / 12%);
-  border-radius: 65px;
-  width: 78px;
-  height: 24px;
-  margin-top: 5px;
-  margin-left: 57vw;
-  color: white;
+/* botão primário */
+.btn-primary {
+  background-color: orange;
+  border-color: rgb(250, 179, 47);
 }
 
+.btn-primary:hover {
+  background-color: rgb(250, 179, 47);
+  border-color: orange;
+}
 
-footer {
+.btn-primary:active {
+  background-color: orange;
+}
+
+.btn-primary:visited {
+  background-color: orange;
+}
+
+.btn-primary:focus {
+  background-color: orange;
+  border-color: rgb(250, 179, 47);
+}
+
+/*comentou a parte do footer porque estava entrando em conflito com o css
+da pagina home */
+
+/* footer {
   background-color: #363636;
   display: flex;
   flex-direction: row;
@@ -174,4 +186,4 @@ footer {
 .pagamentos-footer div {
   flex-wrap: wrap;
   width: 70%;
-}
+} */

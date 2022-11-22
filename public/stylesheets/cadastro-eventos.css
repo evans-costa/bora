@@ -1,0 +1,31 @@
+#criacao-evento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* botão primário */
+.btn-primary {
+  background-color: orange;
+  border-color: rgb(250, 179, 47);
+}
+
+.btn-primary:hover {
+  background-color: rgb(250, 179, 47);
+  border-color: orange;
+}
+
+.btn-primary:active {
+  background-color: orange;
+}
+
+.btn-primary:visited {
+  background-color: orange;
+}
+
+.btn-primary:focus {
+  background-color: orange;
+  border-color: rgb(250, 179, 47);
+}

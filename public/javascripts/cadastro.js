@@ -1,3 +1,13 @@
+const menuModal = document.getElementById("menu-modal");
+const navIcon2 = document.querySelector("#nav-icon2");
+
+navIcon2.addEventListener("click", () => {
+  if (navIcon2.classList.toggle("open")) {
+    menuModal.style.display = "block";
+  } else {
+    menuModal.style.display = "none";
+  }
+});
 // variaveis dos inputs e labels
 
 let formCadastro = document.getElementById("form-cadastro");
@@ -59,9 +69,8 @@ const msgSenha = document.getElementById("msg-Senha");
 //função pra validar o primeiro nome
 inputPrimeiroNome.addEventListener("blur", () => {
   if (inputPrimeiroNome.value == "") {
-    labelPrimeiroNome.setAttribute("style", "color: #B90101");
-    labelPrimeiroNome.innerHTML = "Nome obrigatório";
-    inputPrimeiroNome.setAttribute("style", "border: solid 2px  #B90101");
+    labelPrimeiroNome.setAttribute("style", "color: rgb(179, 15, 59)");
+    inputPrimeiroNome.setAttribute("style", "border: solid 1px  rgb(179, 15, 59)");
     validPrimeiroNome = false;
   } else {
     labelPrimeiroNome.setAttribute("style", "color: #ffffff");
@@ -74,9 +83,9 @@ inputPrimeiroNome.addEventListener("blur", () => {
 //função pra validar o sobrenome
 inputSobrenome.addEventListener("blur", () => {
   if (inputSobrenome.value == "") {
-    labelSobrenome.setAttribute("style", "color: #B90101");
+    labelSobrenome.setAttribute("style", "color: rgb(179, 15, 59)");
     labelSobrenome.innerHTML = "Sobrenome obrigatório";
-    inputSobrenome.setAttribute("style", "border: solid 2px #B90101");
+    inputSobrenome.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
     validSobrenome = false;
   } else {
     labelSobrenome.setAttribute("style", "color: #ffffff");
@@ -88,9 +97,9 @@ inputSobrenome.addEventListener("blur", () => {
 //função pra validar o telefone
 inputTelefone.addEventListener("input", () => {
   if (inputTelefone.value.length < 7) {
-    labelTelefone.setAttribute("style", "color: #B90101");
-    labelTelefone.innerHTML = "*Telefone Obrigatório";
-    inputTelefone.setAttribute("style", "border: solid 2px #B90101");
+    labelTelefone.setAttribute("style", "color: rgb(179, 15, 59)");
+    labelTelefone.innerHTML = "Telefone";
+    inputTelefone.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
     validTelefone = false;
   } else {
     labelTelefone.setAttribute("style", "color: #FFFFFF");
@@ -107,9 +116,9 @@ function validarEmail(email) {
 //função pra validar o Email
 inputEmail.addEventListener("input", () => {
   if (validarEmail(inputEmail.value) != true) {
-    labelEmail.setAttribute("style", "color: #B90101");
+    labelEmail.setAttribute("style", "color: rgb(179, 15, 59)");
     labelEmail.innerHTML = "ex:seuemail@email.com";
-    inputEmail.setAttribute("style", "border: solid 2px #B90101");
+    inputEmail.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
     validEmail = false;
   } else {
     labelEmail.setAttribute("style", "color: #FFFFFF");
@@ -121,13 +130,13 @@ inputEmail.addEventListener("input", () => {
 //função pra validar o CPF
 inputcpf.addEventListener("input", () => {
   if (inputcpf.value.length < 11) {
-    labelcpf.setAttribute("style", "color: #B90101");
+    labelcpf.setAttribute("style", "color: rgb(179, 15, 59)");
     labelcpf.innerHTML = "Insira um CPF válido";
-    inputcpf.setAttribute("style", "border: 2px solid #B90101");
+    inputcpf.setAttribute("style", "border: 1px solid rgb(179, 15, 59)");
     validcpf = false;
   } else {
     labelcpf.setAttribute("style", "color: #FFFFFF");
-    inputcpf.setAttribute("style", "border: solid 2px #03A64A");
+    inputcpf.setAttribute("style", "border: solid 1px #03A64A");
     labelcpf.innerHTML = "CPF";
     validcpf = true;
   }
@@ -136,9 +145,9 @@ inputcpf.addEventListener("input", () => {
 // função pra validar o input rua
 inputRua.addEventListener("input", () => {
   if (inputRua.value == "") {
-    labelRua.setAttribute("style", "color: #B90101");
+    labelRua.setAttribute("style", "color: rgb(179, 15, 59)");
     labelRua.innerHTML = "Nome da rua obrigatório";
-    inputRua.setAttribute("style", "border: solid 2px #B90101");
+    inputRua.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
     validRua = false;
   } else {
     labelRua.setAttribute("style", "color: #FFFFFF");
@@ -151,9 +160,9 @@ inputRua.addEventListener("input", () => {
 
 inputNumero.addEventListener("input", () => {
   if (inputNumero.value == "") {
-    labelNumero.setAttribute("style", "color: #B90101");
+    labelNumero.setAttribute("style", "color: rgb(179, 15, 59)");
     labelNumero.innerHTML = "Número obrigatório";
-    inputNumero.setAttribute("style", "border: solid 2px #B90101");
+    inputNumero.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
     validNumero = false;
   } else {
     labelNumero.setAttribute("style", "color: #FFFFFF");
@@ -163,8 +172,7 @@ inputNumero.addEventListener("input", () => {
 });
 
 //codigo para validar cep usando fetch
-/*quando o cep busca o nome da rua,cida e estado, e carrega nos inputs, é preciso clicar em cima
-se nao clicar aparece como erro, não sei o motivo ainda!!!, mas esta buscando. */
+
 
 inputCep.addEventListener("blur", (event) => {
   const cep = event.target.value;
@@ -177,9 +185,9 @@ inputCep.addEventListener("blur", (event) => {
     });
 
   if (inputCep.value == "") {
-    labelCep.setAttribute("style", "color: #B90101");
+    labelCep.setAttribute("style", "color: rgb(179, 15, 59)");
     labelCep.innerHTML = "CEP obrigatório";
-    inputCep.setAttribute("style", "border: solid 2px #B90101");
+    inputCep.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
     validCep = false;
   } else {
     labelCep.setAttribute("style", "color: #FFFFFF");
@@ -191,9 +199,9 @@ inputCep.addEventListener("blur", (event) => {
 // função input cidade
 inputCidade.addEventListener("blur", () => {
   if (inputCidade.value == "") {
-    labelCidade.setAttribute("style", "color: #B90101");
+    labelCidade.setAttribute("style", "color: rgb(179, 15, 59)");
     labelCidade.innerHTML = "Cidade obrigatório";
-    inputCidade.setAttribute("style", "border: solid 2px #B90101");
+    inputCidade.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
     validCidade = false;
   } else {
     labelCidade.setAttribute("style", "color: #FFFFFF");
@@ -206,9 +214,9 @@ inputCidade.addEventListener("blur", () => {
 // função input estado
 inputEstado.addEventListener("focus", () => {
   if (inputEstado.value == "") {
-    labelEstado.setAttribute("style", "color: #B90101");
+    labelEstado.setAttribute("style", "color: rgb(179, 15, 59)");
     labelEstado.innerHTML = "Estado *Minimo 2 Caracteres";
-    inputEstado.setAttribute("style", "border:  solid 2px #B90101");
+    inputEstado.setAttribute("style", "border:  solid 1px rgb(179, 15, 59)");
     validEstado = false;
   } else {
     labelEstado.setAttribute("style", "color: #FFFFFF");
@@ -238,7 +246,7 @@ inputSenha.addEventListener("input", () => {
   if (validarSenha(inputSenha.value) != true) {
     labelSenha.setAttribute("style", "color: #ffffff");
     labelSenha.innerHTML = "Senha";
-    inputSenha.setAttribute("style", "border: solid 2px #B90101");
+    inputSenha.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
     msgSenha.style.display = "block";
     validSenha = false;
   } else {
@@ -253,9 +261,9 @@ inputSenha.addEventListener("input", () => {
 /*abaixo esta a função para  validar a confirmação da senha, precisa ser igual */
 inputConfSenha.addEventListener("input", () => {
   if (inputSenha.value != inputConfSenha.value) {
-    labelConfSenha.setAttribute("style", "color: #B90101");
+    labelConfSenha.setAttribute("style", "color: rgb(179, 15, 59)");
     labelConfSenha.innerHTML = "As senhas não conferem";
-    inputConfSenha.setAttribute("style", "border: solid 2px #B90101");
+    inputConfSenha.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
     validConfSenha = false;
   } else {
     labelConfSenha.setAttribute("style", "color: ##ffffff");
@@ -283,7 +291,7 @@ formCadastro.addEventListener("submit", function cadastrar(event) {
     validTelefone
   ) {
   } else {
-    event.preventDefault();
+    //event.preventDefault();
     menssageError.style.display = "block";
   }
 });

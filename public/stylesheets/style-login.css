@@ -1,9 +1,5 @@
 /* menu modal */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+
 #menu-modal a {
   font-size: larger;
   align-self: center;
@@ -209,24 +205,31 @@ nav {
   top: 29px;
 }
 
-#endereco-texto h3 {
-  color: rgba(238, 127, 9, 0.9);
-  margin-top: 10px;
+#header-cadastro {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  padding: 2%;
 }
 
-#regras-senha {
-  margin: 0;
-  margin-top: 20px;
+#header-cadastro img {
+  width: 5rem;
+  height: auto;
 }
 
-#nossa-comunidade {
+#header-cadastro h3 {
   color: rgba(238, 127, 9, 0.9);
+}
+
+#body-cadastro {
+  background-color: #18191a;
 }
 
 /* FOOTER */
+
 #footer {
   background-color: #18191a;
-  width: 100%;
+  width: 100vw;
   height: auto;
 }
 
@@ -294,72 +297,4 @@ nav {
 
 #footer a:hover {
   color: #e6573f;
-}
-
-.error-msg {
-  color: rgb(179, 15, 59);
-  display: block;
-  font-size: 14px;
-}
-
-.finalizar-title {
-  color: rgba(238, 127, 9, 0.9);
-  margin-top: 10px;
-}
-
-.form-group {
-  margin-top: 10px;
-}
-
-.button-cadastrar button {
-  width: 40%;
-  padding: 10px;
-  font-size: 18px;
-}
-
-.button-cadastrar {
-  margin-top: 25px;
-}
-
-#formulario-completo {
-  width: 50%;
-}
-
-.termos {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.termos input {
-  width: 22px;
-  /* cursor: inherit; */
-  height: 22px;
-  background: red;
-}
-
-#sumary-termos {
-  font-size: 18px;
-  color: rgba(238, 127, 9, 0.9);
-}
-
-.tratamento-dados-menu li {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-@media (max-width: 768px) {
-  #formulario-completo {
-    width: 80%;
-  }
-}
-
-@media (max-width: 425px) {
-  #formulario-completo {
-    width: 90%;
-  }
-  .button-cadastrar button {
-    width: 100%;
-  }
 }

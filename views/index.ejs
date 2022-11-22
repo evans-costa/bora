@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- head -->
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,40 +22,8 @@
     <title>Bora - encontre sua tribo</title>
   </head>
   <body>
-    <nav>
-      <a class="navbar-brand" href="#">
-        <img
-          src="images/index/logo-branca.svg"
-          alt="Logo"
-          width="60"
-          height="50"
-          class="d-inline-block align-text-center"
-        />
-      </a>
-      <!-- <div><h2>Encontre sua tribo</h2></div> -->
-      <div id="icones-nav">
-        <div><a href="#"><i class="bi bi-bell"></a></i></div>
-        <div><a href=""><i class="bi bi-file-person"></a></i></div>
-      </div>
-      <div id="nav-icon2">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
-   <div id="menu-modal">
-    <li>
-      <ul><a href="">Home</a></ul>
-      <ul><a href="html/cadastro.html">Cadastro</a></ul>
-      <ul><a href="html/login.html">Login</a></ul>
-      <ul><a href="">Eventos</a></ul>
-      <ul><a href="">Fale conosco</a></ul>
-      <ul><a href="">Quem somos</a></ul>
-    </li>
-   </div>
+    <!-- header -->
+    <%- include('./partials/header') %>
     <div
       id="carouselExampleControls"
       class="carousel slide"
@@ -204,47 +173,22 @@
       <p>Ullamco qui eiusmod ut reprehenderit aute nulla Lorem nostrud sit duis cupidatat. Duis ullamco esse aliquip culpa elit esse aute ad deserunt. Aliquip ullamco velit veniam irure est quis. Consectetur excepteur deserunt proident esse enim excepteur nisi minim voluptate dolore commodo cupidatat est.</p></div>
     </div>
    </div>
-   <div class="row d-flex justify-content-center mt-5">
+   <% for (let evento of listaEventos) { %>
+    <div class="row d-flex justify-content-center mt-5">
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top" src="images/index/natureza.jpg" alt="Card image cap" id="imgnatureza">
+        <img class="card-img-top" src="<%=evento.picture%>" alt="Card image cap" id="imgnatureza">
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card">
-        <img class="card-img-top" id="imgnerd" src="images/index/nerd.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <h5 class="card-title"><%=evento.title%></h5>
+          <p class="card-text"><%=evento.description%></p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     </div>
   </div>
-  <footer id="footer"> <div class="footer-newsletter mt-5">
-     <div class="container"> 
-      <div class="row"> 
-        <div class="col-lg-6">
-          <h4>Assine nossa newsletter</h4>
-         <p>Nos siga nas redes sociais</p> 
-         <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></a></i>
-         <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></a></i>
-         <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></a></i>
-        </div> <div class="col-lg-6">
-           <form action="" method="post"> 
-            <input type="email" name="email">
-            <input type="submit" value="Inscreva-se">
-          </form> 
-        </div> 
-      </div> 
-    </div> 
-  </div> 
-</footer>
+  <% } %>
+  <!-- footer -->
+  <%- include('./partials/footer') %>
   <script src="javascripts/index.js"></script>
 </body>
 </html>

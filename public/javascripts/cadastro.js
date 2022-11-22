@@ -295,3 +295,37 @@ formCadastro.addEventListener("submit", function cadastrar(event) {
     menssageError.style.display = "block";
   }
 });
+
+//Máscaras campos
+inputCep.addEventListener('keypress', () =>{
+  let inputLength = cep.value.length
+  if (inputLength ===5){
+    cep.value += '-'
+  }
+}
+)
+
+inputTelefone.addEventListener('keypress', () =>{
+  let inputLength = telefone.value.length
+  if (inputLength ===0){
+    telefone.value += '('
+  }
+  if (inputLength===3){
+    telefone.value += ')'
+  }
+  if (inputLength===9){
+    telefone.value += '-'
+  }
+}
+)
+
+inputcpf.addEventListener('keypress',() =>{
+  let inputLength = cpf.value.length
+  if (inputLength ===3){
+    cpf.value += '.'}
+    if (inputLength ===7){
+      cpf.value += '.'}
+      if (inputLength ===11){
+        cpf.value += '-'}
+})
+

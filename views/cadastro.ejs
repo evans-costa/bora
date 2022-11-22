@@ -131,11 +131,24 @@
                         <label for="male">Masculino</label>
                     </div>
 
+
+                    <div class="input-box">
+                        <label id="labelTelefone" for="telefone">Telefone</label>
+                        <input type="tel" name="telefone" id="telefone" placeholder="Ex:(xx)-xxxx-xxxx" required maxlength="14">
+                    </div>
+
                     <div class="genero-input">
+
 
                         <input type="radio" name="genero" id="none" value="nao informar">
 
+
+                    <div class="input-box">
+                        <label id="labelcpf" for="cpf">Número de CPF</label>
+                        <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF" required maxlength="14">
+
                         <label for="none">Prefiro não informar</label>
+
                     </div>
                 </div>
                 <% if(locals.errors && errors.genero) { %>
@@ -209,9 +222,16 @@
                     placeholder="Exemplo: SP" 
                     value="<%= locals.oldData ? oldData.estado: null %>">
 
+
+                        <div class="endereco-input">
+                            <label id="labelCep" for="cep">CEP</label>
+                            <input type="text" name="cep" id="cep" placeholder="Digite o CEP" required maxlength="9">
+                            
+
                     <% if(locals.errors && errors.estado) { %>
                         <div class="error-msg">
                             <%=errors.estado.msg%>
+
                         </div>
                    <% } %>  
                 

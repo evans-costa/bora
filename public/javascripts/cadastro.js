@@ -96,7 +96,7 @@ inputSobrenome.addEventListener("blur", () => {
 });
 //função pra validar o telefone
 inputTelefone.addEventListener("input", () => {
-  if (inputTelefone.value.length < 7) {
+  if (inputTelefone.value.length < 15) {
     labelTelefone.setAttribute("style", "color: rgb(179, 15, 59)");
     labelTelefone.innerHTML = "Telefone";
     inputTelefone.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
@@ -129,7 +129,7 @@ inputEmail.addEventListener("input", () => {
 });
 //função pra validar o CPF
 inputcpf.addEventListener("input", () => {
-  if (inputcpf.value.length < 11) {
+  if (inputcpf.value.length < 14) {
     labelcpf.setAttribute("style", "color: rgb(179, 15, 59)");
     labelcpf.innerHTML = "Insira um CPF válido";
     inputcpf.setAttribute("style", "border: 1px solid rgb(179, 15, 59)");
@@ -311,9 +311,9 @@ inputTelefone.addEventListener('keypress', () =>{
     telefone.value += '('
   }
   if (inputLength===3){
-    telefone.value += ')'
+    telefone.value += ') '
   }
-  if (inputLength===9){
+  if (inputLength===10){
     telefone.value += '-'
   }
 }

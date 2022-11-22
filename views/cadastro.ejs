@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <label id="labelTelefone" for="telefone">Telefone</label>
                             <input type="tel" name="telefone" class="form-control" id="telefone"
-                                placeholder="(xx) xxxx-xxxx" value="<%= locals.oldData ? oldData.telefone: null %>" maxlength="14">
+                                placeholder="(xx) xxxx-xxxx" value="<%= locals.oldData ? oldData.telefone: null %>" maxlength="15">
 
                             <% if(locals.errors && errors.telefone) { %>
                                 <div class="error-msg">

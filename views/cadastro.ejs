@@ -53,7 +53,8 @@
                         <div class="form-group">
                             <label id="labelTelefone" for="telefone">Telefone</label>
                             <input type="tel" name="telefone" class="form-control" id="telefone"
-                                placeholder="(xx) xxxx-xxxx" value="<%= locals.oldData ? oldData.telefone: null %>" maxlength="15">
+                                placeholder="(xx) xxxx-xxxx" value="<%= locals.oldData ? oldData.telefone: null %>"
+                                maxlength="15">
 
                             <% if(locals.errors && errors.telefone) { %>
                                 <div class="error-msg">
@@ -191,14 +192,14 @@
                             <label id="labelEstado" for="estado">Estado</label>
                             <input type="text" name="estado" class="form-control" id="estado" placeholder="Exemplo: SP"
                                 value="<%= locals.oldData ? oldData.estado: null %>">
-                                <% if(locals.errors && errors.estado) { %>
-                                    <div class="error-msg">
-                                        <%=errors.estado.msg%>
+                            <% if(locals.errors && errors.estado) { %>
+                                <div class="error-msg">
+                                    <%=errors.estado.msg%>
 
-                                    </div>
-                                    <% } %>
+                                </div>
+                                <% } %>
 
-                            
+
                         </div>
 
                         <div class="finalizar-cadastro">
@@ -283,8 +284,10 @@
                                             <button type="submit" class="btn btn-primary">Cadastrar</button>
                                         </div>
                 </form>
-            </div>
+    </div>
+
             </form>
             <%- include('./partials/footer') %>
-                <script src="/javascripts/cadastro.js"></script>
+   
+     <script src="/javascripts/cadastro.js"></script>
 </body>

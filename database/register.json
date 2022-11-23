@@ -36,5 +36,24 @@
   "confirmaSenha": "$2b$10$UThNRd.9iHmcSvLtWbR2o.5a7XmneT/zjk1RgykzZxcJnijvSdnV2",
   "termos": "aceito",
   "politica": "aceito"
+ },
+ {
+  "id": 3,
+  "primeironome": "Jose Carlos",
+  "sobrenome": "Mendes dos Santos",
+  "telefone": "18996926998",
+  "email": "jcarlosmendes@outlook.com",
+  "cpf": "122222222222",
+  "aniversario": "2022-11-27",
+  "genero": "masculino",
+  "cep": "16201158",
+  "numero": "302",
+  "rua": "DR. carlos carvalho rosa",
+  "cidade": "Birigüi",
+  "estado": "São Paulo",
+  "senha": "$2b$10$nmG6EmeQPQ0q5u17G13/u.9xDRF3qzLIeNceK3n72oGm.nhdIEcKm",
+  "confirmaSenha": "$2b$10$T4a/BpJQUKHCwDlzs.1IDu6N.PtH2OUOq4GdnVWwBi3pVSrhbEhve",
+  "termos": "aceito",
+  "politica": "aceito"
  }
 ]

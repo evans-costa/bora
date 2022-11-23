@@ -47,7 +47,7 @@ function createUsers(req, res) {
     let userToCreate = {
       ...req.body,
       senha: bcrypt.hashSync(req.body.senha,10),
-      confirmaSenha: bcrypt.hashSync(req.body.senha,10),
+      confirmaSenha: bcrypt.hashSync(req.body.confirmaSenha,10),
     }
 
      userModel.create(userToCreate)

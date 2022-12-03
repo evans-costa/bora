@@ -86,8 +86,14 @@ async function createUsers (req, res) {
   res.redirect("/")
 }
 
+async function users(req,res) {
+  let user = await database.User.findAll()
+  res.render('users', { user })
+};
+
 
 module.exports = {
     cadastrar,
     createUsers,
+    users
 }

@@ -50,7 +50,7 @@ async function createUsers (req, res) {
     return res.render('cadastro',{
       errors: {
         email: {
-        msg: 'Este email já esta cadastrado'
+        msg: 'Este email já está cadastrado'
         }
       },
       oldData: req.body
@@ -61,7 +61,7 @@ async function createUsers (req, res) {
     return res.render('cadastro',{
       errors: {
         cpf: {
-        msg: 'Este CPF já esta cadastrado'
+        msg: 'Este CPF já está cadastrado'
         }
       },
       oldData: req.body

@@ -17,279 +17,260 @@
 
 <body>
     <%- include('./partials/header') %>
-        <div id="formulario-completo" class="container ml-1 mt-5">
-            <div class="form">
-
-                <form id="form-cadastro" action="#" method="post">
-
-                    <div class="title-form">
-                        <h1 id="nossa-comunidade">Faça parte de nossa comunidade</h1>
-
-                        <div class="form-group">
-                            <label id="labelPrimeiroNome" for="primeironome">Primeiro Nome</label>
-                            <input type="text" name="primeironome" class="form-control" id="primeironome"
-                                placeholder="Digite seu primeiro nome"
-                                value="<%= locals.oldData ? oldData.primeironome: null %>">
-                            <% if(locals.errors && errors.primeironome) { %>
-                                <div class="error-msg">
-                                    <%=errors.primeironome.msg%>
-                                </div>
-                                <% } %>
-                        </div>
-
-                        <div class="form-group">
-                            <label id="labelSobrenome" for="sobrenome">Sobrenome</label>
-                            <input type="text" name="sobrenome" class="form-control" id="sobrenome"
-                                placeholder="Digite seu Sobrenome"
-                                value="<%= locals.oldData ? oldData.sobrenome: null %>">
-
-                            <% if(locals.errors && errors.sobrenome) { %>
-                                <div class="error-msg">
-                                    <%=errors.sobrenome.msg%>
-                                </div>
-                                <% } %>
-                        </div>
-
-                        <div class="form-group">
-                            <label id="labelTelefone" for="telefone">Telefone</label>
-                            <input type="tel" name="telefone" class="form-control" id="telefone"
-                                placeholder="(xx) xxxx-xxxx" value="<%= locals.oldData ? oldData.telefone: null %>"
-                                maxlength="15">
-
-                            <% if(locals.errors && errors.telefone) { %>
-                                <div class="error-msg">
-                                    <%=errors.telefone.msg%>
-                                </div>
-                                <% } %>
-                        </div>
-
-                        <div class="form-group">
-                            <label id="labelEmail" for="email">E-mail</label>
-                            <input type="text" name="email" class="form-control" id="email" placeholder="email@me"
-                                value="<%= locals.oldData ? oldData.email: null %>">
-                            <% if(locals.errors && errors.email) { %>
-                                <div class="error-msg">
-                                    <%=errors.email.msg%>
-                                </div>
-                                <% } %>
-                        </div>
-                        <small id="emailHelp" class="form-text text-muted">Não compartilhamos os dados de nossos
-                            usuários</small>
-
-                        <div class="form-group">
-                            <label id="labelcpf" for="cpf">Número de CPF</label>
-                            <input type="text" name="cpf" class="form-control" id="cpf" placeholder="Digite seu CPF"
-                                value="<%= locals.oldData ? oldData.cpf: null %>" maxlength="14">
-
-                            <% if(locals.errors && errors.cpf) { %>
-                                <div class="error-msg">
-                                    <%=errors.cpf.msg%>
-                                </div>
-                                <% } %>
-                        </div>
-
-                        <div class="form-group">
-                            <label id="labelAniversario" for="aniversario">Data de Nascimento</label>
-                            <input type="date" name="aniversario" class="form-control" id="aniversario"
-                                placeholder="xx/xx/xxxx" value="<%= locals.oldData ? oldData.aniversario: null %>">
-
-                            <% if(locals.errors && errors.aniversario) { %>
-                                <div class="error-msg">
-                                    <%=errors.aniversario.msg%>
-                                </div>
-                                <% } %>
-                        </div>
+    <div id="formulario-completo" class="container ml-1 mt-5">
+        <div class="form">
+            <form id="form-cadastro" action="#" method="post">
+            <div class="title-form">
+            <h1 id="nossa-comunidade">Faça parte de nossa comunidade</h1>
+            <div class="form-group">
+                <label id="labelPrimeiroNome" for="primeironome">Primeiro Nome</label>
+                <input type="text" 
+                name="primeironome" 
+                class="form-control" 
+                id="primeironome"
+                placeholder="Digite seu primeiro nome"
+                value="<%= locals.oldData ? oldData.primeironome: null %>">
+                <% if(locals.errors && errors.primeironome) { %>
+                    <div class="error-msg">
+                        <%=errors.primeironome.msg%>
                     </div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <label id="labelSobrenome" for="sobrenome">Sobrenome</label>
+                <input type="text" name="sobrenome" class="form-control" id="sobrenome"
+                placeholder="Digite seu Sobrenome"
+                value="<%= locals.oldData ? oldData.sobrenome: null %>">
+                <% if(locals.errors && errors.sobrenome) { %>
+                    <div class="error-msg">
+                        <%=errors.sobrenome.msg%>
+                    </div>
+                    <% } %>
+            </div>
+            <div class="form-group">
+                <label id="labelTelefone" for="telefone">Telefone</label>
+                <input type="tel" 
+                name="telefone" 
+                class="form-control" id="telefone"
+                placeholder="(xx) xxxx-xxxx" 
+                value="<%= locals.oldData ? oldData.telefone: null %>"
+                maxlength="15">
+                <% if(locals.errors && errors.telefone) { %>
+                    <div class="error-msg">
+                        <%=errors.telefone.msg%>
+                    </div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <label id="labelEmail" for="email">E-mail</label>
+                <input type="text" 
+                name="email" class="form-control" id="email" placeholder="email@me"
+                value="<%= locals.oldData ? oldData.email: null %>">
+                <% if(locals.errors && errors.email) { %>
+                    <div class="error-msg">
+                        <%=errors.email.msg%>
+                    </div>
+                <% } %>
+            </div>
+                        
+            <div class="form-group">
+                <label id="labelcpf" for="cpf">Número de CPF</label>
+                <input type="text" 
+                name="cpf" class="form-control" id="cpf" 
+                placeholder="Digite seu CPF"
+                value="<%= locals.oldData ? oldData.cpf: null %>" maxlength="14">
+                <% if(locals.errors && errors.cpf) { %>
+                    <div class="error-msg">
+                        <%=errors.cpf.msg%>
+                    </div>
+                <% } %>
+            </div>
 
-                    <div class="genero-inputs">
-                        <div class="genero-titulo">
-                            <span>Gênero</span>
-                        </div>
+            <div class="form-group">
+                <label id="labelAniversario" for="aniversario">Data de Nascimento</label>
+                <input type="date" 
+                name="aniversario" class="form-control" id="aniversario"
+                placeholder="xx/xx/xxxx" 
+                value="<%= locals.oldData ? oldData.aniversario: null %>">
+                <% if(locals.errors && errors.aniversario) { %>
+                    <div class="error-msg">
+                        <%=errors.aniversario.msg%>
+                    </div>
+                <% } %>
+            </div>
+            <div class="genero-inputs">
+            <div class="genero-titulo">
+                <span>Gênero</span>
+            </div>
+            <div class="genero-grupo">
+            <div class="genero-input">
+                <input type="radio" name="genero" id="female" value="feminino">
+                <label for="female">Feminino</label>
+            </div>
+            <div class="genero-input">
+                <input type="radio" name="genero" id="male" value="masculino">
+                <label for="male">Masculino</label>
+            </div>
+            <div class="genero-input">
+                <input type="radio" name="genero" id="none" value="nao informar">
+                <label for="none">Prefiro não informar</label>
+            </div>
+            <% if(locals.errors && errors.genero) { %>
+                <div class="error-msg">
+                    <%=errors.genero.msg%>
+                </div>
+            <% } %>
+                </div>
+            </div>
+            <span id="endereco-texto">
+                <h3>Endereço</h3>
+            </span>
+            <div class="form-group">
+                <label id="labelCep" for="cep">CEP</label>
+                <input type="text" 
+                name="cep" class="form-control" id="cep" 
+                placeholder="Digite o CEP"
+                value="<%= locals.oldData ? oldData.cep: null %>" maxlength="9">
+                <% if(locals.errors && errors.cep) { %>
+                    <div class="error-msg">
+                        <%=errors.cep.msg%>
+                    </div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <label id="labelNumero" for="numero">Número</label>
+                <input type="number" 
+                name="numero" 
+                class="form-control" id="numero"
+                placeholder="Número da residência" 
+                value="<%= locals.oldData ? oldData.numero: null %>">
+                <% if(locals.errors && errors.numero) { %>
+                    <div class="error-msg">
+                        <%=errors.numero.msg%>
+                    </div>
+                <% } %>
+            </div>
 
-                        <div class="genero-grupo">
-                            <div class="genero-input">
-                                <input type="radio" name="genero" id="female" value="feminino">
-                                <label for="female">Feminino</label>
-                            </div>
+            <div class="form-group">
+                <label id="labelRua" for="rua">Rua</label>
+                <input type="text" name="rua" 
+                class="form-control" id="rua" 
+                placeholder="Nome da rua"
+                value="<%= locals.oldData ? oldData.rua: null %>">
+                <% if(locals.errors && errors.rua) { %>
+                    <div class="error-msg">
+                        <%=errors.rua.msg%>
+                    </div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <label id="labelCidade" for="cidade">Cidade</label>
+                <input type="text" name="cidade" 
+                class="form-control" id="cidade" 
+                placeholder="Cidade"
+                value="<%= locals.oldData ? oldData.cidade: null %>">
+                <% if(locals.errors && errors.cidade) { %>
+                    <div class="error-msg">
+                        <%=errors.cidade.msg%>
+                    </div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <label id="labelEstado" for="estado">Estado</label>
+                <input type="text" name="estado" 
+                class="form-control" id="estado" 
+                placeholder="Exemplo: SP"
+                value="<%= locals.oldData ? oldData.estado: null %>">
+                <% if(locals.errors && errors.estado) { %>
+                    <div class="error-msg">
+                        <%=errors.estado.msg%>
+                    </div>
+                <% } %>
+            </div>
+        <div class="finalizar-cadastro">
+            <div class="finalizar-title">
+            <h2>Finalizar Cadastro</h2>
+        </div>
+        <div class="form-group">
+            <label id="labelSenha" for="senha">Senha</label>
+            <input type="password" name="senha" class="form-control" id="senha"
+                placeholder="Digite sua senha">
 
-                            <div class="genero-input">
-                                <input type="radio" name="genero" id="male" value="masculino">
-                                <label for="male">Masculino</label>
-                            </div>
+            <% if(locals.errors && errors.senha) { %>
+                <div class="error-msg">
+                    <%=errors.senha.msg%>
+                </div>
+            <% } %>
+        </div>
 
+        <div class="form-group">
+            <label id="labelConfSenha" for="confirmarSenha">Confirme sua Senha</label>
+            <input type="password" name="confirmaSenha" 
+            class="form-control" id="confirmaSenha"
+            placeholder="Confirme sua senha">
+        </div>
 
-
-
-                            <div class="genero-input">
-
-
-                                <input type="radio" name="genero" id="none" value="nao informar">
-
-
-                                <label for="none">Prefiro não informar</label>
-
-
-                            </div>
-                            <% if(locals.errors && errors.genero) { %>
-                                <div class="error-msg">
-                                    <%=errors.genero.msg%>
-                                </div>
-                                <% } %>
-                        </div>
-                        <span id="endereco-texto">
-                            <h3>Endereço</h3>
-                        </span>
-
-                        <div class="form-group">
-                            <label id="labelCep" for="cep">CEP</label>
-                            <input type="text" name="cep" class="form-control" id="cep" placeholder="Digite o CEP"
-                                value="<%= locals.oldData ? oldData.cep: null %>" maxlength="9">
-
-                            <% if(locals.errors && errors.cep) { %>
-                                <div class="error-msg">
-                                    <%=errors.cep.msg%>
-                                </div>
-                                <% } %>
-                        </div>
-
-                        <div class="form-group">
-                            <label id="labelNumero" for="numero">Número</label>
-                            <input type="number" name="numero" class="form-control" id="numero"
-                                placeholder="Número da residência" value="<%= locals.oldData ? oldData.numero: null %>">
-
-                            <% if(locals.errors && errors.numero) { %>
-                                <div class="error-msg">
-                                    <%=errors.numero.msg%>
-                                </div>
-                                <% } %>
-                        </div>
-
-                        <div class="form-group">
-                            <label id="labelRua" for="rua">Rua</label>
-                            <input type="text" name="rua" class="form-control" id="rua" placeholder="Nome da rua"
-                                value="<%= locals.oldData ? oldData.rua: null %>">
-
-                            <% if(locals.errors && errors.rua) { %>
-                                <div class="error-msg">
-                                    <%=errors.rua.msg%>
-                                </div>
-                                <% } %>
-                        </div>
-
-                        <div class="form-group">
-                            <label id="labelCidade" for="cidade">Cidade</label>
-                            <input type="text" name="cidade" class="form-control" id="cidade" placeholder="Cidade"
-                                value="<%= locals.oldData ? oldData.cidade: null %>">
-
-                            <% if(locals.errors && errors.cidade) { %>
-                                <div class="error-msg">
-                                    <%=errors.cidade.msg%>
-                                </div>
-                                <% } %>
-                        </div>
-
-                        <div class="form-group">
-                            <label id="labelEstado" for="estado">Estado</label>
-                            <input type="text" name="estado" class="form-control" id="estado" placeholder="Exemplo: SP"
-                                value="<%= locals.oldData ? oldData.estado: null %>">
-                            <% if(locals.errors && errors.estado) { %>
-                                <div class="error-msg">
-                                    <%=errors.estado.msg%>
-
-                                </div>
-                                <% } %>
-
-
-                        </div>
-
-                        <div class="finalizar-cadastro">
-                            <div class="finalizar-title">
-                                <h2>Finalizar Cadastro</h2>
-                            </div>
-
-                            <div class="form-group">
-                                <label id="labelSenha" for="senha">Senha</label>
-                                <input type="password" name="senha" class="form-control" id="senha"
-                                    placeholder="Digite sua senha">
-
-                                <% if(locals.errors && errors.senha) { %>
-                                    <div class="error-msg">
-                                        <%=errors.senha.msg%>
-                                    </div>
-                                    <% } %>
-
-                            </div>
-
-                            <div class="form-group">
-                                <label id="labelConfSenha" for="confirmarSenha">Confirme sua Senha</label>
-                                <input type="password" name="confirmaSenha" class="form-control" id="confirmaSenha"
-                                    placeholder="Confirme sua senha">
-                            </div>
-
-                            <div class="container" id="regras-senha">
-                                <p>Sua senha deve conter no mínimo:</p>
-
-                                <ul>
-                                    <li>Uma letra minúscula</li>
-                                    <li>Uma letra maiúscula</li>
-                                    <li>Um caractere especial</li>
-                                    <li>Pelo menos 8 caracteres</li>
-                                </ul>
-
-                            </div>
-                        </div>
-                        <div class="termos">
-                            <input type="checkbox" name="termos" id="termos" value="aceito">
-                            <label for="termos">Eu aceito os <a href="#">Termos e condições do Programa BORA</a> e os <a
-                                    href="#">Termos e condições da conta BORA</a></label>
-                        </div>
-
-                        <% if(locals.errors && errors.termos) { %>
-                            <div class="error-msg">
-                                <%=errors.termos.msg%>
-                            </div>
-                            <% } %>
-
-                                <div class="termos">
-                                    <input type="checkbox" name="politica" id="termos" value="aceito">
-                                    <label for="politica">Autorizo que meus dados sejam tratados de acordo com a <a
-                                            href="#">Política de privacidade</a> </label>
-                                </div>
-
-                                <% if(locals.errors && errors.politica) { %>
-                                    <div class="error-msg">
-                                        <%=errors.politica.msg%>
-                                    </div>
-                                    <% } %>
-
-                                        <details class="form-control">
-                                            <summary id="sumary-termos">
-                                                Sobre o tratamento de dados
-                                            </summary>
-                                            <ul class="tratamento-dados-menu">
-                                                <li>Seus dados serão usados para: a gestão contratual e a cobrança do
-                                                    serviço, a gestão da BORA; realizar análise de satisfação,
-                                                    auditorias, melhoria do serviço e prevenção de fraude; atender
-                                                    queixas, reclamações ou sugestões; o envio de comunicações
-                                                    comerciais, relativas a produtos e serviços da BORA, e processos de
-                                                    seleção.</li>
-                                                <li>Você tem direito ao acesso, retificação, cancelamento, oposição e
-                                                    limitação .</li>
-                                                <li>Legitimação: execução de contrato. Interesse legítimo. Obrigação
-                                                    legal. Consentimento.</li>
-                                            </ul>
-                                        </details>
-
-                                        <div class="button-cadastrar">
-                                            <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                        </div>
-                </form>
+        <div class="container" id="regras-senha">
+            <p>Sua senha deve conter no mínimo:</p>
+            <ul>
+                <li>Uma letra minúscula</li>
+                <li>Uma letra maiúscula</li>
+                <li>Um caractere especial</li>
+                <li>Pelo menos 8 caracteres</li>
+            </ul>
+        </div>
     </div>
+        <div class="termos">
+            <input type="checkbox" name="termos" id="termos" value="aceito">
+            <label for="termos">Eu aceito os <a href="#">Termos e condições do Programa BORA</a> 
+             e os<a href="#">Termos e condições da conta BORA</a></label>
+        </div>
+        <% if(locals.errors && errors.termos) { %>
+            <div class="error-msg">
+                <%=errors.termos.msg%>
+            </div>
+        <% } %>
+        <div class="termos">
+            <input type="checkbox" name="politica" id="termos" value="aceito">
+            <label for="politica">Autorizo que meus dados sejam tratados de acordo com a 
+            <a href="#">Política de privacidade</a> </label>
+        </div>
+        <% if(locals.errors && errors.politica) { %>
+            <div class="error-msg">
+                <%=errors.politica.msg%>
+            </div>
+        <% } %>
 
-            </form>
-        </div></div>
-        
-            <%- include('./partials/footer') %>
-   
-     <script src="/javascripts/cadastro.js"></script>
+        <details class="form-control">
+            <summary id="sumary-termos">
+                Sobre o tratamento de dados
+            </summary>
+            <ul class="tratamento-dados-menu">
+                <li>
+                    Seus dados serão usados para: a gestão contratual e a cobrança do
+                    serviço, a gestão da BORA; realizar análise de satisfação,
+                    auditorias, melhoria do serviço e prevenção de fraude; atender
+                    queixas, reclamações ou sugestões; o envio de comunicações
+                    comerciais, relativas a produtos e serviços da BORA, e processos de
+                    seleção.
+                </li>
+                <li>
+                    Você tem direito ao acesso, retificação, cancelamento, oposição e
+                    limitação .
+                </li>
+                <li>
+                    Legitimação: execução de contrato. Interesse legítimo. Obrigação
+                    legal. Consentimento.
+                </li>
+            </ul>
+        </details>
+        <div class="button-cadastrar">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
+    </form>
+    </div>
+    </div>
+</div>
+        <%- include('./partials/footer') %>
+        <script src="/javascripts/cadastro.js"></script>
 </body>

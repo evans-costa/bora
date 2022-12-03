@@ -27,7 +27,7 @@
 
                         <div class="form-group">
                             <label id="labelPrimeiroNome" for="primeironome">Primeiro Nome</label>
-                            <input type="text" name="primeironome" class="form-control" id="primeironome"
+                            <input type="text" name="first_name" class="form-control" id="primeironome"
                                 placeholder="Digite seu primeiro nome"
                                 value="<%= locals.oldData ? oldData.primeironome: null %>">
                             <% if(locals.errors && errors.primeironome) { %>
@@ -39,7 +39,7 @@
 
                         <div class="form-group">
                             <label id="labelSobrenome" for="sobrenome">Sobrenome</label>
-                            <input type="text" name="sobrenome" class="form-control" id="sobrenome"
+                            <input type="text" name="last_name" class="form-control" id="sobrenome"
                                 placeholder="Digite seu Sobrenome"
                                 value="<%= locals.oldData ? oldData.sobrenome: null %>">
 
@@ -89,7 +89,7 @@
 
                         <div class="form-group">
                             <label id="labelAniversario" for="aniversario">Data de Nascimento</label>
-                            <input type="date" name="aniversario" class="form-control" id="aniversario"
+                            <input type="date" name="dt_aniversario" class="form-control" id="aniversario"
                                 placeholder="xx/xx/xxxx" value="<%= locals.oldData ? oldData.aniversario: null %>">
 
                             <% if(locals.errors && errors.aniversario) { %>

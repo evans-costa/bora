@@ -1,9 +1,9 @@
 const { body } = require("express-validator");
 
 const validations = [
-    body("primeironome").notEmpty()
+    body("first_name").notEmpty()
       .withMessage("O nome não pode ficar vazio").bail().trim(),
-    body("sobrenome").notEmpty()
+    body("last_name").notEmpty()
       .withMessage("O sobrenome não pode ficar vazio").bail().trim(),
     body("telefone").notEmpty()
       .withMessage("Telefone obrigatório").bail().trim(),
@@ -19,7 +19,7 @@ const validations = [
       .bail()
       .isLength({ min: 11 })
       .withMessage("Digite um CPF válido, mínimo 11 Dígitos").bail().trim(),
-    body("aniversario").notEmpty()
+    body("dt_aniversario").notEmpty()
       .withMessage("Data de aniversário obrigatória").bail().trim(),
     body("genero").notEmpty()
       .withMessage("Preencha seu gênero").bail().trim(),

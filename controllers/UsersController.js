@@ -1,6 +1,11 @@
-const userModel = require("../models/userModel");
+const database = require("../database/models")
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
+
+async function users(req,res) {
+  let user = await database.User.findAll()
+  res.render('users', { user })
+};
 
 //função que mostra a tela de cadastro
 function cadastrar(req,res) {
@@ -8,55 +13,87 @@ function cadastrar(req,res) {
 }
 
 /*Função que cria um novo usuário, recebe uma função create do Model */
-function createUsers(req, res) {
-    
-    const resultValid = validationResult(req);
-    
-    if(resultValid.errors.length > 0) {
+async function createUsers (req, res) {
+  const { 
+    first_name,
+    last_name,
+    email,
+    telefone,
+    cpf,
+    dt_aniversario,
+    genero,
+    cep,
+    numero,
+    rua,
+    cidade,
+    estado,
+    senha,
+  } = req.body;
+
+  const resultValid = validationResult(req)
+
+  if (resultValid.errors.length > 0) {
       return res.render('cadastro', {
-        errors: resultValid.mapped(),
-        oldData: req.body
+          errors: resultValid.mapped(),
+          oldData: req.body
       })
+  }
+      
+  let userExist = await database.User.findOne({
+    where: {
+      'email': req.body.email
     }
-    
-    let userExist = userModel.findUserByField('email',req.body.email);
-    let cpfExist = userModel.findUserByField('cpf',req.body.cpf);
+  })
 
-
-    if(userExist) {
-      return res.render('cadastro',{
-        errors: {
-          email: {
-            msg: 'Este email já esta cadastrado'
-          }
-        },
-        oldData: req.body
-      });
+  let cpfExist = await database.User.findOne({
+    where: {
+      'cpf': req.body.cpf
     }
-    if(cpfExist) {
-      return res.render('cadastro',{
-        errors: {
-          cpf: {
-            msg: 'Este CPF já esta cadastrado'
-          }
-        },
-        oldData: req.body
-      });
-    }
+  })
 
-    let userToCreate = {
-      ...req.body,
-      senha: bcrypt.hashSync(req.body.senha,10),
-      confirmaSenha: bcrypt.hashSync(req.body.confirmaSenha,10),
-    }
-
-     userModel.create(userToCreate)
-    //redireciona para a Home
-     res.redirect("/")
+  if(userExist) {
+    return res.render('cadastro',{
+      errors: {
+        email: {
+        msg: 'Este email já esta cadastrado'
+        }
+      },
+      oldData: req.body
+    });
   }
 
- 
+  if(cpfExist) {
+    return res.render('cadastro',{
+      errors: {
+        cpf: {
+        msg: 'Este CPF já esta cadastrado'
+        }
+      },
+      oldData: req.body
+    });
+  }
+
+  createUsers = await database.User.create({
+    first_name,
+    last_name,
+    email,
+    telefone,
+    cpf,
+    dt_aniversario,
+    genero,
+    cep,
+    numero,
+    rua,
+    cidade,
+    estado,
+    senha: bcrypt.hashSync(senha, 10),
+  })
+  res.redirect("/")
+}
+
+
 module.exports = {
     cadastrar,
     createUsers,
+    users
 }

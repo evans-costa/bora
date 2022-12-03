@@ -17,6 +17,75 @@
 
 <body>
     <%- include('./partials/header') %>
+        <div id="formulario-completo" class="container ml-1 mt-5">
+            <div class="form">
+
+                <form id="form-cadastro" action="#" method="post">
+
+                    <div class="title-form">
+                        <h1 id="nossa-comunidade">Faça parte de nossa comunidade</h1>
+
+                        <div class="form-group">
+                            <label id="labelPrimeiroNome" for="primeironome">Primeiro Nome</label>
+                            <input type="text" name="first_name" class="form-control" id="primeironome"
+                                placeholder="Digite seu primeiro nome"
+                                value="<%= locals.oldData ? oldData.primeironome: null %>">
+                            <% if(locals.errors && errors.primeironome) { %>
+                                <div class="error-msg">
+                                    <%=errors.primeironome.msg%>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div class="form-group">
+                            <label id="labelSobrenome" for="sobrenome">Sobrenome</label>
+                            <input type="text" name="last_name" class="form-control" id="sobrenome"
+                                placeholder="Digite seu Sobrenome"
+                                value="<%= locals.oldData ? oldData.sobrenome: null %>">
+
+                            <% if(locals.errors && errors.sobrenome) { %>
+                                <div class="error-msg">
+                                    <%=errors.sobrenome.msg%>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div class="form-group">
+                            <label id="labelTelefone" for="telefone">Telefone</label>
+                            <input type="tel" name="telefone" class="form-control" id="telefone"
+                                placeholder="(xx) xxxx-xxxx" value="<%= locals.oldData ? oldData.telefone: null %>" maxlength="15">
+
+                            <% if(locals.errors && errors.telefone) { %>
+                                <div class="error-msg">
+                                    <%=errors.telefone.msg%>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div class="form-group">
+                            <label id="labelEmail" for="email">E-mail</label>
+                            <input type="text" name="email" class="form-control" id="email" placeholder="email@me"
+                                value="<%= locals.oldData ? oldData.email: null %>">
+                            <% if(locals.errors && errors.email) { %>
+                                <div class="error-msg">
+                                    <%=errors.email.msg%>
+                                </div>
+                                <% } %>
+                        </div>
+                        <small id="emailHelp" class="form-text text-muted">Não compartilhamos os dados de nossos
+                            usuários</small>
+
+                        <div class="form-group">
+                            <label id="labelcpf" for="cpf">Número de CPF</label>
+                            <input type="text" name="cpf" class="form-control" id="cpf" placeholder="Digite seu CPF"
+                                value="<%= locals.oldData ? oldData.cpf: null %>" maxlength="14">
+
+                            <% if(locals.errors && errors.cpf) { %>
+                                <div class="error-msg">
+                                    <%=errors.cpf.msg%>
+                                </div>
+                                <% } %>
+                        </div>
     <div id="formulario-completo" class="container ml-1 mt-5">
         <div class="form">
             <form id="form-cadastro" action="#" method="post">

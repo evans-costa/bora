@@ -27,11 +27,20 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
+            fk_departamento: {
+                type:DataTypes.INTEGER
+            }
         },
         {
             tableName: "funcionario_pf",
             timestamps: false,
         }
-    );
+    )
+    Funcionario.associate = (models) => {
+        Funcionario.belongsTo(models.Departamento,{
+            foreignKey: "fk_departamento",
+            as: "departamento"
+        })
+    }
 return Funcionario;
 };

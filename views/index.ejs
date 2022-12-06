@@ -173,14 +173,14 @@
       <p>Ullamco qui eiusmod ut reprehenderit aute nulla Lorem nostrud sit duis cupidatat. Duis ullamco esse aliquip culpa elit esse aute ad deserunt. Aliquip ullamco velit veniam irure est quis. Consectetur excepteur deserunt proident esse enim excepteur nisi minim voluptate dolore commodo cupidatat est.</p></div>
     </div>
    </div>
-   <% for (let evento of listaEventos) { %>
+   <% for (let evento of eventos) { %>
     <div class="row d-flex justify-content-center mt-5">
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top" src="<%=evento.picture%>" alt="Card image cap" id="imgnatureza">
+        <img class="card-img-top" src="<%=evento.imagem_evento%>" alt="Card image cap" id="imgnatureza">
         <div class="card-body">
-          <h5 class="card-title"><%=evento.title%></h5>
-          <p class="card-text"><%=evento.description%></p>
+          <h5 class="card-title"><%=evento.nome_evento%></h5>
+          <p class="card-text"><%=evento.descricao_event%></p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>

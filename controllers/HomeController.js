@@ -1,11 +1,11 @@
-const eventoModel = require('../models/evento')
-
+// const eventoModel = require('../models/evento')
+const database = require("../database/models");
 
 const HomeController = {
-    index: (req, res) => {
-        const listaEventos = eventoModel.getAll()
-        res.render('index', { listaEventos })
-    }
-}
+	index: async (req, res) => {
+		const listaEventos = await database.Evento.findAll();
+		res.render("index", { eventos: listaEventos });
+	},
+};
 
-module.exports = HomeController
+module.exports = HomeController;

@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
+			fk_user: {
+				type: DataTypes.INTEGER,
+				allowNull: false,
+			},
 		},
 		{
 			tableName: "contact",

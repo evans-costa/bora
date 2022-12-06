@@ -23,12 +23,27 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.TEXT,
 				allowNull: false,
 			},
+			fk_categoria: {
+				type: DataTypes.INTEGER,
+				allowNull: false,
+			},
+			imagem_evento: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
 		},
 		{
 			tableName: "eventos",
 			timestamps: false,
 		}
 	);
+
+	Evento.associate = (models) => {
+		Evento.belongsTo(models.Categoria, {
+			foreignKey: "fk_categoria",
+			as: "categoria",
+		});
+	};
 
 	Evento.associate = (models) => {
 		Evento.belongsToMany(models.User, {

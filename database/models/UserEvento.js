@@ -7,10 +7,12 @@ module.exports = (sequelize, DataTypes) => {
                 primaryKey: true,
             },
             evento_id: {
-                type: DataTypes.INTEGER
+                type: DataTypes.INTEGER,
+                allowNull: false,
             },
             user_id: {
-                type: DataTypes.INTEGER
+                type: DataTypes.INTEGER,
+                allowNull: false,
             }
             
         },

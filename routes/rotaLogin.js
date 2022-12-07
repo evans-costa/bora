@@ -4,11 +4,6 @@ const LoginController = require("../controllers/LoginController");
 const loginMiddleware = require("../middlewares/LoginMiddleware");
 
 
-router.get("/", LoginController.login);
-router.post(
-  "/",
-  loginMiddleware.inputValidation,
-  loginMiddleware.validateUser,
-  LoginController.authenticateUser
-);
+router.get("/", LoginController.formLogin);
+router.post("/",LoginController.login);
 module.exports = router;

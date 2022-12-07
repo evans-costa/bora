@@ -4,6 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const methodOverride = require('method-override');
+let session = require('express-session');
 
 
 const indexRouter = require('./routes/rotaIndex');
@@ -12,9 +13,16 @@ const usersRouter = require('./routes/rotaUsers');
 const pagamentoRouter = require('./routes/rotaPagamento');
 const faleConoscoRouter = require("./routes/rotaFaleConosco");
 const loginRouter = require('./routes/rotaLogin');
+const loggedMiddleware = require('./middlewares/loggedMiddleware');
 
 const app = express();
-
+app.use(session({
+  secret: "senhasecreta",
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(cookieParser());
+app.use(loggedMiddleware)
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -22,7 +30,6 @@ app.set("view engine", "ejs");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride('_method'));
 

@@ -41,19 +41,11 @@
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
           placeholder="E-mail"
-          value="<%= data.email %>"
         />
-        <small id="emailHelp" class="form-text text-muted"
-          >Não compartilharemos seu e-mail.</small
-        >
-
-        <!-- <% if (locals.errors && errors.email) { %>
-          <div class="error-msg">
-              <%=errors.email.msg%>
-          </div> -->
-        <!-- <% } %> -->
-
       </div>
+      <% if(locals.errors && errors.email)  { %>
+        <span id="msg-name"> <%= errors.email.msg %> </span>
+      <% } %>
       <div class="form-group mt-3">
         <label for="exampleInputPassword1">Senha</label>
         <input
@@ -64,6 +56,9 @@
           placeholder="Insira sua senha"
         />
       </div>
+      <% if(locals.errors && errors.password)  { %>
+        <span id="msg-name"> <%= errors.password.msg %> </span>
+   <% } %>
       <div class="form-check mt-3">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1"

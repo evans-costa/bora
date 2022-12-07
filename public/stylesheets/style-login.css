@@ -298,3 +298,7 @@ nav {
 #footer a:hover {
   color: #e6573f;
 }
+
+#msg-name {
+  color: red;
+}

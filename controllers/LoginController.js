@@ -1,30 +1,47 @@
-const jwt = require("jsonwebtoken");
-const { jwtKey } = require("../config/secrets");
-const database = require("../database/models");
+const { User } = require('../database/models');
+const  bcrypt  = require('bcrypt');
+function formLogin(req,res) {
+  res.cookie('testando o cookie', {maxAge: 2000})
+    return res.render('login')
+}
 
-const LoginController = {
-	login: (req, res) => {
-		return res.render("login", { errors: [], data: {} });
-	},
+async function login(req,res) {
+   let { email, password } = req.body;
+   let getUserEmail = await User.findOne({
+        where: {
+            email: email,
+        }
+    }) 
 
-	authenticateUser: async (req, res) => {
-		const { email, password } = req.body;
-		const admins = await database.User.findOne({
-			where: {
-				email: req.body.email,
-			},
-		});
+    if(getUserEmail) {
+        let userPassWord =  getUserEmail.senha
+        let validPassword =  bcrypt.compareSync(password,userPassWord)
+        if(validPassword) {
+          delete getUserEmail.senha
+          req.session.userLogged = getUserEmail
+            return res.redirect('/')
+        }
 
-		if (admins) {
-			let userPassword = admins.senha;
-			if (userPassword === password) {
-				const token = jwt.sign({ email }, jwtKey, { expiresIn: "8h" });
-				res.cookie("token", token);
-				return res.redirect("/");
-			}
-		}
-		return res.redirect("/");
-	},
+        return res.render("login",{
+            errors: {
+              password: {
+                msg: ' Senha incorreta'
+              }
+            }
+          })
+    }
+
+    return res.render("login",{
+        errors: {
+          email: {
+            msg: 'Este email não foi encontrado'
+          }
+        },
+      })
+    
 };
 
-module.exports = LoginController;
+module.exports = {
+    formLogin,
+    login
+}

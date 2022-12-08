@@ -19,7 +19,7 @@ async function login(req,res) {
         if(validPassword) {
           delete getUserEmail.senha
           req.session.userLogged = getUserEmail
-            return res.redirect('/')
+            return res.redirect('/login/profile')
         }
 
         return res.render("login",{
@@ -40,8 +40,13 @@ async function login(req,res) {
       })
     
 };
-
+function viewsUserProfile(req,res) {
+  return res.render('userProfile',{
+    userLogged: req.session.userLogged
+  });
+}
 module.exports = {
     formLogin,
-    login
+    login,
+    viewsUserProfile,
 }

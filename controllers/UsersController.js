@@ -91,8 +91,68 @@ async function getAllUsers(req, res) {
 	res.render("users", { user });
 }
 
+async function userUpdateForm(req,res) {
+	let userId = req.params.id
+	let userUpdate = await database.User.findByPk(userId);
+	res.render('userUpdate',{userUpdate})
+
+}
+
+async function userUpdate(req,res) {
+	let { id } = req.params
+	const {
+		first_name,
+		last_name,
+		email,
+		telefone,
+		cpf,
+		dt_aniversario,
+		genero,
+		cep,
+		numero,
+		rua,
+		cidade,
+		estado,
+		senha,
+	} = req.body;
+
+		await database.User.update({
+		first_name,
+		last_name,
+		email,
+		telefone,
+		cpf,
+		dt_aniversario,
+		genero,
+		cep,
+		numero,
+		rua,
+		cidade,
+		estado,
+		senha: bcrypt.hashSync(senha, 10),
+	},
+	{
+		where: {
+			id
+		}
+	})
+	return res.redirect('/login')
+}
+
+async function userDestroy(req,res) {
+	const { id } = req.params;
+	await database.User.destroy({
+		where: {
+			id
+		}
+	})
+	return res.redirect('/')
+}
 module.exports = {
 	cadastrar,
 	createUsers,
 	getAllUsers,
+	userUpdateForm,
+	userUpdate,
+	userDestroy
 };

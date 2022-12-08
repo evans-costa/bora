@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <!-- head -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <link rel="stylesheet" href="/stylesheets/userProfile.css">
+    <link 
+      rel="/stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Perfil Usuário</title>
+  </head>
+  <body>
+    <!-- header -->
+    <%- include('./partials/header') %>
+    <main class="main-profile">
+      <div class="name-user">
+        <ul class="dropd-profile">
+          <li>
+            <button id="btn-user-name" class="btn btn-lg btn-primary">
+              <%=userLogged.first_name %>
+            </button>
+          </li>
+          <ul class="dropd-profile-list">
+            <li><a href="/users/<%=userLogged.id%>">Editar Perfil</a></li>
+            <li>
+              <form 
+              action="/users/<%=userLogged.id%>?_method=DELETE" 
+              method="post">
+              <button class="excluir-conta" type="submit">Excluir conta</button>
+            </form>
+              
+            <li><a href="#">Sair</a></li>
+          </ul>
+        </ul>
+      </div>
+      <section class="my-events">
+        <h2 class="title-my-events">Meus Eventos</h2>
+        <div class="events">
+          <div class="user-events">
+            <h3>Ex: Evento Diurno</h3>
+          </div>
+          <div class="user-events">
+            <h3>Ex: Evento noturno</h3>
+          </div>
+        </div>
+      </section>
+    </main>
+  <!-- footer -->
+  <%- include('./partials/footer') %>
+  <script src="/javascripts/index.js"></script>
+</body>
+</html>

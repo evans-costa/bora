@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 				allowNull: false,
 			},
 			preco_evento: {
-				type: DataTypes.FLOAT,
+				type: DataTypes.DECIMAL(8, 2),
 				allowNull: false,
 			},
 			descricao_event: {

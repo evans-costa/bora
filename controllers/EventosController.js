@@ -5,8 +5,13 @@ const EventosController = {
 		return res.render("eventos");
 	},
 
+	telaListaEventos : async (req, res) => {
+		const listaEventos = await database.Evento.findAll();
+		return res.render('listaEventos', { eventos: listaEventos });
+	},
+
 	telaCadastroEvento: async (req, res) => {
-		let findAllCategories = await database.Categoria.findAll();
+		const findAllCategories = await database.Categoria.findAll();
 		return res.render("cadastrarEvento", { categories: findAllCategories });
 	},
 
@@ -39,7 +44,8 @@ const EventosController = {
 		const evento = await database.Evento.findOne({
 			where: { id },
 		});
-		return res.render("atualizarEvento", { evento });
+		const findAllCategories = await database.Categoria.findAll();
+		return res.render("atualizarEvento", { evento, categories: findAllCategories });
 	},
 
 	atualizarPorId: async (req, res) => {

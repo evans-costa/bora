@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Alteração de Eventos</title>
+    <title>Tela de Cadastro de Eventos</title>
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css"
@@ -24,52 +24,60 @@
       crossorigin="anonymous"
     ></script>
 </head>
+
 <body>
   <%- include('./partials/header') %>
+
+  <div class="container" id="criacao-evento">
         <div class="form">
-          <form method="post" action="?_method=PUT" enctype="multipart/form-data">
+          <form id=form-cadastro method="post" action="?_method=PUT" enctype="multipart/form-data">
                 <div class="title-form">
                     <h1>Alterar / Deletar um evento</h1>
                 </div>
+        </div>
+    <label for="picture">Link da Foto</label>
+    <input id="picture" name="picture" type="text" value="<%=evento.imagem_evento%>"/>
 
-                <div class="input-group">
-                    <div class="input-box">
-                      <label for="picture">Link da Foto</label>
-                      <input id="picture" name="picture" type="text" value="<%=evento.imagem_evento%>"/>
-                    </div>
+    <label for="file">Foto</label>
+    <input id="file" name="file" type="file" accept="image/png, image/jpeg"/>
 
-                    <div class="input-box">
-                      <label for="file">Foto</label>
-                      <input id="file" name="file" type="file" accept="image/png, image/jpeg"/>
-                    </div>
+    <label for="title">Título do Evento</label>
+    <input id="title" name="title" type="text" value="<%=evento.nome_evento%>"/>
 
-                    <div class="input-box">
-                      <label for="title">Título do Evento</label>
-                      <input id="title" name="title" type="text" value="<%=evento.nome_evento%>"/>
-                    </div>
+    <label for="date">Data do Evento</label>
+    <input id="date" name="date" type="date" value="<%=evento.data_evento%>"/>
 
-                    <div class="input-box">
-                      <label for="description">Descrição</label>
-                      <input id="description" name="description" type="text" value="<%=evento.descricao_event%>"/>
-                    </div>
+    <label for="price">Preço do Evento</label> 
+    <input id="price" name="price" type="text" value="<%=evento.preco_evento%>"/>
 
-                <div class="button-cadastrar">
-                    <button type="submit">Alterar Evento</button>
-                </div>
-            </form>
+    <label for="description">Descrição</label>
+    <input id="description" name="description" type="text" value="<%=evento.descricao_event%>"/>
 
-            <form method="post" action="?_method=DELETE">
-              <div class="button-cadastrar">
-              <button type="submit">Excluir Evento</button>
-            </div>
+  <label for="category">Categoria</label>
+    <select name="category_id">
+      <% for (let category of categories) { %>
+        <option value="<%=evento.fk_categoria%>">
+          <%=category.tipo_evento%>
+      </option>
+      <% } %>
+    </select>
 
-        </div> 
+  <div class="button-cadastrar">
+    <button class="btn btn-primary" type="submit">Alterar Evento</button>
+  </div>
+</form>
+
+  <form method="post" action="?_method=DELETE">
+    <div class="button-cadastrar">
+      <button class="btn btn-primary"type="submit">Excluir Evento</button>
     </div>
+  </form>
+</div> 
 
-    <%- include('./partials/footer') %>
+  <%- include('./partials/footer') %>
 
-      <script src="/javascripts/index.js"></script>
-      <script src="/javascripts/cadastro.js"></script>
-      
+  <script src="/javascripts/index.js"></script>
+  <script src="/javascripts/cadastro.js"></script>
+
 </body>
 </html>

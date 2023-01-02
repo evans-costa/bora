@@ -343,3 +343,9 @@ nav {
 .icon-box:hover .icon {
   color: #fff;
 }
+
+.card-img-top {
+  object-fit: cover;
+  width: 100%;
+  height: 20vh;
+}

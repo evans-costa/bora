@@ -94,7 +94,7 @@ async function getAllUsers(req, res) {
 async function userUpdateForm(req,res) {
 	let userId = req.params.id
 	let userUpdate = await database.User.findByPk(userId);
-	res.render('userUpdate',{userUpdate})
+	res.render('userUpdate', {userUpdate})
 
 }
 

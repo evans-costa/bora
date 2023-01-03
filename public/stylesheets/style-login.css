@@ -225,7 +225,7 @@ nav {
   background-color: #18191a;
 }
 
-/* FOOTER */
+/* FOOTER
 
 #footer {
   background-color: #18191a;
@@ -261,9 +261,10 @@ nav {
   padding: 6px 10px;
   position: relative;
   border-radius: 50px;
-  /* border-color: #e6573f; */
-}
-#footer .footer-newsletter form input[type="email"] {
+  /* border-color: #e6573f; 
+} */
+
+/* #footer .footer-newsletter form input[type="email"] {
   padding: 8px;
   width: calc(100% - 140px);
   background-color: #4f4f4f;
@@ -297,7 +298,7 @@ nav {
 
 #footer a:hover {
   color: #e6573f;
-}
+} */
 
 #msg-name {
   color: red;

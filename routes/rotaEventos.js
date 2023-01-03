@@ -7,8 +7,8 @@ const loginMiddleware = require("../middlewares/LoginMiddleware");
 // Ir para a tela eventos
 router.get("/", EventosController.telaEventos);
 
-// Ir para a tela de todos os eventos
-router.get('/listaeventos', EventosController.telaListaEventos);
+// Ir para o evento de acordo com o id
+router.get("/:id", EventosController.eventoPorId);
 
 // Ir para a tela de cadastro e criar um novo Evento
 router.get(

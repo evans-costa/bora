@@ -1,13 +1,17 @@
 const database = require("../database/models");
 
 const EventosController = {
-	telaEventos: (req, res) => {
-		return res.render("eventos");
-	},
-
-	telaListaEventos : async (req, res) => {
+	telaEventos : async (req, res) => {
 		const listaEventos = await database.Evento.findAll();
 		return res.render('listaEventos', { eventos: listaEventos });
+	},
+	
+	eventoPorId: async (req, res) => {
+		const { id } = req.params;
+		const evento = await database.Evento.findOne({
+			where: { id },
+		});
+		return res.render('evento', { evento }) 
 	},
 
 	telaCadastroEvento: async (req, res) => {

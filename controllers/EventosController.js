@@ -1,4 +1,6 @@
 const database = require("../database/models");
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 const EventosController = {
 	telaEventos : async (req, res) => {
@@ -8,6 +10,7 @@ const EventosController = {
 	
 	eventoPorId: async (req, res) => {
 		const { id } = req.params;
+		const { key } = req.query
 		const evento = await database.Evento.findOne({
 			where: { id },
 		});
@@ -17,6 +20,18 @@ const EventosController = {
 	telaListarEventos: async (req, res) => {
 		const listaEventos = await database.Evento.findAll();
 		return res.render('editarEventos', { eventos: listaEventos });
+	},
+
+	pesquisarEvento: async (req, res) => {
+		const { key } = req.query
+		const listaEventos = await database.Evento.findAll({
+			where: {
+				nome_evento: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('nome_evento')), 'LIKE', '%' + `${key}`.toLowerCase() + '%')
+				
+			}
+		});
+
+		return res.render('editarEventos', { eventos: listaEventos})
 	},
 
 	telaCadastroEvento: async (req, res) => {

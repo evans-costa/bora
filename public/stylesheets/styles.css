@@ -32,7 +32,7 @@ body {
   border-color: rgb(250, 179, 47);
 }
 
-nav {
+#nav-header {
   background-color: rgba(238, 127, 9, 0.9);
   height: 10vh;
   width: 100%;

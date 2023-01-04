@@ -8,7 +8,10 @@ const loginMiddleware = require("../middlewares/LoginMiddleware");
 router.get("/", EventosController.telaEventos);
 
 // Ir para o evento de acordo com o id
-router.get("/:id", EventosController.eventoPorId);
+router.get("/:id/evento", EventosController.eventoPorId);
+
+// Ir para e tela de lista de Eventos e CRUD 
+router.get("/listareventos", EventosController.telaListarEventos)
 
 // Ir para a tela de cadastro e criar um novo Evento
 router.get(
@@ -36,7 +39,7 @@ router.put(
 	EventosController.atualizarPorId
 );
 router.delete(
-	"/:id/editarevento",
+	"/:id/deletarevento",
 	// loginMiddleware.validateToken,
 	EventosController.excluirPorId
 );

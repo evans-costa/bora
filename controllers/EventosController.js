@@ -14,6 +14,11 @@ const EventosController = {
 		return res.render('evento', { evento }) 
 	},
 
+	telaListarEventos: async (req, res) => {
+		const listaEventos = await database.Evento.findAll();
+		return res.render('editarEventos', { eventos: listaEventos });
+	},
+
 	telaCadastroEvento: async (req, res) => {
 		const findAllCategories = await database.Categoria.findAll();
 		return res.render("cadastrarEvento", { categories: findAllCategories });
@@ -86,7 +91,7 @@ const EventosController = {
 		await database.Evento.destroy({
 			where: { id },
 		});
-		return res.redirect("/");
+		return res.redirect("/eventos/listareventos");
 	},
 };
 

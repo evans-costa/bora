@@ -33,12 +33,13 @@
         <div class="carousel-item active">
           <img src="images/index/banner.png" class="d-block w-100" alt="..." />
         </div>
-        <div class="carousel-item">
-          <img src="images/index/banner.png" class="d-block w-100" alt="..." />
-        </div>
-        <div class="carousel-item">
-          <img src="images/index/banner.png" class="d-block w-100" alt="..." />
-        </div>
+        <% for (let evento of eventos) { %>
+          <% if (evento.destaque_carrosel === 'carousel') { %>
+            <div class="carousel-item">
+              <img src="<%=evento.imagem_evento%>" class="d-block w-100" alt="..." />
+            </div>
+          <% } %>
+        <% } %>
       </div>
       <button
         class="carousel-control-prev"
@@ -187,6 +188,7 @@
     </div>
   </div>
   <% } %> -->
+  
   <!-- footer -->
   <%- include('./partials/footer') %>
   <script src="javascripts/index.js"></script>

@@ -70,9 +70,9 @@
                     <td>
                         <div class="btn-group" role="group" aria-label="action edition buttons">
                             <a href="<%=evento.id%>/editarevento" class="btn btn-primary">Ver / Alterar Dados</button></a>
-                            <button class="btn btn-danger" type="submit">Excluir Evento
-                                <form method="post" action="<%=evento.id%>/deletarevento?_method=DELETE"></form>
-                            </button>
+                            <form method="post" action="<%=evento.id%>/deletarevento?_method=DELETE">
+                                <button class="btn btn-danger" type="submit">Excluir Evento</button>
+                            </form>
                         </div>
                     </td>
                 </tr>

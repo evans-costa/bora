@@ -1,13 +1,12 @@
 html {
   position: relative;
   min-height: 100%;
-  padding-bottom: 160px;
 }
 
 body {
   overflow-x: hidden;
-  margin-bottom: 160px;
 }
+
 /* botão primário */
 .btn-primary {
   background-color: orange;
@@ -236,7 +235,7 @@ body {
 }
 
 #footer {
-  position: absolute;
+  position: relative;
   background: #404040;
   padding: 0 0 30px 0;
   color: #fff;
@@ -356,4 +355,9 @@ body {
   object-fit: cover;
   width: 100%;
   height: 20vh;
+}
+
+.carousel-inner > .carousel-item > img {
+  width: 100%;
+  height: 35vh;
 }

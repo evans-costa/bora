@@ -22,132 +22,137 @@
     <title>Eventos Disponíveis</title>
   </head>
 
-<body>
+  <body>
     <!-- header -->
     <%- include('./partials/header') %>
     <main>
-
-        <section class="Eventos na Natureza">
-          <div class="container">
-            <div class="row d-flex justify-content-center">
-              <h1 class="title text-center mt-4">Eventos na Natureza</h1>
-              <hr class="divider mt-2">
-              <% for (let evento of eventos) { %>
-                <% if (evento.fk_categoria === 1) { %>
-                      <div class="col-sm-12 col-md-4 col-lg-4 mt-4">
-                          <div class="card">
-                              <img class="card-img-top" 
-                              src="<%=evento.imagem_evento%>" 
-                              alt="Card image cap" 
-                              id="imgnatureza"
-                              >
-                              <div class="card-body">
-                                  <h5 class="card-title fs-5"><%=evento.nome_evento%></h5>
-                                  <p class="card-text"><%=evento.descricao_event%></p>
-                                  <a href="/eventos/<%=evento.id%>/evento" class="btn btn-primary">Go somewhere</a>
-                              </div>
-                          </div>
-                      </div>
-                <% } %>
-              <% } %>
+      <section class="Eventos na Natureza">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <h1 class="title text-center mt-4">Eventos na Natureza</h1>
+            <hr class="divider mt-2" />
+            <% for (let evento of eventos) { %> <% if (evento.fk_categoria ===
+            1) { %>
+            <div class="col-sm-12 col-md-4 col-lg-4 mt-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="<%=evento.imagem_evento%>"
+                  alt="Card image cap"
+                  id="imgnatureza"
+                />
+                <div class="card-body">
+                  <h5 class="card-title fs-5"><%=evento.nome_evento%></h5>
+                  <p class="card-text"><%=evento.descricao_event%></p>
+                  <a
+                    href="/eventos/<%=evento.id%>/evento"
+                    class="btn btn-primary"
+                    >Go somewhere</a
+                  >
+                </div>
+              </div>
             </div>
+            <% } %> <% } %>
           </div>
+        </div>
       </section>
 
       <section class="Eventos Diurnos">
         <div class="container">
           <div class="row d-flex justify-content-center">
             <h1 class="title text-center mt-4">Eventos Diurnos</h1>
-            <hr class="divider mt-2">
-            <% for (let evento of eventos) { %>
-              <% if (evento.fk_categoria === 4) { %>
-                    <div class="col-sm-12 col-md-4 col-lg-4 mt-4">
-                        <div class="card">
-                            <img class="card-img-top" 
-                            src="<%=evento.imagem_evento%>" 
-                            alt="Card image cap" 
-                            id="imgnatureza"
-                            >
-                            <div class="card-body">
-                                <h5 class="card-title fs-5"><%=evento.nome_evento%></h5>
-                                <p class="card-text"><%=evento.descricao_event%></p>
-                                <a href="/eventos/<%=evento.id%>/evento" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-              <% } %>
-            <% } %>
+            <hr class="divider mt-2" />
+            <% for (let evento of eventos) { %> <% if (evento.fk_categoria ===
+            4) { %>
+            <div class="col-sm-12 col-md-4 col-lg-4 mt-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="<%=evento.imagem_evento%>"
+                  alt="Card image cap"
+                  id="imgnatureza"
+                />
+                <div class="card-body">
+                  <h5 class="card-title fs-5"><%=evento.nome_evento%></h5>
+                  <p class="card-text"><%=evento.descricao_event%></p>
+                  <a
+                    href="/eventos/<%=evento.id%>/evento"
+                    class="btn btn-primary"
+                    >Go somewhere</a
+                  >
+                </div>
+              </div>
+            </div>
+            <% } %> <% } %>
           </div>
         </div>
-    </section>
+      </section>
 
-    <section class="Eventos Noturnos">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <h1 class="title text-center mt-4">Eventos Noturnos</h1>
-          <hr class="divider mt-2">
-          <% for (let evento of eventos) { %>
-            <% if (evento.fk_categoria === 3) { %>
-                  <div class="col-sm-12 col-md-4 col-lg-4 mt-4">
-                      <div class="card">
-                          <img class="card-img-top" 
-                          src="<%=evento.imagem_evento%>" 
-                          alt="Card image cap" 
-                          id="imgnatureza"
-                          >
-                          <div class="card-body">
-                              <h5 class="card-title fs-5"><%=evento.nome_evento%></h5>
-                              <p class="card-text"><%=evento.descricao_event%></p>
-                              <a href="/eventos/<%=evento.id%>/evento" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                      </div>
-                  </div>
-            <% } %>
-          <% } %>
-        </div>
-      </div>
-  </section>
-
-  <section class="Eventos Nerd">
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <h1 class="title text-center mt-4">Eventos Nerd</h1>
-        <hr class="divider mt-2">
-        <% for (let evento of eventos) { %>
-          <% if (evento.fk_categoria === 2) { %>
-                <div class="col-sm-12 col-md-4 col-lg-4 mt-4">
-                    <div class="card">
-                        <img class="card-img-top" 
-                        src="<%=evento.imagem_evento%>" 
-                        alt="Card image cap" 
-                        id="imgnatureza"
-                        >
-                        <div class="card-body">
-                            <h5 class="card-title fs-5"><%=evento.nome_evento%></h5>
-                            <p class="card-text"><%=evento.descricao_event%></p>
-                            <a href="/eventos/<%=evento.id%>/evento" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
+      <section class="Eventos Noturnos">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <h1 class="title text-center mt-4">Eventos Noturnos</h1>
+            <hr class="divider mt-2" />
+            <% for (let evento of eventos) { %> <% if (evento.fk_categoria ===
+            3) { %>
+            <div class="col-sm-12 col-md-4 col-lg-4 mt-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="<%=evento.imagem_evento%>"
+                  alt="Card image cap"
+                  id="imgnatureza"
+                />
+                <div class="card-body">
+                  <h5 class="card-title fs-5"><%=evento.nome_evento%></h5>
+                  <p class="card-text"><%=evento.descricao_event%></p>
+                  <a
+                    href="/eventos/<%=evento.id%>/evento"
+                    class="btn btn-primary"
+                    >Go somewhere</a
+                  >
                 </div>
-          <% } %>
-        <% } %>
-      </div>
-    </div>
-</section>
+              </div>
+            </div>
+            <% } %> <% } %>
+          </div>
+        </div>
+      </section>
 
-
-
-
-
-
-
-
-
-
+      <section class="Eventos Nerd">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <h1 class="title text-center mt-4">Eventos Nerd</h1>
+            <hr class="divider mt-2" />
+            <% for (let evento of eventos) { %> <% if (evento.fk_categoria ===
+            2) { %>
+            <div class="col-sm-12 col-md-4 col-lg-4 mt-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="<%=evento.imagem_evento%>"
+                  alt="Card image cap"
+                  id="imgnatureza"
+                />
+                <div class="card-body">
+                  <h5 class="card-title fs-5"><%=evento.nome_evento%></h5>
+                  <p class="card-text"><%=evento.descricao_event%></p>
+                  <a
+                    href="/eventos/<%=evento.id%>/evento"
+                    class="btn btn-primary"
+                    >Go somewhere</a
+                  >
+                </div>
+              </div>
+            </div>
+            <% } %> <% } %>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- footer -->
     <%- include('./partials/footer') %>
     <script src="/javascripts/index.js"></script>
-</body>
+  </body>
 </html>

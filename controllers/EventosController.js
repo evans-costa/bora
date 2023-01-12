@@ -1,4 +1,7 @@
 const database = require("../database/models");
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
+
 
 const EventosController = {
 	telaEventos : async (req, res) => {
@@ -11,7 +14,24 @@ const EventosController = {
 		const evento = await database.Evento.findOne({
 			where: { id },
 		});
+
 		return res.render('evento', { evento }) 
+	},
+
+	telaListarEventos: async (req, res) => {
+		const listaEventos = await database.Evento.findAll();
+		return res.render('editarEventos', { eventos: listaEventos });
+	},
+
+	pesquisarEvento: async (req, res) => {
+		const { key } = req.query
+		const listaEventos = await database.Evento.findAll({
+			where: {
+				nome_evento: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('nome_evento')), 'LIKE', '%' + `${key}`.toLowerCase() + '%')
+			}
+		});
+
+		return res.render('editarEventos', { eventos: listaEventos})
 	},
 
 	telaCadastroEvento: async (req, res) => {
@@ -20,9 +40,9 @@ const EventosController = {
 	},
 
 	criarEvento: async (req, res) => {
-		const { picture, title, description, date, price, category_id } =
+		const { picture, title, description, date, price, category_id, home_highlight, carousel_highlight} =
 			req.body;
-
+	
 		let fileLocation = "";
 
 		if (req.file) {
@@ -38,10 +58,14 @@ const EventosController = {
 			descricao_event: description,
 			fk_categoria: category_id,
 			imagem_evento: fileLocation,
+			destaque_home: home_highlight,
+			destaque_carrosel: carousel_highlight
 		});
 
 		return res.redirect("/");
 	},
+
+	
 
 	telaEditarEvento: async (req, res) => {
 		const { id } = req.params;
@@ -86,7 +110,7 @@ const EventosController = {
 		await database.Evento.destroy({
 			where: { id },
 		});
-		return res.redirect("/");
+		return res.redirect("/eventos/listareventos");
 	},
 };
 

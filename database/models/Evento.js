@@ -31,6 +31,12 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
+			destaque_home: {
+				type: DataTypes.STRING,
+			},
+			destaque_carrosel: {
+				type: DataTypes.STRING,
+			},
 		},
 		{
 			tableName: "eventos",
@@ -53,5 +59,12 @@ module.exports = (sequelize, DataTypes) => {
 			otherKey: "evento_id",
 		});
 	};
+
+	Evento.associate = (models) => {
+		Evento.hasMany(models.FotosEventos, {
+			foreignKey: "evento_id",
+			as: "fotos"
+		})
+	}
 	return Evento;
 };

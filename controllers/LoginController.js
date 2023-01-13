@@ -1,5 +1,6 @@
 const { User } = require('../database/models');
 const  bcrypt  = require('bcrypt');
+
 function formLogin(req,res) {
   res.cookie('testando o cookie', {maxAge: 2000})
     return res.render('login')
@@ -19,13 +20,13 @@ async function login(req,res) {
         if(validPassword) {
           delete getUserEmail.senha
           req.session.userLogged = getUserEmail
-            return res.redirect('/login/profile')
+          return res.redirect('/login/profile')
         }
 
-        return res.render("login",{
+        return res.render("login", {
             errors: {
               password: {
-                msg: ' Senha incorreta'
+                msg: 'Senha incorreta'
               }
             }
           })
@@ -40,11 +41,14 @@ async function login(req,res) {
       })
     
 };
+
 function viewsUserProfile(req,res) {
-  return res.render('userProfile',{
+  return res.render('userProfile', {
     userLogged: req.session.userLogged
   });
 }
+
+
 module.exports = {
     formLogin,
     login,

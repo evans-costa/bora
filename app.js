@@ -13,6 +13,7 @@ const usersRouter = require('./routes/rotaUsers');
 const pagamentoRouter = require('./routes/rotaPagamento');
 const faleConoscoRouter = require("./routes/rotaFaleConosco");
 const loginRouter = require('./routes/rotaLogin');
+const funcionariosRouter = require("./routes/rotaFuncionarios")
 const loggedMiddleware = require('./middlewares/loggedMiddleware');
 
 const app = express();
@@ -36,6 +37,7 @@ app.use(methodOverride('_method'));
 app.use("/", indexRouter);
 app.use("/eventos", eventosRouter);
 app.use("/users", usersRouter);
+app.use("/funcionarios", funcionariosRouter);
 app.use('/login', loginRouter);
 app.use('/pagamento',pagamentoRouter);
 app.use('/faleconosco',faleConoscoRouter)

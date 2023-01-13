@@ -7,7 +7,15 @@ function cadastrar(req, res) {
 	res.render("cadastro");
 }
 
-/*Função que cria um novo usuário, recebe uma função create do Model */
+function tipoCadastro (req, res) {
+	res.render("tipoCadastro");
+}
+
+async function getAllUsers(req, res) {
+	let user = await database.User.findAll();
+	res.render("users", { user });
+}
+
 async function createUsers(req, res) {
 	const {
 		first_name,
@@ -86,11 +94,6 @@ async function createUsers(req, res) {
 	res.redirect("/");
 }
 
-async function getAllUsers(req, res) {
-	let user = await database.User.findAll();
-	res.render("users", { user });
-}
-
 async function userUpdateForm(req,res) {
 	let userId = req.params.id
 	let userUpdate = await database.User.findByPk(userId);
@@ -148,10 +151,13 @@ async function userDestroy(req,res) {
 	})
 	return res.redirect('/')
 }
+
+
 module.exports = {
 	cadastrar,
-	createUsers,
+	tipoCadastro,
 	getAllUsers,
+	createUsers,
 	userUpdateForm,
 	userUpdate,
 	userDestroy

@@ -19,6 +19,7 @@
   ></script>
   <title>Bora - Cadastro</title>
 </head>
+
 <body>
   <%- include('./partials/header') %>
   <div class="container mt-5" id="header-cadastro">
@@ -31,7 +32,7 @@
     </div>
   </div>
 
-  <div class="container" id="body-cadastro">
+  <div class="container mb-4" id="body-cadastro">
     <form method="post">
       <div class="form-group">
         <label for="exampleInputEmail1">Insira seu e-mail</label>
@@ -44,8 +45,8 @@
           placeholder="E-mail"
         />
       </div>
-      <% if(locals.errors && errors.email)  { %>
-        <span id="msg-name"> <%= errors.email.msg %> </span>
+      <% if(locals.errors && errors.email) { %>
+      <span id="msg-name"> <%= errors.email.msg %> </span>
       <% } %>
       <div class="form-group mt-3">
         <label for="exampleInputPassword1">Senha</label>
@@ -57,9 +58,9 @@
           placeholder="Insira sua senha"
         />
       </div>
-      <% if(locals.errors && errors.password)  { %>
-        <span id="msg-name"> <%= errors.password.msg %> </span>
-   <% } %>
+      <% if(locals.errors && errors.password) { %>
+      <span id="msg-name"> <%= errors.password.msg %> </span>
+      <% } %>
       <div class="form-check mt-3">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1"
@@ -69,16 +70,17 @@
       <button type="submit" class="btn btn-primary mt-2">Enviar</button>
     </form>
 
-    <% if (typeof errors !== 'undefined') { %>
+    <!-- <% if (typeof errors !== 'undefined') { %>
     <ul>
       <% for (let error in errors) { %>
       <li><%=errors[error].msg%></li>
       <% } %>
     </ul>
-    <% } %>
-    
+    <% } %> -->
+
     <a href="/users/cadastrar">Não tem um cadastro? Junte-se a nós!</a>
   </div>
+
   <script src="/javascripts/login.js"></script>
 
   <%- include('./partials/footer') %>

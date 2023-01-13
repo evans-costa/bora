@@ -8,7 +8,7 @@ const validations = [
     .withMessage("O e-mail não pode ficar vazio").bail()
     .trim().bail()
     .normalizeEmail().bail()
-    .isEmail().withMessage("Digite um e-mail valido"),
+    .isEmail().withMessage("Digite um e-mail válido"),
   body("cnpj")
     .notEmpty()
     .withMessage("CNPJ obrigatório")

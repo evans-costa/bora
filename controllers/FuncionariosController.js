@@ -11,6 +11,7 @@ const FuncioariosController = {
 
   createFuncionario: async (req, res) => {
     const { nome_completo, email_empresa, cnpj, dt_nascimento, cpf, dt_admissao, departamento_id, cargo, senha } = req.body
+    const findAllDepartments = await database.Departamento.findAll()
 
     const resultValid = validationResult(req)
 
@@ -18,6 +19,7 @@ const FuncioariosController = {
       return res.render("cadastrarFuncionario", {
         errors: resultValid.mapped(),
         oldData: req.body,
+        departamentos: findAllDepartments
       });
     }
   

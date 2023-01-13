@@ -1,5 +1,3 @@
-
-
 const menuModal = document.getElementById("menu-modal");
 const navIcon2 = document.querySelector("#nav-icon2");
 
@@ -11,262 +9,202 @@ navIcon2.addEventListener("click", () => {
   }
 });
 
+const formCadastro = document.getElementById("form-cadastro-cnpj");
 
-// variaveis dos inputs e labels
+const messageError = document.getElementsByClassName("error-msg");
 
-let formCadastro = document.getElementById("form-cadastro");
+const inputNome = document.getElementById("nome_completo");
+const labelNome = document.getElementById("labelNomeFuncionario");
+const validNome = false;
 
-let menssageError = document.querySelector(".message-error");
+const inputEmail = document.getElementById("email_empresa");
+const labelEmail = document.getElementById("labelEmailEmpresa");
+const validEmail = false;
 
-let inputPrimeiroNome = document.getElementById("primeironome");
-let labelPrimeiroNome = document.getElementById("labelPrimeiroNome");
-let validPrimeiroNome = false;
+const inputCnpj = document.getElementById("cnpj");
+const labelCnpj = document.getElementById("labelCnpj");
+const validCnpj = false;
 
-let inputSobrenome = document.querySelector("#sobrenome");
-let labelSobrenome = document.getElementById("labelSobrenome");
-let validSobrenome = false;
+const inputCpf = document.getElementById("cpf");
+const labelCpf = document.getElementById("labelCpf");
+const validCpf = false;
 
-let inputTelefone = document.getElementById("telefone");
-let labelTelefone = document.getElementById("labelTelefone");
-let validTelefone = false;
+const inputDepartamento = document.getElementById("departamentos");
+const labelDepartamento = document.getElementById("labelDepartamento");
+const validDepartamento = false
 
-let inputEmail = document.getElementById("email");
-let labelEmail = document.getElementById("labelEmail");
-let validEmail = false;
+const inputCargo = document.getElementById("cargo");
+const labelCargo = document.getElementById("labelCargo");
+const validCargo = false
 
-let inputcpf = document.getElementById("cpf");
-let labelcpf = document.getElementById("labelcpf");
-let validcpf = false;
+const inputSenha = document.getElementById("senha");
+const labelSenha = document.getElementById("labelSenha");
+const validSenha = false;
 
-let inputAniversario = document.getElementById("aniversario");
-let labelAniversario = document.getElementById("labelAniversario");
+const inputConfSenha = document.getElementById("confirmaSenha");
+const labelConfSenha = document.getElementById("labelConfSenha");
+const validConfSenha = false;
 
-let inputRua = document.getElementById("rua");
-let labelRua = document.getElementById("labelRua");
-let validRua = false;
+const msgSenha = document.getElementById("regras-senha");
 
-let inputNumero = document.getElementById("numero");
-let labelNumero = document.getElementById("labelNumero");
-let validNumero = false;
-
-let inputCep = document.getElementById("cep");
-let labelCep = document.getElementById("labelCep");
-let validCep = false;
-
-let inputCidade = document.getElementById("cidade");
-let labelCidade = document.getElementById("labelCidade");
-let validCidade = false;
-
-let inputEstado = document.getElementById("estado");
-let labelEstado = document.getElementById("labelEstado");
-let validEstado = false;
-
-let inputSenha = document.getElementById("senha");
-let labelSenha = document.getElementById("labelSenha");
-let validSenha = false;
-
-let inputConfSenha = document.getElementById("confirmaSenha");
-let labelConfSenha = document.getElementById("labelConfSenha");
-let validConfSenha = false;
-const msgSenha = document.getElementById("msg-Senha");
-
-//função pra validar o primeiro nome
-inputPrimeiroNome.addEventListener("blur", () => {
-  if (inputPrimeiroNome.value == "") {
-    labelPrimeiroNome.setAttribute("style", "color: rgb(179, 15, 59)");
-    inputPrimeiroNome.setAttribute(
+inputNome.addEventListener("blur", () => {
+  if (inputNome.value == "") {
+    labelNome.setAttribute("style", "color: rgb(179, 15, 59)");
+    labelNome.innerHTML = "Nome completo obrigatório";
+    inputNome.setAttribute(
       "style",
       "border: solid 1px  rgb(179, 15, 59)"
     );
-    validPrimeiroNome = false;
+    validNome = false;
   } else {
-    labelPrimeiroNome.setAttribute("style", "color: #ffffff");
-    inputPrimeiroNome.setAttribute("style", "border-color: #03A64A");
-    labelPrimeiroNome.innerHTML = "Nome";
-    validPrimeiroNome = true;
-  }
-});
-
-//função pra validar o sobrenome
-inputSobrenome.addEventListener("blur", () => {
-  if (inputSobrenome.value == "") {
-    labelSobrenome.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelSobrenome.innerHTML = "Sobrenome obrigatório";
-    inputSobrenome.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
-    validSobrenome = false;
-  } else {
-    labelSobrenome.setAttribute("style", "color: #ffffff");
-    inputSobrenome.setAttribute("style", "border-color: #03A64A");
-    labelSobrenome.innerHTML = "Sobrenome";
-    validSobrenome = true;
-  }
-});
-//função pra validar o telefone
-inputTelefone.addEventListener("input", () => {
-  if (inputTelefone.value.length < 15) {
-    labelTelefone.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelTelefone.innerHTML = "Telefone";
-    inputTelefone.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
-    validTelefone = false;
-  } else {
-    labelTelefone.setAttribute("style", "color: #FFFFFF");
-    inputTelefone.setAttribute("style", "border-color: #03A64A");
-    labelTelefone.innerHTML = "Telefone";
-    validTelefone = true;
+    labelNome.setAttribute("style", "color: #ffffff");
+    inputNome.setAttribute("style", "border-color: #03A64A");
+    errorMsg()
+    validNome = true;
   }
 });
 
 function validarEmail(email) {
-  let validEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i;
+  const validEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i;
   return validEmail.test(email);
 }
-//função pra validar o Email
+
 inputEmail.addEventListener("input", () => {
   if (validarEmail(inputEmail.value) != true) {
     labelEmail.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelEmail.innerHTML = "ex:seuemail@email.com";
+    labelEmail.innerHTML = "Digite um email válido (exemplo: seuemail@email.com)";
     inputEmail.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
     validEmail = false;
   } else {
     labelEmail.setAttribute("style", "color: #FFFFFF");
     inputEmail.setAttribute("style", "border-color: #03A64A");
-    labelEmail.innerHTML = "E-mail";
+    labelEmail.innerHTML = "Email empresarial"
     validEmail = true;
   }
 });
-//função pra validar o CPF
-inputcpf.addEventListener("input", () => {
-  if (inputcpf.value.length < 14) {
-    labelcpf.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelcpf.innerHTML = "Insira um CPF válido";
-    inputcpf.setAttribute("style", "border: 1px solid rgb(179, 15, 59)");
-    validcpf = false;
+
+inputCnpj.addEventListener("input", () => {
+  if (inputCnpj.value.length < 18) {
+    labelCnpj.setAttribute("style", "color: rgb(179, 15, 59)");
+    labelCnpj.innerHTML = "Insira um CNPJ válido";
+    inputCnpj.setAttribute("style", "border: 1px solid rgb(179, 15, 59)");
+    validCnpj = false;
   } else {
-    labelcpf.setAttribute("style", "color: #FFFFFF");
-    inputcpf.setAttribute("style", "border: solid 1px #03A64A");
-    labelcpf.innerHTML = "CPF";
-    validcpf = true;
+    labelCnpj.setAttribute("style", "color: #FFFFFF");
+    inputCnpj.setAttribute("style", "border: solid 1px #03A64A");
+    labelCnpj.innerHTML = "Número de CNPJ"
+    validCnpj = true;
   }
 });
 
-// função pra validar o input rua
-inputRua.addEventListener("input", () => {
-  if (inputRua.value == "") {
-    labelRua.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelRua.innerHTML = "Nome da rua obrigatório";
-    inputRua.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
-    validRua = false;
-  } else {
-    labelRua.setAttribute("style", "color: #FFFFFF");
-    inputRua.setAttribute("style", "border-color: #03A64A");
-    validRua = true;
+inputCnpj.addEventListener("keypress", () => {
+  const inputLength = cnpj.value.length;
+
+  switch (inputLength) {
+    case 2:
+      cnpj.value += "."
+      break
+    case 6: 
+      cnpj.value += "."
+      break
+    case 10: 
+      cnpj.value += "/"
+      break
+    case 15: 
+      cnpj.value += "-"
+      break
   }
 });
 
-// função do input Numero da rua
-
-inputNumero.addEventListener("input", () => {
-  if (inputNumero.value == "") {
-    labelNumero.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelNumero.innerHTML = "Número obrigatório";
-    inputNumero.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
-    validNumero = false;
+inputCpf.addEventListener("input", () => {
+  if (inputCpf.value.length < 14) {
+    labelCpf.setAttribute("style", "color: rgb(179, 15, 59)");
+    labelCpf.innerHTML = "Insira um CPF válido";
+    inputCpf.setAttribute("style", "border: 1px solid rgb(179, 15, 59)");
+    validCpf = false;
   } else {
-    labelNumero.setAttribute("style", "color: #FFFFFF");
-    inputNumero.setAttribute("style", "border-color: #03A64A");
-    validNumero = true;
+    labelCpf.setAttribute("style", "color: #FFFFFF");
+    inputCpf.setAttribute("style", "border: solid 1px #03A64A");
+    labelCpf.innerHTML = "Número de CPF";
+    validCpf = true;
   }
 });
 
-//codigo para validar cep usando fetch
-
-inputCep.addEventListener("blur", (event) => {
-  const aipCep = require("../../database/config/apiCep");
-  const cep = event.target.value;
-  aipCep
-    .get(`/cep/v2/${cep}`)
-    .then((response) => response.json())
-    .then((data) => {
-      inputRua.value = data.street;
-      inputCidade.value = data.city;
-      inputEstado.value = data.state;
-    });
-
-  if (inputCep.value == "") {
-    labelCep.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelCep.innerHTML = "CEP obrigatório";
-    inputCep.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
-    validCep = false;
-  } else {
-    labelCep.setAttribute("style", "color: #FFFFFF");
-    inputCep.setAttribute("style", "border-color: #03A64A");
-    validCep = true;
+inputCpf.addEventListener("keypress", () => {
+  const inputLength = cpf.value.length;
+  if (inputLength === 3) {
+    cpf.value += ".";
+  }
+  if (inputLength === 7) {
+    cpf.value += ".";
+  }
+  if (inputLength === 11) {
+    cpf.value += "-";
   }
 });
 
-// função input cidade
-inputCidade.addEventListener("blur", () => {
-  if (inputCidade.value == "") {
-    labelCidade.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelCidade.innerHTML = "Cidade obrigatório";
-    inputCidade.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
-    validCidade = false;
+inputCargo.addEventListener("blur", () => {
+  if (inputCargo.value == "") {
+    labelCargo.setAttribute("style", "color: rgb(179, 15, 59)");
+    labelCargo.innerHTML = "Cargo obrigatório";
+    inputCargo.setAttribute(
+      "style",
+      "border: solid 1px  rgb(179, 15, 59)"
+    );
+    validCargo = false;
   } else {
-    labelCidade.setAttribute("style", "color: #FFFFFF");
-    inputCidade.setAttribute("style", "border-color: #03A64A");
-    labelCidade.innerHTML = "Cidade";
-    validCidade = true;
+    labelCargo.setAttribute("style", "color: #ffffff");
+    inputCargo.setAttribute("style", "border-color: #03A64A");
+    labelCargo.innerHTML = "Cargo"
+    validCargo = true;
+    messageError.style.display = "none"
   }
 });
 
-// função input estado
-inputEstado.addEventListener("focus", () => {
-  if (inputEstado.value == "") {
-    labelEstado.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelEstado.innerHTML = "Estado *Minimo 2 Caracteres";
-    inputEstado.setAttribute("style", "border:  solid 1px rgb(179, 15, 59)");
-    validEstado = false;
-  } else {
-    labelEstado.setAttribute("style", "color: #FFFFFF");
-    inputEstado.setAttribute("style", "border-color: #03A64A");
-    labelEstado.innerHTML = "Estado";
-    validEstado = true;
-  }
+inputDepartamento.addEventListener("blur", () => {
+    if (inputDepartamento.value == 0) {
+      labelDepartamento.setAttribute("style", "color: rgb(179, 15, 59)");
+      labelDepartamento.innerHTML = "Departamento obrigatório";
+      inputDepartamento.setAttribute(
+        "style",
+        "border: solid 1px  rgb(179, 15, 59)"
+      );
+      validDepartamento = false;
+    } else {
+      labelDepartamento.setAttribute("style", "color: #ffffff");
+      inputDepartamento.setAttribute("style", "border-color: #03A64A");
+      labelDepartamento.innerHTML = "Departamento"
+      validDepartamento = true;
+    }
 });
-
-// função para validar força da senha
-//usando o codigo do gato passando em cima do teclado
 
 function validarSenha(senha) {
-  let forcaSenha =
+
+  /* U  ma letra minúscula 
+  Uma letra maiúscula
+  Um caractere especial
+  Um número especial
+  Pelo menos 8 caracteres */
+  
+  const forcaSenha =
     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
   return forcaSenha.test(senha);
 }
 
-//A força da senha precisa ter no minimo
-//uma letra minuscula
-//uma letra maiuscula
-//um Numero
-//um Caracter especial
-//no minimo 8 digitos
-
 inputSenha.addEventListener("input", () => {
   if (validarSenha(inputSenha.value) != true) {
     labelSenha.setAttribute("style", "color: #ffffff");
-    labelSenha.innerHTML = "Senha";
     inputSenha.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
     msgSenha.style.display = "block";
     validSenha = false;
   } else {
     labelSenha.setAttribute("style", "color: #ffffff");
     inputSenha.setAttribute("style", "border-color: #03A64A");
-    labelSenha.innerHTML = "Senha";
     msgSenha.style.display = "none";
     validSenha = true;
   }
 });
 
-/*abaixo esta a função para  validar a confirmação da senha, precisa ser igual */
 inputConfSenha.addEventListener("input", () => {
   if (inputSenha.value != inputConfSenha.value) {
     labelConfSenha.setAttribute("style", "color: rgb(179, 15, 59)");
@@ -276,64 +214,23 @@ inputConfSenha.addEventListener("input", () => {
   } else {
     labelConfSenha.setAttribute("style", "color: ##ffffff");
     inputConfSenha.setAttribute("style", "border-color: #03A64A");
-    labelConfSenha.innerHTML = "Confirme a senha";
+    labelConfSenha.innerHTML = "Senhas conferem";
     validConfSenha = true;
   }
 });
 
-// função que vai analizar se todos os campos foram preenchidos corretamente
-//se algum campo não for preenchido,uma mensagem de erro aparece no topo do form
-formCadastro.addEventListener("submit", function cadastrar(event) {
+formCadastro.addEventListener("submit", function cadastrarFuncionario(event) {
   if (
-    validPrimeiroNome &&
-    validSobrenome &&
+    validNome &&
     validEmail &&
-    validEstado &&
-    validCidade &&
-    validCep &&
-    validRua &&
-    validcpf &&
+    validCnpj &&
+    validCpf &&
+    validDepartamento &&
+    validCargo&&
     validSenha &&
-    validConfSenha &&
-    validNumero &&
-    validTelefone
-  ) {
+    validConfSenha) {
   } else {
-    //event.preventDefault();
-    menssageError.style.display = "block";
-  }
-});
-
-//Máscaras campos
-inputCep.addEventListener("keypress", () => {
-  let inputLength = cep.value.length;
-  if (inputLength === 5) {
-    cep.value += "-";
-  }
-});
-
-inputTelefone.addEventListener("keypress", () => {
-  let inputLength = telefone.value.length;
-  if (inputLength === 0) {
-    telefone.value += "(";
-  }
-  if (inputLength === 3) {
-    telefone.value += ") ";
-  }
-  if (inputLength === 10) {
-    telefone.value += "-";
-  }
-});
-
-inputcpf.addEventListener("keypress", () => {
-  let inputLength = cpf.value.length;
-  if (inputLength === 3) {
-    cpf.value += ".";
-  }
-  if (inputLength === 7) {
-    cpf.value += ".";
-  }
-  if (inputLength === 11) {
-    cpf.value += "-";
+    messageError.style.display = "block";
+    event.preventDefault();
   }
 });

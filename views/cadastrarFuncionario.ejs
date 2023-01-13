@@ -26,7 +26,7 @@
     <%- include('./partials/header') %>
     <div id="formulario-completo" class="container ml-1 mt-5">
       <div class="form">
-        <form id="form-cadastro" action="#" method="post">
+        <form id="form-cadastro-cnpj" action="" method="post">
           <div class="title-form">
             <h1 id="nossa-comunidade">Cadastre sua empresa</h1>
 
@@ -129,15 +129,17 @@
             </div>
 
             <div class="form-group">
-              <label id="labelDepartamento" for="departamento"
+              <label id="labelDepartamento" for="departamentos"
                 >Departamento</label
               >
               <select
                 class="form-select"
                 name="departamento_id"
-                id="departamento"
+                id="departamentos"
               >
-                <option selected>Selecione o departamento</option>
+                <option value="0" disabled selected>
+                  Selecione o departamento
+                </option>
                 <% for (let departamento of departamentos) { %>
                 <option value="<%=departamento.id%>">
                   <%=departamento.depto_descr%>
@@ -203,6 +205,7 @@
                 <li>Uma letra minúscula</li>
                 <li>Uma letra maiúscula</li>
                 <li>Um caractere especial</li>
+                <li>Um número especial</li>
                 <li>Pelo menos 8 caracteres</li>
               </ul>
             </div>
@@ -256,14 +259,15 @@
           </details>
 
           <div class="button-cadastrar d-flex justify-content-center mb-3">
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button id="submitForm" type="submit" class="btn btn-primary">
+              Cadastrar
+            </button>
           </div>
         </form>
       </div>
     </div>
     <%- include('./partials/footer') %>
 
-    <script src="javascripts/index.js"></script>
-    <script src="/javascripts/cadastro.js"></script>
+    <script src="/javascripts/cadastroFuncionario.js"></script>
   </body>
 </html>

@@ -175,18 +175,15 @@ inputNumero.addEventListener("input", () => {
 });
 
 //codigo para validar cep usando fetch
+const aipCep = require("../../database/config/apiCep");
 
 inputCep.addEventListener("blur", (event) => {
-  const aipCep = require("../../database/config/apiCep");
   const cep = event.target.value;
-  aipCep
-    .get(`/cep/v2/${cep}`)
-    .then((response) => response.json())
-    .then((data) => {
-      inputRua.value = data.street;
-      inputCidade.value = data.city;
-      inputEstado.value = data.state;
-    });
+  aipCep.get(`/cep/v2/${cep}`).then(function (data) {
+    inputRua.value = data.street;
+    inputCidade.value = data.city;
+    inputEstado.value = data.state;
+  });
 
   if (inputCep.value == "") {
     labelCep.setAttribute("style", "color: rgb(179, 15, 59)");

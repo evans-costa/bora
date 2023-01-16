@@ -4,7 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const methodOverride = require('method-override');
-let session = require('express-session');
+const session = require('express-session');
 
 
 const indexRouter = require('./routes/rotaIndex');
@@ -14,7 +14,6 @@ const pagamentoRouter = require('./routes/rotaPagamento');
 const faleConoscoRouter = require("./routes/rotaFaleConosco");
 const loginRouter = require('./routes/rotaLogin');
 const funcionariosRouter = require("./routes/rotaFuncionarios")
-const loggedMiddleware = require('./middlewares/loggedMiddleware');
 
 const app = express();
 app.use(session({
@@ -23,7 +22,7 @@ app.use(session({
   saveUninitialized: false
 }))
 app.use(cookieParser());
-app.use(loggedMiddleware)
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");

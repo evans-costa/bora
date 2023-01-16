@@ -30,7 +30,7 @@
                             <label id="labelPrimeiroNome" for="primeironome">Primeiro Nome</label>
                             <input type="text" name="first_name" class="form-control" id="primeironome"
                                 placeholder="Digite seu primeiro nome"
-                                value="<%= locals.oldData ? oldData.primeironome: null %>">
+                                value="<%=locals.oldData && oldData.first_name%>">
                             <% if(locals.errors && errors.first_name) { %>
                                 <div class="error-msg">
                                     <%=errors.first_name.msg%>

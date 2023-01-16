@@ -33,15 +33,6 @@ async function createUsers(req, res) {
 		senha,
 	} = req.body;
 
-	const resultValid = validationResult(req);
-
-	if (resultValid.errors.length > 0) {
-		return res.render("cadastro", {
-			errors: resultValid.mapped(),
-			oldData: req.body,
-		});
-	}
-
 	let userExist = await database.User.findOne({
 		where: {
 			email: req.body.email,
@@ -76,6 +67,14 @@ async function createUsers(req, res) {
 		});
 	}
 
+	const errors = validationResult(req);
+
+	if (!errors.isEmpty()) {
+		return res.render("cadastro", {
+			errors: errors.mapped(),
+			oldData: req.body,
+		});
+	}
 	createUsers = await database.User.create({
 		first_name,
 		last_name,

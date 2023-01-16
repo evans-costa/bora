@@ -1,45 +1,26 @@
-const { User } = require('../database/models');
-const  bcrypt  = require('bcrypt');
+const database = require('../database/models');
+const jwt = require("jsonwebtoken");
+const { jwtKey } = require("../config/secrets.js");
 
 function formLogin(req,res) {
-  res.cookie('testando o cookie', {maxAge: 2000})
-    return res.render('login')
+  return res.render('login')
 }
 
 async function login(req,res) {
-   let { email, password } = req.body;
-   let getUserEmail = await User.findOne({
-        where: {
-            email: email,
-        }
-    }) 
+  const { email } = req.body
+  const listaEventos = await database.Evento.findAll()
 
-    if(getUserEmail) {
-        let userPassWord =  getUserEmail.senha
-        let validPassword =  bcrypt.compareSync(password,userPassWord)
-        if(validPassword) {
-          delete getUserEmail.senha
-          req.session.userLogged = getUserEmail
-          return res.redirect('/login/profile')
-        }
+  if (email === 'admin@bora.com.br') {
+    const token = jwt.sign(
+      { email: email }, 
+      jwtKey,
+      { expiresIn: '1d' }
+    )
+    res.cookie("token", token)
+    return res.render('index', { eventos: listaEventos })
+  }
 
-        return res.render("login", {
-            errors: {
-              password: {
-                msg: 'Senha incorreta'
-              }
-            }
-          })
-    }
-
-    return res.render("login",{
-        errors: {
-          email: {
-            msg: 'Este email não foi encontrado'
-          }
-        },
-      })
-    
+  return res.render('index', { eventos: listaEventos })
 };
 
 function viewsUserProfile(req,res) {

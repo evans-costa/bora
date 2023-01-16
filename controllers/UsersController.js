@@ -7,7 +7,15 @@ function cadastrar(req, res) {
   res.render("cadastro");
 }
 
-/*Função que cria um novo usuário, recebe uma função create do Model */
+function tipoCadastro (req, res) {
+	res.render("tipoCadastro");
+}
+
+async function getAllUsers(req, res) {
+	let user = await database.User.findAll();
+	res.render("users", { user });
+}
+
 async function createUsers(req, res) {
   const {
     first_name,
@@ -25,20 +33,11 @@ async function createUsers(req, res) {
     senha,
   } = req.body;
 
-  const resultValid = validationResult(req);
-
-  if (resultValid.errors.length > 0) {
-    return res.render("cadastro", {
-      errors: resultValid.mapped(),
-      oldData: req.body,
-    });
-  }
-
-  let userExist = await database.User.findOne({
-    where: {
-      email: req.body.email,
-    },
-  });
+	let userExist = await database.User.findOne({
+		where: {
+			email: req.body.email,
+		},
+	});
 
   let cpfExist = await database.User.findOne({
     where: {
@@ -68,28 +67,37 @@ async function createUsers(req, res) {
     });
   }
 
-  createUsers = await database.User.create({
-    first_name,
-    last_name,
-    email,
-    telefone,
-    cpf,
-    dt_aniversario,
-    genero,
-    cep,
-    numero,
-    rua,
-    cidade,
-    estado,
-    senha: bcrypt.hashSync(senha, 10),
-  });
-  res.redirect("/");
+	const errors = validationResult(req);
+
+	if (!errors.isEmpty()) {
+		return res.render("cadastro", {
+			errors: errors.mapped(),
+			oldData: req.body,
+		});
+	}
+	createUsers = await database.User.create({
+		first_name,
+		last_name,
+		email,
+		telefone,
+		cpf,
+		dt_aniversario,
+		genero,
+		cep,
+		numero,
+		rua,
+		cidade,
+		estado,
+		senha: bcrypt.hashSync(senha, 10),
+	});
+	res.redirect("/");
 }
 
-async function userUpdateForm(req, res) {
-  let userId = req.params.id;
-  let userUpdate = await database.User.findByPk(userId);
-  res.render("userUpdate", { userUpdate });
+async function userUpdateForm(req,res) {
+	let userId = req.params.id
+	let userUpdate = await database.User.findByPk(userId);
+	res.render('userUpdate', {userUpdate})
+
 }
 
 async function userUpdate(req, res) {
@@ -110,8 +118,7 @@ async function userUpdate(req, res) {
     senha,
   } = req.body;
 
-  await database.User.update(
-    {
+  await database.User.update({
       first_name,
       last_name,
       email,
@@ -130,8 +137,7 @@ async function userUpdate(req, res) {
       where: {
         id,
       },
-    }
-  );
+    });
   return res.redirect("/login");
 }
 
@@ -144,10 +150,14 @@ async function userDestroy(req, res) {
   });
   return res.redirect("/");
 }
+
+
 module.exports = {
-  cadastrar,
-  createUsers,
-  userUpdateForm,
-  userUpdate,
-  userDestroy,
+	cadastrar,
+	tipoCadastro,
+	getAllUsers,
+	createUsers,
+	userUpdateForm,
+	userUpdate,
+	userDestroy
 };

@@ -24,6 +24,8 @@
   <body>
     <!-- header -->
     <%- include('./partials/header') %>
+
+    <!-- carousel -->
     <div
       id="carouselExampleControls"
       class="carousel slide"
@@ -60,6 +62,9 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+    <!-- End of carousel -->
+
+    <!-- events icon boxes -->
     <div class="icon-boxes position-relative">
       <div class="container position-relative">
         <div class="row gy-4 mt-2 mb-2">
@@ -73,7 +78,7 @@
                 <i class="bi bi-moon" id="nightEvents"></i>
               </div>
               <h4 class="title">
-                <a href="#imgnoturno" class="stretched-link">Eventos Noturnos</a>
+                <a href="#eventos-noturnos" class="stretched-link">Eventos Noturnos</a>
               </h4>
             </div>
           </div>
@@ -87,7 +92,7 @@
             <div class="icon-box" id="mouseSun">
               <div class="icon"><i class="bi bi-sunrise" id="sun"></i></div>
               <h4 class="title">
-                <a href="#imgdiurno" class="stretched-link">Eventos Diurnos</a>
+                <a href="#eventos-diurnos" class="stretched-link">Eventos Diurnos</a>
               </h4>
             </div>
           </div>
@@ -101,7 +106,7 @@
             <div class="icon-box" id="mouseNature">
               <div class="icon"><i class="bi bi-tree" id="tree"></i></div>
               <h4 class="title">
-                <a href="#imgnatureza" class="stretched-link">Na natureza</a>
+                <a href="#eventos-natureza" class="stretched-link">Na natureza</a>
               </h4>
             </div>
           </div>
@@ -115,7 +120,7 @@
             <div class="icon-box">
               <div class="icon"><i class="bi bi-controller"></i></div>
               <h4 class="title">
-                <a href="#imgnerd" class="stretched-link">Eventos Nerds</a>
+                <a href="#eventos-nerds" class="stretched-link">Eventos Nerds</a>
               </h4>
             </div>
           </div>
@@ -123,7 +128,10 @@
         </div>
       </div>
     </div>
-       <div class="container" id="institucionalHome">
+    <!-- End of events icon boxes -->
+
+    <!-- Sobre nós -->
+    <div class="container pb-3" id="institucionalHome">
       <div class="row">
         <div class="col-6">
           <h2>Encontre sua tribo</h1>
@@ -146,8 +154,17 @@
         </div>
       </div>
     </div>
+    <!-- Fim do Sobre nós -->
+
+    <!-- Events description highlights - Noturno -->
+    <div class="container d-flex justify-content-center" id="eventos-noturnos">
+      <div class="row">
+        <div class="col-12 ali"><h3>Eventos Noturnos</h3>
+        <p>Ullamco qui eiusmod ut reprehenderit aute nulla Lorem nostrud sit duis cupidatat. Duis ullamco esse aliquip culpa elit esse aute ad deserunt. Aliquip ullamco velit veniam irure est quis. Consectetur excepteur deserunt proident esse enim excepteur nisi minim voluptate dolore commodo cupidatat est.</p></div>
+      </div>
+     </div>
     <div class="row d-flex justify-content-center">
-      <div class="col-sm-4">
+      <div class="col-sm-4 col-xl-4 col-xxl-2">
         <div class="card">
           <img class="card-img-top" src="images/index/bar.jpg" alt="Card image cap" id="imgnoturno">
           <div class="card-body">
@@ -157,7 +174,38 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4 col-xl-4 col-xxl-2">
+        <div class="card" >
+          <img class="card-img-top" id="imgnoturno" src="images/index/chef-tentativa-2.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of events description highlights - Noturno -->
+
+    <!-- Events description highlights - Diurno -->
+    <div class="container d-flex justify-content-center mt-5" id="eventos-diurnos">
+      <div class="row">
+        <div class="col-12 ali"><h3>Eventos Diurnos</h3>
+        <p>Ullamco qui eiusmod ut reprehenderit aute nulla Lorem nostrud sit duis cupidatat. Duis ullamco esse aliquip culpa elit esse aute ad deserunt. Aliquip ullamco velit veniam irure est quis. Consectetur excepteur deserunt proident esse enim excepteur nisi minim voluptate dolore commodo cupidatat est.</p></div>
+      </div>
+     </div>
+    <div class="row d-flex justify-content-center mb-3">
+      <div class="col-sm-4 col-xl-4 col-xxl-2">
+        <div class="card">
+          <img class="card-img-top" src="images/index/bar.jpg" alt="Card image cap" id="imgdiurno">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xl-4 col-xxl-2">
         <div class="card" >
           <img class="card-img-top" id="imgdiurno" src="images/index/chef-tentativa-2.png" alt="Card image cap">
           <div class="card-body">
@@ -168,26 +216,73 @@
         </div>
       </div>
     </div>
-   <div class="container d-flex justify-content-center mt-5" id="eventosEspeciais">
-    <div class="row">
-      <div class="col-12 ali"><h3>Eventos Especiais</h3>
-      <p>Ullamco qui eiusmod ut reprehenderit aute nulla Lorem nostrud sit duis cupidatat. Duis ullamco esse aliquip culpa elit esse aute ad deserunt. Aliquip ullamco velit veniam irure est quis. Consectetur excepteur deserunt proident esse enim excepteur nisi minim voluptate dolore commodo cupidatat est.</p></div>
-    </div>
-   </div>
-   <!-- <% for (let evento of eventos) { %>
-    <div class="row d-flex justify-content-center mt-5">
-    <div class="col-sm-4">
-      <div class="card">
-        <img class="card-img-top" src="<%=evento.imagem_evento%>" alt="Card image cap" id="imgnatureza">
-        <div class="card-body">
-          <h5 class="card-title"><%=evento.nome_evento%></h5>
-          <p class="card-text"><%=evento.descricao_event%></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+    <!-- End of events description highlights - Diurno -->
+
+    <!-- Events description highlights - Nerds -->
+    <div class="container d-flex justify-content-center mt-5" id="eventos-nerds">
+      <div class="row">
+        <div class="col-12"><h3>Eventos Nerds</h3>
+          <p>Ullamco qui eiusmod ut reprehenderit aute nulla Lorem nostrud sit duis cupidatat. 
+            Duis ullamco esse aliquip culpa elit esse aute ad deserunt. Aliquip ullamco velit veniam irure est quis. 
+            Consectetur excepteur deserunt proident esse enim excepteur nisi minim voluptate dolore commodo cupidatat est.
+          </p>
+        </div>
+      </div>
+     </div>
+    <div class="row d-flex justify-content-center mb-3">
+      <div class="col-sm-4 col-xl-4 col-xxl-2">
+        <div class="card">
+          <img class="card-img-top" src="images/index/bar.jpg" alt="Card image cap" id="imgnerd">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xl-4 col-xxl-2">
+        <div class="card" >
+          <img class="card-img-top" id="imgnerd" src="images/index/chef-tentativa-2.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <% } %> -->
+    <!-- End of events description highlights - Nerds -->
+
+    <!-- Events description highlights - Natureza -->
+    <div class="container d-flex justify-content-center mt-5" id="eventos-natureza">
+      <div class="row">
+        <div class="col-12 ali"><h3>Eventos na Natureza</h3>
+        <p>Ullamco qui eiusmod ut reprehenderit aute nulla Lorem nostrud sit duis cupidatat. Duis ullamco esse aliquip culpa elit esse aute ad deserunt. Aliquip ullamco velit veniam irure est quis. Consectetur excepteur deserunt proident esse enim excepteur nisi minim voluptate dolore commodo cupidatat est.</p></div>
+      </div>
+     </div>
+    <div class="row d-flex justify-content-center mb-3">
+      <div class="col-sm-4 col-xl-4 col-xxl-2">
+        <div class="card">
+          <img class="card-img-top" src="images/index/bar.jpg" alt="Card image cap" id="imgnatureza">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xl-4 col-xxl-2">
+        <div class="card" >
+          <img class="card-img-top" id="imgnatureza" src="images/index/chef-tentativa-2.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of events description highlights - Nerds -->
   
   <!-- footer -->
   <%- include('./partials/footer') %>

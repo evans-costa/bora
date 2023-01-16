@@ -104,11 +104,17 @@ body {
   margin-bottom: 10vh;
 }
 
-#eventosEspeciais h3 {
+#eventos-noturnos h3,
+#eventos-diurnos h3,
+#eventos-nerds h3,
+#eventos-natureza h3 {
   color: rgba(238, 127, 9, 0.9);
 }
 
-#eventosEspeciais {
+#eventos-noturnos,
+#eventos-diurnos,
+#eventos-nerds,
+#eventos-natureza {
   text-align: center;
 }
 /* animação hamburguer menu */
@@ -243,6 +249,7 @@ body {
   width: 100%;
   bottom: 0;
 }
+
 #footer .footer-newsletter {
   padding: 50px 0;
   background: #404040;

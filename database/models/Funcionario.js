@@ -11,29 +11,40 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
-			CPF: {
-				type: DataTypes.TEXT, // tem que mudar no banco de dados, tá como INT
+			email_empresa: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			cnpj: {
+				type: DataTypes.STRING,
 				allowNull: false,
 				unique: true,
 			},
 			dt_nascimento: {
-				// tem que mudar o nome da coluna no BD, tá escrito errado
 				type: DataTypes.DATEONLY,
 				allowNull: false,
+			},
+			cpf: {
+				type: DataTypes.STRING,
+				allowNull: false,
+				unique: true,
 			},
 			dt_admissao: {
-				// tem que mudar o nome da coluna no BD, tá escrito errado
 				type: DataTypes.DATEONLY,
-				allowNull: false,
-			},
-			cargo: {
-				type: DataTypes.STRING,
 				allowNull: false,
 			},
 			fk_departamento: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 			},
+			cargo: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			senha: {
+				type: DataTypes.TEXT,
+				allowNull: false,
+			}
 		},
 		{
 			tableName: "funcionario_pf",

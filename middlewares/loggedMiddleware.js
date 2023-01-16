@@ -1,9 +1,9 @@
-function loggedMiddleware(req,res,next) {
-    res.locals.isLogged = false;
-    if(req.session.userLogged) {
-        res.locals.isLogged = true
-    }
-    next()
-}
+// function LoggedMiddleware(req,res,next) {
+//     res.locals.isLogged = false;
+//     if(req.session.userLogged) {
+//         res.locals.isLogged = true
+//     }
+//     next()
+// }
 
-module.exports = loggedMiddleware
+// module.exports = LoggedMiddleware

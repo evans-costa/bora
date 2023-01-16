@@ -1,0 +1,15 @@
+.main-quemSomos {
+  height: calc(100vh - 10rem);
+  margin: 0 5rem 1rem;
+}
+
+.main-quemSomos img {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.container-quem-somos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

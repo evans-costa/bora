@@ -3,12 +3,12 @@ const { validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 
 //função que mostra a tela de cadastro
-function cadastrar(req, res) {
-  res.render("cadastro");
-}
-
 function tipoCadastro (req, res) {
 	res.render("tipoCadastro");
+}
+
+function cadastrar(req, res) {
+  res.render("cadastro");
 }
 
 async function getAllUsers(req, res) {
@@ -33,48 +33,6 @@ async function createUsers(req, res) {
     senha,
   } = req.body;
 
-	let userExist = await database.User.findOne({
-		where: {
-			email: req.body.email,
-		},
-	});
-
-  let cpfExist = await database.User.findOne({
-    where: {
-      cpf: req.body.cpf,
-    },
-  });
-
-  if (userExist) {
-    return res.render("cadastro", {
-      errors: {
-        email: {
-          msg: "Este email já está cadastrado",
-        },
-      },
-      oldData: req.body,
-    });
-  }
-
-  if (cpfExist) {
-    return res.render("cadastro", {
-      errors: {
-        cpf: {
-          msg: "Este CPF já está cadastrado",
-        },
-      },
-      oldData: req.body,
-    });
-  }
-
-	const errors = validationResult(req);
-
-	if (!errors.isEmpty()) {
-		return res.render("cadastro", {
-			errors: errors.mapped(),
-			oldData: req.body,
-		});
-	}
 	createUsers = await database.User.create({
 		first_name,
 		last_name,
@@ -96,8 +54,7 @@ async function createUsers(req, res) {
 async function userUpdateForm(req,res) {
 	let userId = req.params.id
 	let userUpdate = await database.User.findByPk(userId);
-	res.render('userUpdate', {userUpdate})
-
+	res.render('userUpdate', { userUpdate })
 }
 
 async function userUpdate(req, res) {
@@ -138,7 +95,7 @@ async function userUpdate(req, res) {
         id,
       },
     });
-  return res.redirect("/login");
+  return res.redirect("/users");
 }
 
 async function userDestroy(req, res) {
@@ -148,7 +105,7 @@ async function userDestroy(req, res) {
       id,
     },
   });
-  return res.redirect("/");
+  return res.redirect("/users");
 }
 
 

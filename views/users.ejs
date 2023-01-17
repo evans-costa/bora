@@ -32,10 +32,10 @@
             <tr>
               <th><%= users.first_name%></th>
               <td></a></td>
-              <td><a href="/users/<%=users.id%>">Editar</td>
+              <td><a href="/users/<%=users.id%>/editarusuario">Editar</td>
               <td>
                 <form 
-                action="/users/<%=users.id%>?_method=DELETE" 
+                action="/users/<%=users.id%>/deletarusuario?_method=DELETE" 
                 method="post">
                 <button class="excluir-conta" type="submit">Excluir conta</button>
             </form>

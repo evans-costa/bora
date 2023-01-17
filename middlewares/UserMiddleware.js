@@ -1,6 +1,35 @@
-const { body } = require("express-validator");
+const { body, validationResult } = require("express-validator");
+const database = require("../database/models");
 
-const validations = [
+function validateCadastro (req, res) {
+  const errors = validationResult(req);
+	if (!errors.isEmpty()) {
+		return res.render("cadastro", {
+			errors: errors.mapped(),
+			oldData: req.body,
+		});
+	}
+}
+
+const cpfExist = async (value, { req }) => {
+  const { cpf } = req.body
+  const getCpf = await database.User.findOne({
+    where: { cpf }
+  });
+
+  if (getCpf) throw new Error ("Este CPF já está cadastrado")
+}
+
+const emailExist = async (value, { req }) => {
+  const { email } = req.body
+  const getEmail = await database.User.findOne({
+    where: { email }
+  });
+
+  if (getEmail) throw new Error ("Este e-mail já está cadastrado")
+}
+
+const inputValidation = [
     body("first_name").notEmpty()
       .withMessage("O nome não pode ficar vazio").bail().trim(),
     body("last_name").notEmpty()
@@ -9,16 +38,18 @@ const validations = [
       .withMessage("Telefone obrigatório").bail().trim(),
     body("email")
       .notEmpty()
-      .withMessage("O email não pode ficar vazio").bail()
+      .withMessage("O e-mail não pode ficar vazio").bail()
       .trim().bail()
       .normalizeEmail().bail()
-      .isEmail().withMessage("Digite um email valido"),
+      .isEmail().withMessage("Digite um e-mail válido")
+      .custom(emailExist),
     body("cpf")
       .notEmpty()
       .withMessage("CPF obrigatório")
       .bail()
       .isLength({ min: 11 })
-      .withMessage("Digite um CPF válido, mínimo 11 Dígitos").bail().trim(),
+      .withMessage("Digite um CPF válido, mínimo 11 Dígitos").bail().trim()
+      .custom(cpfExist),
     body("dt_aniversario").notEmpty()
       .withMessage("Data de aniversário obrigatória").bail().trim(),
     body("genero").notEmpty()
@@ -43,4 +74,7 @@ const validations = [
     body('politica').notEmpty().withMessage('Você deve aceitar a Política de Privacidade.'),
   ];
 
-  module.exports = validations
+module.exports = {
+  inputValidation,
+  validateCadastro,
+}

@@ -3,25 +3,27 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const methodOverride = require('method-override');
-const session = require('express-session');
+const methodOverride = require("method-override");
+const session = require("express-session");
 
-
-const indexRouter = require('./routes/rotaIndex');
-const eventosRouter = require('./routes/rotaEventos')
-const usersRouter = require('./routes/rotaUsers');
-const pagamentoRouter = require('./routes/rotaPagamento');
+const indexRouter = require("./routes/rotaIndex");
+const eventosRouter = require("./routes/rotaEventos");
+const usersRouter = require("./routes/rotaUsers");
+const pagamentoRouter = require("./routes/rotaPagamento");
 const faleConoscoRouter = require("./routes/rotaFaleConosco");
-const loginRouter = require('./routes/rotaLogin');
-const funcionariosRouter = require("./routes/rotaFuncionarios")
+const loginRouter = require("./routes/rotaLogin");
+const funcionariosRouter = require("./routes/rotaFuncionarios");
+const quemSomosRouter = require("./routes/quemSomosRoute");
 
 const app = express();
 
-app.use(session({
-  secret: "senhasecreta",
-  resave: false,
-  saveUninitialized: false
-}))
+app.use(
+  session({
+    secret: "senhasecreta",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 app.use(cookieParser());
 
 // view engine setup
@@ -32,15 +34,16 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
-app.use(methodOverride('_method'));
+app.use(methodOverride("_method"));
 
 app.use("/", indexRouter);
 app.use("/eventos", eventosRouter);
 app.use("/users", usersRouter);
 app.use("/funcionarios", funcionariosRouter);
-app.use('/login', loginRouter);
-app.use('/pagamento',pagamentoRouter);
-app.use('/faleconosco',faleConoscoRouter)
+app.use("/login", loginRouter);
+app.use("/pagamento", pagamentoRouter);
+app.use("/faleconosco", faleConoscoRouter);
+app.use("/quemsomos", quemSomosRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -54,7 +57,7 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
-  
+
   res.status(err.status || 500);
   res.render("error");
 });

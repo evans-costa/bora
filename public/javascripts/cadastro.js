@@ -1,3 +1,5 @@
+// const apiCep = require("../../config/apiCep")
+
 const menuModal = document.getElementById("menu-modal");
 const navIcon2 = document.querySelector("#nav-icon2");
 
@@ -195,6 +197,7 @@ inputNumero.addEventListener("input", () => {
   }
 });
 
+
 inputCep.addEventListener("keypress", () => {
   const inputLength = cep.value.length;
   if (inputLength === 5) {
@@ -202,16 +205,27 @@ inputCep.addEventListener("keypress", () => {
   }
 });
 
-if (inputCep.value == "") {
-  labelCep.setAttribute("style", "color: rgb(179, 15, 59)");
-  labelCep.innerHTML = "CEP obrigatório";
-  inputCep.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
-  validCep = false;
-} else {
-  labelCep.setAttribute("style", "color: #FFFFFF");
-  inputCep.setAttribute("style", "border-color: #03A64A");
-  validCep = true;
-}
+inputCep.addEventListener("blur", (event) => {
+  const cep = event.target.value;
+	fetch(`https://brasilapi.com.br/api/cep/v2/${cep}`)
+		.then((response) => response.json())
+		.then((data) => {
+			inputRua.value = data.street;
+			inputCidade.value = data.city;
+			inputEstado.value = data.state;
+		});
+
+  if (inputCep.value == "") {
+    labelCep.setAttribute("style", "color: rgb(179, 15, 59)");
+    labelCep.innerHTML = "CEP obrigatório";
+    inputCep.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
+    validCep = false;
+  } else {
+    labelCep.setAttribute("style", "color: #FFFFFF");
+    inputCep.setAttribute("style", "border-color: #03A64A");
+    validCep = true;
+  }
+});
 
 inputCidade.addEventListener("blur", () => {
   if (inputCidade.value == "") {

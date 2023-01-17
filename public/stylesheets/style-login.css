@@ -206,7 +206,7 @@ nav {
 }
 
 #header-cadastro {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #18191a;
   display: flex;
   justify-content: center;
   padding: 2%;
@@ -224,81 +224,6 @@ nav {
 #body-cadastro {
   background-color: #18191a;
 }
-
-/* FOOTER
-
-#footer {
-  background-color: #18191a;
-  width: 100vw;
-  height: auto;
-}
-
-#logo-footer {
-  height: 15vh;
-  width: fit-content;
-}
-
-#footer {
-  background: #404040;
-  padding: 0 0 30px 0;
-  color: #fff;
-  font-size: 14px;
-}
-#footer .footer-newsletter {
-  padding: 50px 0;
-  background: #404040;
-}
-#footer .footer-newsletter h4 {
-  font-size: 24px;
-  margin: 0 0 20px 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 600;
-}
-#footer .footer-newsletter form {
-  margin-top: 30px;
-  background: #404040;
-  padding: 6px 10px;
-  position: relative;
-  border-radius: 50px;
-  /* border-color: #e6573f; 
-} */
-
-/* #footer .footer-newsletter form input[type="email"] {
-  padding: 8px;
-  width: calc(100% - 140px);
-  background-color: #4f4f4f;
-  border-radius: 50px;
-  border-color: #e6573f;
-  border-style: double;
-}
-#footer .footer-newsletter form input[type="submit"] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border: 0;
-  background: none;
-  font-size: 16px;
-  padding: 0 30px;
-  margin: 3px;
-  background: rgba(238, 127, 9, 0.9);
-  color: #fff;
-  transition: 0.3s;
-  border-radius: 50px;
-}
-#footer .footer-newsletter form input[type="submit"]:hover {
-  background: #e6573f;
-}
-
-#footer a {
-  color: #fff;
-  font-size: large;
-}
-
-#footer a:hover {
-  color: #e6573f;
-} */
 
 #msg-name {
   color: red;

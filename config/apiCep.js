@@ -1,7 +1,7 @@
 const axios = require("axios");
 
-const aipCep = axios.create({
+const apiCep = axios.create({
   baseURL: "https://brasilapi.com.br/api",
 });
 
-module.exports = aipCep;
+module.exports = apiCep;

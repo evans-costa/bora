@@ -16,6 +16,7 @@ const loginRouter = require('./routes/rotaLogin');
 const funcionariosRouter = require("./routes/rotaFuncionarios")
 
 const app = express();
+
 app.use(session({
   secret: "senhasecreta",
   resave: false,

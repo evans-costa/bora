@@ -1,3 +1,5 @@
+// const apiCep = require("../../config/apiCep")
+
 const menuModal = document.getElementById("menu-modal");
 const navIcon2 = document.querySelector("#nav-icon2");
 
@@ -10,63 +12,60 @@ navIcon2.addEventListener("click", () => {
 });
 // variaveis dos inputs e labels
 
-let formCadastro = document.getElementById("form-cadastro");
+const formCadastro = document.getElementById("form-cadastro");
 
-let menssageError = document.querySelector(".message-error");
+const messageError = document.getElementsByClassName("error-msg");
 
-let inputPrimeiroNome = document.getElementById("primeironome");
-let labelPrimeiroNome = document.getElementById("labelPrimeiroNome");
-let validPrimeiroNome = false;
+const inputPrimeiroNome = document.getElementById("primeironome");
+const labelPrimeiroNome = document.getElementById("labelPrimeiroNome");
+const validPrimeiroNome = false;
 
-let inputSobrenome = document.querySelector("#sobrenome");
-let labelSobrenome = document.getElementById("labelSobrenome");
-let validSobrenome = false;
+const inputSobrenome = document.getElementById("sobrenome");
+const labelSobrenome = document.getElementById("labelSobrenome");
+const validSobrenome = false;
 
-let inputTelefone = document.getElementById("telefone");
-let labelTelefone = document.getElementById("labelTelefone");
-let validTelefone = false;
+const inputTelefone = document.getElementById("telefone");
+const labelTelefone = document.getElementById("labelTelefone");
+const validTelefone = false;
 
-let inputEmail = document.getElementById("email");
-let labelEmail = document.getElementById("labelEmail");
-let validEmail = false;
+const inputEmail = document.getElementById("email");
+const labelEmail = document.getElementById("labelEmail");
+const validEmail = false;
 
-let inputcpf = document.getElementById("cpf");
-let labelcpf = document.getElementById("labelcpf");
-let validcpf = false;
+const inputcpf = document.getElementById("cpf");
+const labelcpf = document.getElementById("labelcpf");
+const validcpf = false;
 
-let inputAniversario = document.getElementById("aniversario");
-let labelAniversario = document.getElementById("labelAniversario");
+const inputRua = document.getElementById("rua");
+const labelRua = document.getElementById("labelRua");
+const validRua = false;
 
-let inputRua = document.getElementById("rua");
-let labelRua = document.getElementById("labelRua");
-let validRua = false;
+const inputNumero = document.getElementById("numero");
+const labelNumero = document.getElementById("labelNumero");
+const validNumero = false;
 
-let inputNumero = document.getElementById("numero");
-let labelNumero = document.getElementById("labelNumero");
-let validNumero = false;
+const inputCep = document.getElementById("cep");
+const labelCep = document.getElementById("labelCep");
+const validCep = false;
 
-let inputCep = document.getElementById("cep");
-let labelCep = document.getElementById("labelCep");
-let validCep = false;
+const inputCidade = document.getElementById("cidade");
+const labelCidade = document.getElementById("labelCidade");
+const validCidade = false;
 
-let inputCidade = document.getElementById("cidade");
-let labelCidade = document.getElementById("labelCidade");
-let validCidade = false;
+const inputEstado = document.getElementById("estado");
+const labelEstado = document.getElementById("labelEstado");
+const validEstado = false;
 
-let inputEstado = document.getElementById("estado");
-let labelEstado = document.getElementById("labelEstado");
-let validEstado = false;
+const inputSenha = document.getElementById("senha");
+const labelSenha = document.getElementById("labelSenha");
+const validSenha = false;
 
-let inputSenha = document.getElementById("senha");
-let labelSenha = document.getElementById("labelSenha");
-let validSenha = false;
+const inputConfSenha = document.getElementById("confirmaSenha");
+const labelConfSenha = document.getElementById("labelConfSenha");
+const validConfSenha = false;
 
-let inputConfSenha = document.getElementById("confirmaSenha");
-let labelConfSenha = document.getElementById("labelConfSenha");
-let validConfSenha = false;
-const msgSenha = document.getElementById("msg-Senha");
+const msgSenha = document.getElementById("regras-senha");
 
-//função pra validar o primeiro nome
 inputPrimeiroNome.addEventListener("blur", () => {
   if (inputPrimeiroNome.value == "") {
     labelPrimeiroNome.setAttribute("style", "color: rgb(179, 15, 59)");
@@ -97,7 +96,20 @@ inputSobrenome.addEventListener("blur", () => {
     validSobrenome = true;
   }
 });
-//função pra validar o telefone
+
+inputTelefone.addEventListener("keypress", () => {
+  const inputLength = telefone.value.length;
+  if (inputLength === 0) {
+    telefone.value += "(";
+  }
+  if (inputLength === 3) {
+    telefone.value += ") ";
+  }
+  if (inputLength === 10) {
+    telefone.value += "-";
+  }
+});
+
 inputTelefone.addEventListener("input", () => {
   if (inputTelefone.value.length < 15) {
     labelTelefone.setAttribute("style", "color: rgb(179, 15, 59)");
@@ -113,10 +125,10 @@ inputTelefone.addEventListener("input", () => {
 });
 
 function validarEmail(email) {
-  let validEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i;
+  const validEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i;
   return validEmail.test(email);
 }
-//função pra validar o Email
+
 inputEmail.addEventListener("input", () => {
   if (validarEmail(inputEmail.value) != true) {
     labelEmail.setAttribute("style", "color: rgb(179, 15, 59)");
@@ -130,7 +142,8 @@ inputEmail.addEventListener("input", () => {
     validEmail = true;
   }
 });
-//função pra validar o CPF
+
+
 inputcpf.addEventListener("input", () => {
   if (inputcpf.value.length < 14) {
     labelcpf.setAttribute("style", "color: rgb(179, 15, 59)");
@@ -145,7 +158,19 @@ inputcpf.addEventListener("input", () => {
   }
 });
 
-// função pra validar o input rua
+inputcpf.addEventListener("keypress", () => {
+  const inputLength = cpf.value.length;
+  if (inputLength === 3) {
+    cpf.value += ".";
+  }
+  if (inputLength === 7) {
+    cpf.value += ".";
+  }
+  if (inputLength === 11) {
+    cpf.value += "-";
+  }
+});
+
 inputRua.addEventListener("input", () => {
   if (inputRua.value == "") {
     labelRua.setAttribute("style", "color: rgb(179, 15, 59)");
@@ -158,8 +183,6 @@ inputRua.addEventListener("input", () => {
     validRua = true;
   }
 });
-
-// função do input Numero da rua
 
 inputNumero.addEventListener("input", () => {
   if (inputNumero.value == "") {
@@ -174,16 +197,23 @@ inputNumero.addEventListener("input", () => {
   }
 });
 
-//codigo para validar cep usando fetch
-const aipCep = require("../../database/config/apiCep");
+
+inputCep.addEventListener("keypress", () => {
+  const inputLength = cep.value.length;
+  if (inputLength === 5) {
+    cep.value += "-";
+  }
+});
 
 inputCep.addEventListener("blur", (event) => {
   const cep = event.target.value;
-  aipCep.get(`/cep/v2/${cep}`).then(function (data) {
-    inputRua.value = data.street;
-    inputCidade.value = data.city;
-    inputEstado.value = data.state;
-  });
+	fetch(`https://brasilapi.com.br/api/cep/v2/${cep}`)
+		.then((response) => response.json())
+		.then((data) => {
+			inputRua.value = data.street;
+			inputCidade.value = data.city;
+			inputEstado.value = data.state;
+		});
 
   if (inputCep.value == "") {
     labelCep.setAttribute("style", "color: rgb(179, 15, 59)");
@@ -197,7 +227,6 @@ inputCep.addEventListener("blur", (event) => {
   }
 });
 
-// função input cidade
 inputCidade.addEventListener("blur", () => {
   if (inputCidade.value == "") {
     labelCidade.setAttribute("style", "color: rgb(179, 15, 59)");
@@ -212,11 +241,10 @@ inputCidade.addEventListener("blur", () => {
   }
 });
 
-// função input estado
-inputEstado.addEventListener("focus", () => {
-  if (inputEstado.value == "") {
+inputEstado.addEventListener("blur", () => {
+  if (inputEstado.value == "" || inputEstado.value.length < 2) {
     labelEstado.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelEstado.innerHTML = "Estado *Minimo 2 Caracteres";
+    labelEstado.innerHTML = "Estado - Máximo 2 Caracteres";
     inputEstado.setAttribute("style", "border:  solid 1px rgb(179, 15, 59)");
     validEstado = false;
   } else {
@@ -227,39 +255,34 @@ inputEstado.addEventListener("focus", () => {
   }
 });
 
-// função para validar força da senha
-//usando o codigo do gato passando em cima do teclado
 
 function validarSenha(senha) {
-  let forcaSenha =
+
+  /* Uma constra minúscula 
+  Uma constra maiúscula
+  Um caractere especial
+  Um número
+  Pelo menos 8 caracteres */
+
+  const forcaSenha =
     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
   return forcaSenha.test(senha);
 }
 
-//A força da senha precisa ter no minimo
-//uma letra minuscula
-//uma letra maiuscula
-//um Numero
-//um Caracter especial
-//no minimo 8 digitos
-
 inputSenha.addEventListener("input", () => {
   if (validarSenha(inputSenha.value) != true) {
     labelSenha.setAttribute("style", "color: #ffffff");
-    labelSenha.innerHTML = "Senha";
     inputSenha.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
     msgSenha.style.display = "block";
     validSenha = false;
   } else {
     labelSenha.setAttribute("style", "color: #ffffff");
     inputSenha.setAttribute("style", "border-color: #03A64A");
-    labelSenha.innerHTML = "Senha";
     msgSenha.style.display = "none";
     validSenha = true;
   }
 });
 
-/*abaixo esta a função para  validar a confirmação da senha, precisa ser igual */
 inputConfSenha.addEventListener("input", () => {
   if (inputSenha.value != inputConfSenha.value) {
     labelConfSenha.setAttribute("style", "color: rgb(179, 15, 59)");
@@ -269,13 +292,11 @@ inputConfSenha.addEventListener("input", () => {
   } else {
     labelConfSenha.setAttribute("style", "color: ##ffffff");
     inputConfSenha.setAttribute("style", "border-color: #03A64A");
-    labelConfSenha.innerHTML = "Confirme a senha";
+    labelConfSenha.innerHTML = "Senhas conferem";
     validConfSenha = true;
   }
 });
 
-// função que vai analizar se todos os campos foram preenchidos corretamente
-//se algum campo não for preenchido,uma mensagem de erro aparece no topo do form
 formCadastro.addEventListener("submit", function cadastrar(event) {
   if (
     validPrimeiroNome &&
@@ -292,41 +313,7 @@ formCadastro.addEventListener("submit", function cadastrar(event) {
     validTelefone
   ) {
   } else {
-    //event.preventDefault();
-    menssageError.style.display = "block";
-  }
-});
-
-//Máscaras campos
-inputCep.addEventListener("keypress", () => {
-  let inputLength = cep.value.length;
-  if (inputLength === 5) {
-    cep.value += "-";
-  }
-});
-
-inputTelefone.addEventListener("keypress", () => {
-  let inputLength = telefone.value.length;
-  if (inputLength === 0) {
-    telefone.value += "(";
-  }
-  if (inputLength === 3) {
-    telefone.value += ") ";
-  }
-  if (inputLength === 10) {
-    telefone.value += "-";
-  }
-});
-
-inputcpf.addEventListener("keypress", () => {
-  let inputLength = cpf.value.length;
-  if (inputLength === 3) {
-    cpf.value += ".";
-  }
-  if (inputLength === 7) {
-    cpf.value += ".";
-  }
-  if (inputLength === 11) {
-    cpf.value += "-";
+    messageError.style.display = "block";
+    event.preventDefault();
   }
 });

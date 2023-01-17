@@ -1,8 +1,7 @@
-const { body, validationResult, cookie} = require("express-validator")
+const { body, validationResult } = require("express-validator")
 const jwt = require("jsonwebtoken");
 const { jwtKey } = require("../config/secrets.js");
 const bcrypt  = require('bcrypt');
-
 const database = require("../database/models");
 
 function validateUser (req, res, next) {
@@ -12,7 +11,6 @@ function validateUser (req, res, next) {
       errors: errors.mapped(),
       data: {
         email: req.body.email,
-        password: req.body.password
       },
     });
   }
@@ -21,20 +19,20 @@ function validateUser (req, res, next) {
 
 const checkEmailExists = async (value, { req }) => {
   const { email } = req.body
-  const getUserEmail = await database.User.findOne({
+  const getUser = await database.User.findOne({
     where: { email }
   });
 
-  if (!getUserEmail) throw new Error ('Este e-mail não foi encontrado')
+  if (!getUser) throw new Error ('Este e-mail não foi encontrado')
 }
 
 const checkPasswordIsCorrect = async (value, { req }) => {
   const { email } = req.body
   const senha = req.body.password
-  const getUserEmail = await database.User.findOne({
+  const getUser = await database.User.findOne({
     where: { email }
   });
-  const decryptPassword = bcrypt.compareSync(senha, getUserEmail.senha)
+  const decryptPassword = bcrypt.compareSync(senha, getUser.senha)
 
   if (!decryptPassword) throw new Error ('Senha incorreta')
 }
@@ -43,12 +41,12 @@ const inputValidation = [
   body("email")
     .notEmpty().withMessage("Digite seu email").bail()
     .isEmail().withMessage('Digite um email válido').bail()
-    .custom(checkEmailExists).bail(),
+    .custom(checkEmailExists),
   body("password")
     .notEmpty().withMessage("Digite sua senha").bail()
     .isLength({ min: 8 }).withMessage("A senha precisa ter pelo menos 8 caracteres").bail()
     .if(checkEmailExists)
-    .custom(checkPasswordIsCorrect).bail(),
+    .custom(checkPasswordIsCorrect),
 ];
 
 function validateToken(req, res, next) {

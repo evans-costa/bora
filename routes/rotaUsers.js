@@ -1,19 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const usersController = require("../controllers/UsersController");
-const UserMiddleware = require("../middlewares/UserMiddleware");
-const ViewUserController = require("../controllers/ViewUsersController");
+const userMiddleware = require("../middlewares/userMiddleware");
+const UsersController = require("../controllers/UsersController");
+const authMiddleware = require("../middlewares/authMiddleware")
+// const ViewUserController = require("../controllers/ViewUsersController");
 
-router.get("/", ViewUserController.getAllUsers);
-router.put("/:id", ViewUserController.userUpdate);
+router.get("/cadastrar/tipocadastro", UsersController.tipoCadastro)
 
-router.get("/cadastrar/tipocadastro", usersController.tipoCadastro)
+router.get("/cadastrar/tipocadastro/pf", UsersController.cadastrar);
+router.post("/cadastrar/tipocadastro/pf", userMiddleware.inputValidationPf, userMiddleware.validateCadastroPf, UsersController.createUsers);
 
-router.get("/cadastrar/tipocadastro/pf", usersController.cadastrar);
-router.post("/cadastrar/tipocadastro/pf", UserMiddleware, usersController.createUsers);
+router.get("/", authMiddleware.validateToken, UsersController.getAllUsers);
 
-router.get("/:id", usersController.userUpdateForm);
-router.put("/:id", usersController.userUpdate);
-router.delete("/:id", usersController.userDestroy);
+router.get("/:id/editarusuario", authMiddleware.validateToken, UsersController.userUpdateForm);
+router.put("/:id/editarusuario", authMiddleware.validateToken, UsersController.userUpdate);
+router.delete("/:id/deletarusuario", authMiddleware.validateToken, UsersController.userDestroy);
+
 
 module.exports = router;

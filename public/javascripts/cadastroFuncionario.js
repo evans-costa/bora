@@ -9,25 +9,25 @@ navIcon2.addEventListener("click", () => {
   }
 });
 
-const formCadastro = document.getElementById("form-cadastro-cnpj");
+const formCadastroFunc = document.getElementById("form-cadastro-cnpj");
 
-const messageError = document.getElementsByClassName("error-msg");
+const messageErrorFunc = document.getElementsByClassName("error-msg");
 
 const inputNome = document.getElementById("nome_completo");
 const labelNome = document.getElementById("labelNomeFuncionario");
 const validNome = false;
 
-const inputEmail = document.getElementById("email_empresa");
-const labelEmail = document.getElementById("labelEmailEmpresa");
-const validEmail = false;
+const inputEmailEmpresa = document.getElementById("email_empresa");
+const labelEmailEmpresa = document.getElementById("labelEmailEmpresa");
+const validEmailEmpresa = false;
 
 const inputCnpj = document.getElementById("cnpj");
 const labelCnpj = document.getElementById("labelCnpj");
 const validCnpj = false;
 
-const inputCpf = document.getElementById("cpf");
-const labelCpf = document.getElementById("labelCpf");
-const validCpf = false;
+const inputCpfFunc = document.getElementById("cpfFunc");
+const labelCpfFunc = document.getElementById("labelCpfFunc");
+const validCpfFunc = false;
 
 const inputDepartamento = document.getElementById("departamentos");
 const labelDepartamento = document.getElementById("labelDepartamento");
@@ -37,15 +37,15 @@ const inputCargo = document.getElementById("cargo");
 const labelCargo = document.getElementById("labelCargo");
 const validCargo = false
 
-const inputSenha = document.getElementById("senha");
-const labelSenha = document.getElementById("labelSenha");
-const validSenha = false;
+const inputSenhaFunc = document.getElementById("senha");
+const labelSenhaFunc = document.getElementById("labelSenha");
+const validSenhaFunc = false;
 
-const inputConfSenha = document.getElementById("confirmaSenha");
-const labelConfSenha = document.getElementById("labelConfSenha");
-const validConfSenha = false;
+const inputConfSenhaFunc = document.getElementById("confirmaSenha");
+const labelConfSenhaFunc = document.getElementById("labelConfSenha");
+const validConfSenhaFunc = false;
 
-const msgSenha = document.getElementById("regras-senha");
+const msgSenhaFunc = document.getElementById("regras-senha");
 
 inputNome.addEventListener("blur", () => {
   if (inputNome.value == "") {
@@ -69,17 +69,17 @@ function validarEmail(email) {
   return validEmail.test(email);
 }
 
-inputEmail.addEventListener("input", () => {
+inputEmailEmpresa.addEventListener("input", () => {
   if (validarEmail(inputEmail.value) != true) {
-    labelEmail.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelEmail.innerHTML = "Digite um email válido (exemplo: seuemail@email.com)";
-    inputEmail.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
-    validEmail = false;
+    labelEmailEmpresa.setAttribute("style", "color: rgb(179, 15, 59)");
+    labelEmailEmpresa.innerHTML = "Digite um email válido (exemplo: seuemail@email.com)";
+    inputEmailEmpresa.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
+    validEmailEmpresa = false;
   } else {
-    labelEmail.setAttribute("style", "color: #FFFFFF");
-    inputEmail.setAttribute("style", "border-color: #03A64A");
-    labelEmail.innerHTML = "Email empresarial"
-    validEmail = true;
+    labelEmailEmpresa.setAttribute("style", "color: #FFFFFF");
+    inputEmailEmpresa.setAttribute("style", "border-color: #03A64A");
+    labelEmailEmpresa.innerHTML = "Email empresarial"
+    validEmailEmpresa = true;
   }
 });
 
@@ -116,30 +116,30 @@ inputCnpj.addEventListener("keypress", () => {
   }
 });
 
-inputCpf.addEventListener("input", () => {
-  if (inputCpf.value.length < 14) {
-    labelCpf.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelCpf.innerHTML = "Insira um CPF válido";
-    inputCpf.setAttribute("style", "border: 1px solid rgb(179, 15, 59)");
-    validCpf = false;
+inputCpfFunc.addEventListener("input", () => {
+  if (inputCpfFunc.value.length < 14) {
+    labelCpfFunc.setAttribute("style", "color: rgb(179, 15, 59)");
+    labelCpfFunc.innerHTML = "Insira um CPF válido";
+    inputCpfFunc.setAttribute("style", "border: 1px solid rgb(179, 15, 59)");
+    validCpfFunc = false;
   } else {
-    labelCpf.setAttribute("style", "color: #FFFFFF");
-    inputCpf.setAttribute("style", "border: solid 1px #03A64A");
-    labelCpf.innerHTML = "Número de CPF";
-    validCpf = true;
+    labelCpfFunc.setAttribute("style", "color: #FFFFFF");
+    inputCpfFunc.setAttribute("style", "border: solid 1px #03A64A");
+    labelCpfFunc.innerHTML = "Número de CPF";
+    validCpfFunc = true;
   }
 });
 
-inputCpf.addEventListener("keypress", () => {
-  const inputLength = cpf.value.length;
+inputCpfFunc.addEventListener("keypress", () => {
+  const inputLength = cpfFunc.value.length;
   if (inputLength === 3) {
-    cpf.value += ".";
+    cpfFunc.value += ".";
   }
   if (inputLength === 7) {
-    cpf.value += ".";
+    cpfFunc.value += ".";
   }
   if (inputLength === 11) {
-    cpf.value += "-";
+    cpfFunc.value += "-";
   }
 });
 
@@ -180,10 +180,10 @@ inputDepartamento.addEventListener("blur", () => {
 
 function validarSenha(senha) {
 
-  /* U  ma letra minúscula 
+  /* Uma letra minúscula 
   Uma letra maiúscula
   Um caractere especial
-  Um número especial
+  Um número
   Pelo menos 8 caracteres */
   
   const forcaSenha =
@@ -191,46 +191,46 @@ function validarSenha(senha) {
   return forcaSenha.test(senha);
 }
 
-inputSenha.addEventListener("input", () => {
-  if (validarSenha(inputSenha.value) != true) {
-    labelSenha.setAttribute("style", "color: #ffffff");
-    inputSenha.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
-    msgSenha.style.display = "block";
-    validSenha = false;
+inputSenhaFunc.addEventListener("input", () => {
+  if (validarSenha(inputSenhaFunc.value) != true) {
+    labelSenhaFunc.setAttribute("style", "color: #ffffff");
+    inputSenhaFunc.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
+    msgSenhaFunc.style.display = "block";
+    validSenhaFunc = false;
   } else {
-    labelSenha.setAttribute("style", "color: #ffffff");
-    inputSenha.setAttribute("style", "border-color: #03A64A");
-    msgSenha.style.display = "none";
-    validSenha = true;
+    labelSenhaFunc.setAttribute("style", "color: #ffffff");
+    inputSenhaFunc.setAttribute("style", "border-color: #03A64A");
+    msgSenhaFunc.style.display = "none";
+    validSenhaFunc = true;
   }
 });
 
-inputConfSenha.addEventListener("input", () => {
-  if (inputSenha.value != inputConfSenha.value) {
-    labelConfSenha.setAttribute("style", "color: rgb(179, 15, 59)");
-    labelConfSenha.innerHTML = "As senhas não conferem";
-    inputConfSenha.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
-    validConfSenha = false;
+inputConfSenhaFunc.addEventListener("input", () => {
+  if (inputSenhaFunc.value != inputConfSenhaFunc.value) {
+    labelConfSenhaFunc.setAttribute("style", "color: rgb(179, 15, 59)");
+    labelConfSenhaFunc.innerHTML = "As senhas não conferem";
+    inputConfSenhaFunc.setAttribute("style", "border: solid 1px rgb(179, 15, 59)");
+    validConfSenhaFunc = false;
   } else {
-    labelConfSenha.setAttribute("style", "color: ##ffffff");
-    inputConfSenha.setAttribute("style", "border-color: #03A64A");
-    labelConfSenha.innerHTML = "Senhas conferem";
-    validConfSenha = true;
+    labelConfSenhaFunc.setAttribute("style", "color: ##ffffff");
+    inputConfSenhaFunc.setAttribute("style", "border-color: #03A64A");
+    labelConfSenhaFunc.innerHTML = "Senhas conferem";
+    validConfSenhaFunc = true;
   }
 });
 
-formCadastro.addEventListener("submit", function cadastrarFuncionario(event) {
+formCadastroFunc.addEventListener("submit", function cadastrarFuncionario(event) {
   if (
     validNome &&
-    validEmail &&
+    validEmailEmpresa &&
     validCnpj &&
-    validCpf &&
+    validCpfFunc &&
     validDepartamento &&
     validCargo&&
-    validSenha &&
-    validConfSenha) {
+    validSenhaFunc &&
+    validConfSenhaFunc) {
   } else {
-    messageError.style.display = "block";
+    messageErrorFunc.style.display = "block";
     event.preventDefault();
   }
 });

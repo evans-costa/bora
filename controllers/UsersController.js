@@ -1,5 +1,4 @@
 const database = require("../database/models");
-const { validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 
 //função que mostra a tela de cadastro

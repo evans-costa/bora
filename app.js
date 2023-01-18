@@ -9,6 +9,7 @@ const session = require("express-session");
 const indexRouter = require("./routes/rotaIndex");
 const eventosRouter = require("./routes/rotaEventos");
 const usersRouter = require("./routes/rotaUsers");
+const adminRouter = require("./routes/rotasAdmin")
 const pagamentoRouter = require("./routes/rotaPagamento");
 const faleConoscoRouter = require("./routes/rotaFaleConosco");
 const loginRouter = require("./routes/rotaLogin");
@@ -20,8 +21,8 @@ const app = express();
 app.use(
   session({
     secret: "senhasecreta",
-    resave: false,
-    saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
   })
 );
 app.use(cookieParser());
@@ -39,6 +40,7 @@ app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/eventos", eventosRouter);
 app.use("/users", usersRouter);
+app.use("/admin", adminRouter);
 app.use("/funcionarios", funcionariosRouter);
 app.use("/login", loginRouter);
 app.use("/pagamento", pagamentoRouter);

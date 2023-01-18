@@ -8,7 +8,6 @@ function formLogin(req,res) {
 
 async function login(req,res) {
   const { email } = req.body
-  const listaEventos = await database.Evento.findAll()
   const userToLogin = await database.User.findOne({
     where: { email }
   })
@@ -20,23 +19,14 @@ async function login(req,res) {
       { expiresIn: '1d' }
     )
     res.cookie("token", token)
-    return res.render('index', { eventos: listaEventos })
+    return res.redirect('/admin/listareventos')
   }
 
-  req.session.userLogged = userToLogin.email
-  console.log(req.session)
-  return res.redirect('/login/profile')
+  req.session.userLogged = userToLogin
+  return res.redirect('/users/perfil')
 };
-
-function viewsUserProfile(req,res) {
-  return res.render('userProfile', {
-    userLogged: req.session.userLogged
-  });
-}
-
 
 module.exports = {
     formLogin,
     login,
-    viewsUserProfile,
 }

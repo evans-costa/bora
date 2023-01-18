@@ -1,5 +1,3 @@
-// const apiCep = require("../../config/apiCep")
-
 const menuModal = document.getElementById("menu-modal");
 const navIcon2 = document.querySelector("#nav-icon2");
 

@@ -22,7 +22,7 @@
             <div class="form">
 
                 <form id="form-cadastro" 
-                action="/users/<%=userUpdate.id%>?_method=PUT" 
+                action="?_method=PUT" 
                 method="POST" >
                     <div class="title-form">
                         <h1 id="nossa-comunidade">Faça parte de nossa comunidade</h1>
@@ -31,7 +31,7 @@
                             <label id="labelPrimeiroNome" for="primeironome">Primeiro Nome</label>
                             <input type="text" name="first_name" class="form-control" id="primeironome"
                                 placeholder="Digite seu primeiro nome"
-                                value="<%=userUpdate.first_name %>">
+                                value="<%=usuario.first_name %>">
                             <% if(locals.errors && errors.primeironome) { %>
                                 <div class="error-msg">
                                     <%=errors.primeironome.msg%>
@@ -43,7 +43,7 @@
                             <label id="labelSobrenome" for="sobrenome">Sobrenome</label>
                             <input type="text" name="last_name" class="form-control" id="sobrenome"
                                 placeholder="Digite seu Sobrenome"
-                                value="<%=userUpdate.last_name %>">
+                                value="<%=usuario.last_name %>">
 
                             <% if(locals.errors && errors.sobrenome) { %>
                                 <div class="error-msg">
@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label id="labelTelefone" for="telefone">Telefone</label>
                             <input type="tel" name="telefone" class="form-control" id="telefone"
-                                placeholder="(xx) xxxx-xxxx" value="<%=userUpdate.telefone %>"
+                                placeholder="(xx) xxxx-xxxx" value="<%=usuario.telefone %>"
                                 maxlength="15">
 
                             <% if(locals.errors && errors.telefone) { %>
@@ -68,7 +68,7 @@
                         <div class="form-group">
                             <label id="labelEmail" for="email">E-mail</label>
                             <input type="text" name="email" class="form-control" id="email" placeholder="email@me"
-                                value="<%=userUpdate.email %>">
+                                value="<%=usuario.email %>">
                             <% if(locals.errors && errors.email) { %>
                                 <div class="error-msg">
                                     <%=errors.email.msg%>
@@ -81,7 +81,7 @@
                         <div class="form-group">
                             <label id="labelcpf" for="cpf">Número de CPF</label>
                             <input type="text" name="cpf" class="form-control" id="cpf" placeholder="Digite seu CPF"
-                                value="<%=userUpdate.cpf %>" maxlength="14">
+                                value="<%=usuario.cpf %>" maxlength="14">
 
                             <% if(locals.errors && errors.cpf) { %>
                                 <div class="error-msg">
@@ -93,7 +93,7 @@
                         <div class="form-group">
                             <label id="labelAniversario" for="aniversario">Data de Nascimento</label>
                             <input type="date" name="dt_aniversario" class="form-control" id="aniversario"
-                                placeholder="xx/xx/xxxx" value="<%=userUpdate.dt_aniversario %>">
+                                placeholder="xx/xx/xxxx" value="<%=usuario.dt_aniversario %>">
 
                             <% if(locals.errors && errors.aniversario) { %>
                                 <div class="error-msg">
@@ -145,7 +145,7 @@
                         <div class="form-group">
                             <label id="labelCep" for="cep">CEP</label>
                             <input type="text" name="cep" class="form-control" id="cep" placeholder="Digite o CEP"
-                                value="<%=userUpdate.cep %>" maxlength="9">
+                                value="<%=usuario.cep %>" maxlength="9">
 
                             <% if(locals.errors && errors.cep) { %>
                                 <div class="error-msg">
@@ -157,7 +157,7 @@
                         <div class="form-group">
                             <label id="labelNumero" for="numero">Número</label>
                             <input type="number" name="numero" class="form-control" id="numero"
-                                placeholder="Número da residência" value="<%=userUpdate.numero %>">
+                                placeholder="Número da residência" value="<%=usuario.numero %>">
 
                             <% if(locals.errors && errors.numero) { %>
                                 <div class="error-msg">
@@ -169,7 +169,7 @@
                         <div class="form-group">
                             <label id="labelRua" for="rua">Rua</label>
                             <input type="text" name="rua" class="form-control" id="rua" placeholder="Nome da rua"
-                                value="<%=userUpdate.rua %>">
+                                value="<%=usuario.rua %>">
 
                             <% if(locals.errors && errors.rua) { %>
                                 <div class="error-msg">
@@ -181,7 +181,7 @@
                         <div class="form-group">
                             <label id="labelCidade" for="cidade">Cidade</label>
                             <input type="text" name="cidade" class="form-control" id="cidade" placeholder="Cidade"
-                                value="<%=userUpdate.cidade %>">
+                                value="<%=usuario.cidade %>">
 
                             <% if(locals.errors && errors.cidade) { %>
                                 <div class="error-msg">
@@ -193,7 +193,7 @@
                         <div class="form-group">
                             <label id="labelEstado" for="estado">Estado</label>
                             <input type="text" name="estado" class="form-control" id="estado" placeholder="Exemplo: SP"
-                                value="<%=userUpdate.estado %>">
+                                value="<%=usuario.estado %>">
                             <% if(locals.errors && errors.estado) { %>
                                 <div class="error-msg">
                                     <%=errors.estado.msg%>
@@ -244,7 +244,7 @@
 
                                         
                                         <div class="button-cadastrar">
-                                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                            <button type="submit" class="btn btn-primary">Atualizar Cadastro</button>
                                         </div>
                 </form>
             </div>

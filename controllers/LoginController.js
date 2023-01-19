@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const { jwtKey } = require("../config/secrets.js");
 
 function formLogin(req,res) {
-  return res.render('login')
+  return res.render('login', { userLogged: req.session.userLogged } )
 }
 
 async function login(req,res) {
@@ -20,6 +20,7 @@ async function login(req,res) {
     )
     res.cookie("token", token)
     return res.redirect('/admin/listareventos')
+    
   }
 
   req.session.userLogged = userToLogin

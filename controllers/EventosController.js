@@ -6,7 +6,7 @@ const Op = Sequelize.Op
 const EventosController = {
 	telaEventos : async (req, res) => {
 		const listaEventos = await database.Evento.findAll();
-		return res.render('eventos', { eventos: listaEventos });
+		return res.render('eventos', { eventos: listaEventos, userLogged: req.session.userLogged });
 	},
 	
 	eventoPorId: async (req, res) => {
@@ -20,7 +20,7 @@ const EventosController = {
 
 	telaCadastroEvento: async (req, res) => {
 		const findAllCategories = await database.Categoria.findAll();
-		return res.render("cadastrarEvento", { categories: findAllCategories });
+		return res.render("cadastrarEvento", { categories: findAllCategories, userLogged: req.session.userLogged });
 	},
 
 	criarEvento: async (req, res) => {

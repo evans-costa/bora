@@ -1,37 +1,3 @@
-<!-- <nav id="nav-header">
-  <a class="navbar-brand" href="/">
-    <img
-      src="/images/index/logo-branca.svg"
-      alt="Logo"
-      width="60"
-      height="50"
-      class="d-inline-block align-text-center"
-    />
-  </a>
-  <div id="icones-nav">
-    <div><a href="#"><i class="bi bi-bell"></a></i></div>
-    <div><a href=""><i class="bi bi-file-person"></a></i></div>
-  </div>
-  <div id="nav-icon2">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</nav>
-<div id="menu-modal">
-  <li>
-    <ul><a href="/">Home</a></ul>
-    <ul><a href="/users/cadastrar/tipocadastro">Cadastro</a></ul>
-    <ul><a href="/login">Login</a></ul>
-    <ul><a href="/eventos">Eventos</a></ul>
-    <ul><a href="/faleconosco">Fale conosco</a></ul>
-    <ul><a href="/quemsomos">Quem somos</a></ul>
-  </li>
-</div> -->
-
 <nav class="navbar navbar-dark bg-dark" id="nav-header">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
@@ -59,7 +25,15 @@
     </button>
     <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Olá Usuário</h5>
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+          <% if (locals.userIsLogged) { %>
+            Olá, <%=userLogged.first_name %>! 
+          <% } else if (locals.adminIsLogged) { %>
+            Administrador
+          <% } else { %> 
+            Olá, faça seu login!
+          <% } %> 
+        </h5>
         <button type="button" class="btn-close btn-close-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
@@ -67,9 +41,26 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
+          <% if (locals.adminIsLogged) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/listarusuarios">Listagem de Usuários</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/listareventos">Listagem de Eventos</a>
+            </li>
+          <% } %>
+          <% if (locals.userIsLogged) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/perfil">Perfil</a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/cadastrar/tipocadastro">Cadastrar</a>
+            </li>
+          <% } %> 
           <li class="nav-item">
             <a class="nav-link" href="/eventos">Eventos</a>
           </li>

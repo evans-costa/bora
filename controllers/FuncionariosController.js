@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const FuncioariosController = {
   cadastrarFuncionario: async (req, res) => {
     const findAllDepartments = await database.Departamento.findAll()
-    return res.render("cadastrarFuncionario", { departamentos: findAllDepartments});
+    return res.render("cadastrarFuncionario", { departamentos: findAllDepartments, userLogged: req.session.userLogged});
   },
 
   createFuncionario: async (req, res) => {

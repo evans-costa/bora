@@ -6,10 +6,15 @@ const AdminController = {
     return res.send("Você está como admin")
   },
 
+  logout: (req, res) => {
+    res.clearCookie('token')
+    return res.redirect('/login')
+  },
+
   // CRUD EVENTOS
   telaListarEventos: async (req, res) => {
     const listaEventos = await database.Evento.findAll();
-		return res.render('listaEventos', { eventos: listaEventos });
+		return res.render('listaEventos', { eventos: listaEventos , userLogged: req.session.userLogged});
   },
 
 	pesquisarEvento: async (req, res) => {
@@ -20,7 +25,7 @@ const AdminController = {
 			}
 		});
 
-		return res.render('editarEventos', { eventos: listaEventos})
+		return res.render('editarEventos', { eventos: listaEventos, userLogged: req.session.userLogged})
 	},
 
   telaEditarEvento: async (req, res) => {
@@ -29,7 +34,7 @@ const AdminController = {
 			where: { id },
 		});
 		const findAllCategories = await database.Categoria.findAll();
-		return res.render("atualizarEvento", { evento, categories: findAllCategories });
+		return res.render("atualizarEvento", { evento, categories: findAllCategories, userLogged: req.session.userLogged });
 	},
 
 	atualizarEventoPorId: async (req, res) => {
@@ -72,7 +77,7 @@ const AdminController = {
   // CRUD USUÁRIOS
   telaListarUsuarios: async (req, res) => {
     const user = await database.User.findAll();
-    res.render("listaUsuarios", { user });
+    res.render("listaUsuarios", { user, userLogged: req.session.userLogged });
   },
 
   telaEditarUsuario: async (req,res) => {
@@ -80,7 +85,7 @@ const AdminController = {
     const usuario = await database.User.findOne({
       where: { id }
     });
-    res.render('atualizarUsuario', { usuario })
+    res.render('atualizarUsuario', { usuario, userLogged: req.session.userLogged })
   },
   
   atualizarUsuarioPorId: async (req, res) => {

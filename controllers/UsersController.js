@@ -2,11 +2,11 @@ const database = require("../database/models");
 const bcrypt = require("bcrypt");
 
 function tipoCadastro (req, res) {
-	res.render("tipoCadastro");
+	res.render("tipoCadastro", { userLogged: req.session.userLogged });
 }
 
 function cadastrarUsuario(req, res) {
-  res.render("cadastrarUsuario");
+  res.render("cadastrarUsuario", { userLogged: req.session.userLogged });
 }
 
 async function createUsers(req, res) {

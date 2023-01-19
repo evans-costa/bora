@@ -16,6 +16,8 @@ const loginRouter = require("./routes/rotaLogin");
 const funcionariosRouter = require("./routes/rotaFuncionarios");
 const quemSomosRouter = require("./routes/quemSomosRoute");
 
+const userDataMiddleware = require("./middlewares/userDataMiddleware")
+
 const app = express();
 
 app.use(
@@ -27,6 +29,7 @@ app.use(
 );
 app.use(cookieParser());
 
+app.use(userDataMiddleware)
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");

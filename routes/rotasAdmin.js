@@ -6,6 +6,7 @@ const authMiddleware = require("../middlewares/authMiddleware")
 
 
 router.get("/", authMiddleware.validateToken, AdminController.telaAdmin)
+router.get("/sair", authMiddleware.validateToken, AdminController.logout)
 
 // Ir para e tela de lista de Eventos e CRUD 
 router.get("/listareventos", authMiddleware.validateToken, AdminController.telaListarEventos)

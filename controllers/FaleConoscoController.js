@@ -1,5 +1,5 @@
 function entrarEmContato(req,res) {
-    res.render('fale-conosco')
+    res.render('fale-conosco', { userLogged: req.session.userLogged })
 }
 
 

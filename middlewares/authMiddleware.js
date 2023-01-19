@@ -12,6 +12,7 @@ function validateUser (req, res, next) {
       data: {
         email: req.body.email,
       },
+      userLogged: req.session.userLogged
     });
   }
   next();

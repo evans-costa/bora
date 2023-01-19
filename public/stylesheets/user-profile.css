@@ -4,11 +4,20 @@
   box-sizing: border-box;
 }
 
+#navbar-profile {
+  background: #404040;
+}
+
+#navbar-profile a {
+  color: rgb(250, 179, 47);
+}
+
 #cards-profile {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .col-cards {
   display: flex;
   justify-content: center;

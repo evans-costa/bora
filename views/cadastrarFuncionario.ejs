@@ -7,15 +7,9 @@
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css"
       rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/style-cadastro.css" />
     <link rel="stylesheet" href="/stylesheets/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-      crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/style-cadastro.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
     <title>Bora - Cadastro de Funcionários</title>
   </head>
 
@@ -28,9 +22,7 @@
             <h1 id="nossa-comunidade">Cadastre sua empresa</h1>
 
             <div class="form-group">
-              <label id="labelNomeFuncionario" for="nome_completo"
-                >Nome do funcionário</label
-              >
+              <label id="labelNomeFuncionario" for="nome_completo">Nome do funcionário</label>
               <input
                 type="text"
                 name="nome_completo"
@@ -44,9 +36,7 @@
             </div>
 
             <div class="form-group">
-              <label id="labelEmailEmpresa" for="email_empresa"
-                >E-mail empresarial</label
-              >
+              <label id="labelEmailEmpresa" for="email_empresa">E-mail empresarial</label>
               <input
                 type="text"
                 name="email_empresa"
@@ -75,9 +65,7 @@
             </div>
 
             <div class="form-group">
-              <label id="labelNascimento" for="nascimento"
-                >Data de Nascimento do Funcionário</label
-              >
+              <label id="labelNascimento" for="nascimento">Data de Nascimento do Funcionário</label>
               <input
                 type="date"
                 name="dt_nascimento"
@@ -120,20 +108,11 @@
             </div>
 
             <div class="form-group">
-              <label id="labelDepartamento" for="departamentos"
-                >Departamento</label
-              >
-              <select
-                class="form-select"
-                name="departamento_id"
-                id="departamentos">
-                <option value="0" disabled selected>
-                  Selecione o departamento
-                </option>
+              <label id="labelDepartamento" for="departamentos">Departamento</label>
+              <select class="form-select" name="departamento_id" id="departamentos">
+                <option value="0" disabled selected>Selecione o departamento</option>
                 <% for (let departamento of departamentos) { %>
-                <option value="<%=departamento.id%>">
-                  <%=departamento.depto_descr%>
-                </option>
+                <option value="<%=departamento.id%>"><%=departamento.depto_descr%></option>
                 <% } %>
               </select>
               <% if(locals.errors && errors.departamento_id) { %>
@@ -163,21 +142,14 @@
 
             <div class="form-group">
               <label id="labelSenha" for="senha">Senha</label>
-              <input
-                type="password"
-                name="senha"
-                class="form-control"
-                id="senha"
-                placeholder="Digite sua senha" />
+              <input type="password" name="senha" class="form-control" id="senha" placeholder="Digite sua senha" />
               <% if(locals.errors && errors.senha) { %>
               <div class="error-msg"><%=errors.senha.msg%></div>
               <% } %>
             </div>
 
             <div class="form-group">
-              <label id="labelConfSenha" for="confirmarSenha"
-                >Confirme sua Senha</label
-              >
+              <label id="labelConfSenha" for="confirmarSenha">Confirme sua Senha</label>
               <input
                 type="password"
                 name="confirmaSenha"
@@ -201,8 +173,7 @@
           <div class="termos">
             <input type="checkbox" name="termos" id="termos" value="aceito" />
             <label for="termos"
-              >Eu aceito os
-              <a href="#">Termos e condições do Programa BORA</a> e os
+              >Eu aceito os <a href="#">Termos e condições do Programa BORA</a> e os
               <a href="#">Termos e condições da conta BORA</a></label
             >
           </div>
@@ -227,34 +198,27 @@
             <summary id="sumary-termos">Sobre o tratamento de dados</summary>
             <ul class="tratamento-dados-menu">
               <li>
-                Seus dados serão usados para: a gestão contratual e a cobrança
-                do serviço, a gestão da BORA; realizar análise de satisfação,
-                auditorias, melhoria do serviço e prevenção de fraude; atender
-                queixas, reclamações ou sugestões; o envio de comunicações
-                comerciais, relativas a produtos e serviços da BORA, e processos
-                de seleção.
+                Seus dados serão usados para: a gestão contratual e a cobrança do serviço, a gestão da BORA; realizar
+                análise de satisfação, auditorias, melhoria do serviço e prevenção de fraude; atender queixas,
+                reclamações ou sugestões; o envio de comunicações comerciais, relativas a produtos e serviços da BORA, e
+                processos de seleção.
               </li>
-              <li>
-                Você tem direito ao acesso, retificação, cancelamento, oposição
-                e limitação .
-              </li>
-              <li>
-                Legitimação: execução de contrato. Interesse legítimo. Obrigação
-                legal. Consentimento.
-              </li>
+              <li>Você tem direito ao acesso, retificação, cancelamento, oposição e limitação .</li>
+              <li>Legitimação: execução de contrato. Interesse legítimo. Obrigação legal. Consentimento.</li>
             </ul>
           </details>
 
           <div class="button-cadastrar d-flex justify-content-center mb-3">
-            <button id="submitForm" type="submit" class="btn btn-primary">
-              Cadastrar
-            </button>
+            <button id="submitForm" type="submit" class="btn btn-primary">Cadastrar</button>
           </div>
         </form>
       </div>
     </div>
     <%- include('./partials/footer') %>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
     <script src="/javascripts/cadastroFuncionario.js"></script>
   </body>
 </html>

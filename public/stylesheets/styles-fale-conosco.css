@@ -1,56 +1,12 @@
-* {
-  box-sizing: border-box;
-  font-family: open-sans, Helvetica, sans-serif;
-}
-
-body {
-  padding: 0;
-  margin: 0;
-}
-
-header {
-  color: white;
-  background: rgba(30, 26, 26, 0.69);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 15vh;
-  /* background-color: #ff9a3c; */
-  justify-content: space-between;
-  box-shadow: 0px 4px 16px 8px rgba(0, 0, 0, 0.25);
-}
-
-.logo-bora {
-  display: flex;
-  align-items: flex-end;
-  font-size: 12px;
-  color: white;
-}
-
-.logo-bora img {
-  width: 90px;
-  padding: 5px 0;
-}
-
-.logo-bora p {
-  margin: auto;
-  font-size: 20px;
-  font-weight: 700;
-  font-family: play;
-  font-style: normal;
-}
-
 main {
   padding: 10px;
   color: #888888;
   font-weight: 550;
-  font-family: play;
   font-style: normal;
 }
 
 .descricao-fale-conosco p {
-  font-size: 12px;
+  font-size: 20px;
   margin-left: 16px;
   margin-right: 16px;
   text-align: justify;
@@ -58,8 +14,6 @@ main {
 
 form {
   margin-top: 30px;
-  /* margin-right: 10vw;
-  margin-left: 10vw; */
   font-size: 12px;
   align-items: center;
 }
@@ -102,88 +56,3 @@ form {
   background: #d9d9d9;
   outline: 0;
 }
-
-/* botão primário */
-.btn-primary {
-  background-color: orange;
-  border-color: rgb(250, 179, 47);
-}
-
-.btn-primary:hover {
-  background-color: rgb(250, 179, 47);
-  border-color: orange;
-}
-
-.btn-primary:active {
-  background-color: orange;
-}
-
-.btn-primary:visited {
-  background-color: orange;
-}
-
-.btn-primary:focus {
-  background-color: orange;
-  border-color: rgb(250, 179, 47);
-}
-
-/*comentou a parte do footer porque estava entrando em conflito com o css
-da pagina home */
-
-/* footer {
-  background-color: #363636;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px;
-  color: #ffffff;
-  font-size: 10px;
-}
-.institucional-footer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.institucional-footer img {
-  width: 70px;
-}
-
-.institucional-links {
-  display: flex;
-  flex-direction: column;
-}
-
-.institucional-links a {
-  padding: 3px;
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.redes-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.redes-footer img {
-  width: 25px;
-  align-self: center;
-}
-
-.pagamentos-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.pagamentos-footer img {
-  width: 25px;
-}
-
-.pagamentos-footer div {
-  flex-wrap: wrap;
-  width: 70%;
-} */

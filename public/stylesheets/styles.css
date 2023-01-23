@@ -39,8 +39,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 1vw;
-  padding-right: 5vw;
 }
 
 .accordion-button.collapsed {
@@ -58,11 +56,40 @@ body {
   color: #fff;
 }
 
-#icones-nav {
+.icones-nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 4vw;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.icones-nav a {
+  color: #fff;
+  font-size: 2rem;
+}
+
+#box-profile,
+#box-cart {
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+#box-profile div,
+#box-cart div {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+  font-size: 20px;
+}
+
+#box-profile small {
+  font-size: 12px;
+}
+
+.icones-nav a:hover {
+  color: #c7c7c7;
 }
 
 #institucionalHome {
@@ -267,15 +294,6 @@ body {
 #footer a:hover {
   color: #e6573f;
 }
-
-#icones-nav a {
-  color: #fff;
-  font-size: 2rem;
-}
-
-#icones-nav a:hover {
-  color: #c7c7c7;
-}
 /* ICON BOX */
 .icon-box {
   padding: 60px 30px;
@@ -331,3 +349,23 @@ body {
   width: 100%;
   height: 35vh;
 }
+
+@media (max-width: 580px) {
+  .icones-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: initial;
+  }
+
+  #box-profile,
+  #box-cart {
+    padding: 0 10px;
+  }
+
+  #box-profile div,
+  #box-cart div {
+    display: none;
+  }
+} ;

@@ -9,9 +9,25 @@
         class="d-inline-block align-text-center"
       />
     </a>
-    <div id="icones-nav">
-      <div><a href="#"><i class="bi bi-bell"></a></i></div>
-      <div><a href=""><i class="bi bi-file-person"></a></i></div>
+    <div class="icones-nav">
+      <div id="box-profile">
+        <% if (locals.userIsLogged) { %> 
+          <a href="users/perfil/<%=userLogged.id%>"><i id="profile-icon" class="bi bi-file-person"></i></a>
+          <div>Olá, <%=userLogged.first_name %>!</div>
+        <% } else if (locals.adminIsLogged) { %>
+          <a href="admin/listareventos>"><i id="profile-icon" class="bi bi-person-fill-gear"></i></a>
+          <div>Olá, Administrador!</div>
+        <% } else { %> 
+          <a href="/login"><i id="profile-icon" class="bi bi-file-person"></i></a>
+          <div>Olá, Visitante!
+            <small>Cadastre-se, ou faça seu login!</small>
+          </div>
+        <% } %>
+      </div>
+      <div id="box-cart">
+        <a href=""><i id="cart-icon" class="bi bi-cart-check-fill"></a></i>
+        <div>Carrinho</div>
+      </div>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <div class="navbar-toggler-icon" id="nav-icon2">

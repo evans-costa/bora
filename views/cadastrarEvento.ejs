@@ -41,7 +41,7 @@
           <input id="description" name="description" type="text" />
 
           <label for="category">Categoria</label>
-          <select name="category_id">
+          <select name="category_id" id="select-category">
             <% for (let category of categories) { %>
             <option value="<%=category.id%>"><%=category.tipo_evento%></option>
             <% } %>
@@ -74,21 +74,6 @@
                 aria-label="Upload"
                 multiple />
               <button class="btn btn-primary" type="button" id="upload-button">Upload</button>
-            </div>
-
-            <div id="input-link-group">
-              <label for="picture" class="form-label">Link da fotos do evento</label>
-              <div class="input-group mb-3" id="input-photo-link">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Cole aqui o link da foto"
-                  id="photo"
-                  name="photo[0]"
-                  aria-label="Example text with button addon"
-                  aria-describedby="button-addon1" />
-                <button class="btn btn-primary" type="button" id="new-link-photos">Novo link</button>
-              </div>
             </div>
           </div>
 

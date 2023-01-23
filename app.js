@@ -23,8 +23,8 @@ const app = express();
 app.use(
   session({
     secret: "senhasecreta",
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
   })
 );
 app.use(cookieParser());

@@ -1,18 +1,18 @@
-function userData (req, res, next) { 
-  res.locals.userIsLogged = false
+function userData(req, res, next) {
+  res.locals.userIsLogged = false;
 
-  res.locals.adminIsLogged = false
+  res.locals.adminIsLogged = false;
 
-  res.locals.funcionarioIsLogged = false
+  res.locals.funcionarioIsLogged = false;
 
   if (req.session.userLogged) {
-    res.locals.userIsLogged = true
+    res.locals.userIsLogged = true;
   } else if (req.cookies.token) {
-    res.locals.adminIsLogged = true
+    res.locals.adminIsLogged = true;
   } else {
-    res.locals.funcionarioIsLogged = true
+    res.locals.funcionarioIsLogged = true;
   }
-  next()
+  next();
 }
 
-module.exports = userData
+module.exports = userData;

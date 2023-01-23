@@ -51,7 +51,7 @@
           <% } %>
           <% if (locals.userIsLogged) { %>
             <li class="nav-item">
-              <a class="nav-link" href="/users/perfil">Perfil</a>
+              <a class="nav-link" href="/users/perfil/<%= userLogged.id %> ">Perfil</a>
             </li>
           <% } else { %>
             <li class="nav-item">

@@ -9,6 +9,7 @@ function formLogin(req,res) {
 async function login(req,res) {
   const { email } = req.body
   const userToLogin = await database.User.findOne({
+    raw: true,
     where: { email }
   })
 
@@ -22,9 +23,9 @@ async function login(req,res) {
     return res.redirect('/admin/listareventos')
     
   }
-
+  delete userToLogin.senha
   req.session.userLogged = userToLogin
-  return res.redirect('/users/perfil')
+  return res.redirect(`/users/perfil/${userToLogin.id}`)
 };
 
 module.exports = {

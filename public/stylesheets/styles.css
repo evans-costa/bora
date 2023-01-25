@@ -259,7 +259,7 @@ body {
   border-radius: 50px;
   /* border-color: #e6573f; */
 }
-#footer .footer-newsletter form input[type='email'] {
+#footer .footer-newsletter form input[type="email"] {
   padding: 8px;
   width: calc(100% - 140px);
   background-color: #4f4f4f;
@@ -267,7 +267,7 @@ body {
   border-color: #e6573f;
   border-style: double;
 }
-#footer .footer-newsletter form input[type='submit'] {
+#footer .footer-newsletter form input[type="submit"] {
   position: absolute;
   top: 0;
   right: 0;
@@ -282,7 +282,7 @@ body {
   transition: 0.3s;
   border-radius: 50px;
 }
-#footer .footer-newsletter form input[type='submit']:hover {
+#footer .footer-newsletter form input[type="submit"]:hover {
   background: #e6573f;
 }
 
@@ -291,9 +291,42 @@ body {
   font-size: large;
 }
 
-#footer a:hover {
-  color: #e6573f;
+#footer .bora-footer a {
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 24px;
+  margin: 8px 0;
+  color: #e1e1e6;
 }
+
+#footer a:hover {
+  color: orange;
+}
+
+.bora-footer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.bora-footer strong {
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: orange;
+}
+
+.bora-footer a {
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.bora-footerContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  gap: 2rem;
+}
+
 /* ICON BOX */
 .icon-box {
   padding: 60px 30px;

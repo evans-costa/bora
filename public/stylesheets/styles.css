@@ -383,6 +383,33 @@ body {
   height: 35vh;
 }
 
+.whatsapp {
+  z-index: 500;
+  display: flex;
+  bottom: 21px;
+  right: 20px;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 35%;
+  background: #04d361;
+  transition: all 0.3s ease;
+}
+
+.whatsapp img {
+  display: block;
+  max-width: 100%;
+  width: 3rem;
+  height: initial;
+  background: none;
+  opacity: 1;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
 @media (max-width: 580px) {
   .icones-nav {
     display: flex;

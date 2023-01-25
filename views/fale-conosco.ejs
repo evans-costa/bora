@@ -20,73 +20,41 @@
 
     <main>
       <section class="descricao-fale-conosco">
-        <p class="text-center">
-          Precisa entrar em contato com a gente?, Verifique se as nossas páginas
-          respondem a sua pergunta. Caso contrário, preencha o formulário abaixo
+        <p>
+          Precisa entrar em contato com a gente?,Verifique se as nossas páginas
+          respondem a sua pergunta. Caso contrário,preencha o formulário abaixo
           do Fale Conosco ou utilize os demais canais para o envio de sugestões,
-          reclamações, elogios, solicitações e informações/dúvidas.
+          reclamações,elogios, solicitações e informações/dúvidas.
         </p>
       </section>
 
-      <section class="formulario">
-        <form>
-          <div class="nome-email">
-            <div class="nome">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">@</span>
-                </div>
-                <input
-                  type="text"
-                  id="nome"
-                  name="nome"
-                  required
-                  type="text"
-                  class="form-control"
-                  placeholder="Username"
-                  aria-label="Username"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-              <div class="input-group mb-3">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  type="text"
-                  class="form-control"
-                  placeholder="e-mail"
-                  aria-label="Recipient's username"
-                  aria-describedby="basic-addon2"
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2"
-                    >@exemplo.com</span
-                  >
-                </div>
-              </div>
-            </div>
-              </div>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Insira Sua mensagem</span>
-                </div>
-                <textarea class="form-control" aria-label="Insira Sua mensagem"></textarea>
-              </div>
+      <form class="commentForm">
+        <strong>Deixe a sua Mensagem</strong>
+
+        <textarea placeholder="deixe um comentário"></textarea>
+
+        <div class="inputBox">
+          <div>
+            <label for="name">Nome Completo</label>
+            <input type="text" id="name" placeholder="Digite seu nome" />
           </div>
-          <div class="enviar">
-            <button type="submit" class="btn btn-primary">Enviar</button>
+          <div>
+            <label for="email">Informe seu Email</label>
+            <input type="text" id="email" placeholder="Digite seu Email" />
           </div>
-        </form>
-      </section>
+        </div>
+
+        <footer>
+          <button type="submit">Enviar</button>
+        </footer>
+      </form>
     </main>
 
     <%- include('./partials/footer') %>
-    <script 
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
-      crossorigin="anonymous">
-    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css');
+
 html {
   position: relative;
   min-height: 100%;
@@ -64,9 +66,12 @@ body {
   margin-left: auto;
 }
 
-.icones-nav a {
+.icones-nav i,
+button {
   color: #fff;
   font-size: 2rem;
+  background-color: transparent;
+  border: none;
 }
 
 #box-profile,
@@ -90,6 +95,28 @@ body {
 
 .icones-nav a:hover {
   color: #c7c7c7;
+}
+
+.offcanvas-body-cart {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-content div {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+#eventCartImage img {
+  width: 100px;
+  height: 100px;
+  padding: 0.4rem 0.4rem;
 }
 
 #institucionalHome {
@@ -427,5 +454,12 @@ body {
   #box-profile div,
   #box-cart div {
     display: none;
+  }
+}
+
+@media (min-width: 1441px) {
+  body {
+    margin: auto;
+    max-width: 75vw;
   }
 } ;

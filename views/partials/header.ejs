@@ -1,19 +1,36 @@
-<nav id="nav-header">
-      <a class="navbar-brand" href="/">
-        <img
-          src="/images/index/logo-branca.svg"
-          alt="Logo"
-          width="60"
-          height="50"
-          class="d-inline-block align-text-center"
-        />
-      </a>
-      <!-- <div><h2>Encontre sua tribo</h2></div> -->
-      <div id="icones-nav">
-        <div><a href="#"><i class="bi bi-bell"></a></i></div>
-        <div><a href=""><i class="bi bi-file-person"></a></i></div>
+<nav class="navbar navbar-dark bg-dark" id="nav-header">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img
+        src="/images/index/logo-branca.svg"
+        alt="Logo"
+        width="60"
+        height="50"
+        class="d-inline-block align-text-center"
+      />
+    </a>
+    <div class="icones-nav">
+      <div id="box-profile">
+        <% if (locals.userIsLogged) { %> 
+          <a href="users/perfil/<%=userLogged.id%>"><i id="profile-icon" class="bi bi-file-person"></i></a>
+          <div>Olá, <%=userLogged.first_name %>!</div>
+        <% } else if (locals.adminIsLogged) { %>
+          <a href="admin/listareventos>"><i id="profile-icon" class="bi bi-person-fill-gear"></i></a>
+          <div>Olá, Administrador!</div>
+        <% } else { %> 
+          <a href="/login"><i id="profile-icon" class="bi bi-file-person"></i></a>
+          <div>Olá, Visitante!
+            <small>Cadastre-se, ou faça seu login!</small>
+          </div>
+        <% } %>
       </div>
-      <div id="nav-icon2">
+      <div id="box-cart">
+        <a href=""><i id="cart-icon" class="bi bi-cart-check-fill"></a></i>
+        <div>Carrinho</div>
+      </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+      <div class="navbar-toggler-icon" id="nav-icon2">
         <span></span>
         <span></span>
         <span></span>
@@ -21,14 +38,56 @@
         <span></span>
         <span></span>
       </div>
-    </nav>
-   <div id="menu-modal">
-    <li>
-      <ul><a href="/">Home</a></ul>
-      <ul><a href="/users/cadastrar/tipocadastro">Cadastro</a></ul>
-      <ul><a href="/login">Login</a></ul>
-      <ul><a href="/eventos">Eventos</a></ul>
-      <ul><a href="/faleconosco">Fale conosco</a></ul>
-      <ul><a href="/quemsomos">Quem somos</a></ul>
-    </li>
-   </div>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+          <% if (locals.userIsLogged) { %>
+            Olá, <%=userLogged.first_name %>! 
+          <% } else if (locals.adminIsLogged) { %>
+            Administrador
+          <% } else { %> 
+            Olá, faça seu login!
+          <% } %> 
+        </h5>
+        <button type="button" class="btn-close btn-close-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <% if (locals.adminIsLogged) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/listarusuarios">Listagem de Usuários</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/listareventos">Listagem de Eventos</a>
+            </li>
+          <% } %>
+          <% if (locals.userIsLogged) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/perfil/<%= userLogged.id %> ">Perfil</a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/cadastrar/tipocadastro">Cadastrar</a>
+            </li>
+          <% } %> 
+          <li class="nav-item">
+            <a class="nav-link" href="/eventos">Eventos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/quemsomos">Quem Somos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/faleconosco">Fale Conosco</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

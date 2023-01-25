@@ -2,10 +2,9 @@ const express = require("express");
 const router = express.Router();
 const LoginController = require("../controllers/LoginController");
 const authMiddleware = require("../middlewares/authMiddleware")
+const loginAuthMiddleware = require("../middlewares/loginAuthMiddleware")
 
-
-router.get("/", LoginController.formLogin);
+router.get("/", loginAuthMiddleware.logged, LoginController.formLogin);
 router.post("/", authMiddleware.inputValidation, authMiddleware.validateUser, LoginController.login);
-router.get('/profile', LoginController.viewsUserProfile);
 
 module.exports = router;

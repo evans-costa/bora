@@ -1,107 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Cadastro de Eventos</title>
-    <link rel="stylesheet" href="/stylesheets/styles.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
-    />
-    <link
-    rel="stylesheet"
-    href="/stylesheets/cadastro-eventos.css"
-  />
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <link rel="stylesheet" href="/stylesheets/cadastro-eventos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <title>Bora - Atualizar Evento</title>
+  </head>
+  <body>
+    <%- include('./partials/header') %>
+    <div class="container">
+      <div class="form">
+        <div class="title-form">
+          <h1>Atualizar Evento - <%= evento.nome_evento %></h1>
+        </div>
+        <form id="form-evento" method="post" enctype="multipart/form-data">
+          <label for="picture">Link da foto da capa</label>
+          <input id="picture" name="picture" type="text" value="<%= evento.imagem_evento %> " />
+
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Upload da foto da capa</label>
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+
+          <label for="title">Título do Evento</label>
+          <input id="title" name="title" type="text" value="<%= evento.nome_evento %> " />
+
+          <label for="date">Data do Evento</label>
+          <input id="date" name="date" type="date" value="<%= evento.data_evento %> " />
+
+          <label for="price">Preço do Evento</label>
+          <input id="price" name="price" type="text" value="<%= evento.preco_evento %> " />
+
+          <label for="description">Descrição</label>
+          <input id="description" name="description" type="text" value="<%= evento.descricao_event %> " />
+
+          <label for="category">Categoria</label>
+          <select name="category_id">
+            <% for (let category of categories) { %>
+            <option value="<%=category.id%>"><%=category.tipo_evento%></option>
+            <% } %>
+          </select>
+
+          <div class="mt-3" id="highlights">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="carousel"
+                id="carousel-highlight"
+                name="carousel_highlight"
+                value="<%=evento.destaque_home %> " />
+              <label class="form-check-label" for="carousel-highlight">Evento no Carrossel</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="home"
+                id="home-highlight"
+                name="home_highlight"
+                value="<%= evento.destaque_carrosel %> " />
+              <label class="form-check-label" for="home-highlight">Evento na Homepage</label>
+            </div>
+          </div>
+
+          <div id="input-upload">
+            <label for="formFileMultiple" class="form-label mt-3">Upload fotos do evento (selecione várias)</label>
+            <div class="input-group mb-3">
+              <input
+                class="form-control"
+                type="file"
+                id="formFileMultiple"
+                aria-describedby="inputGroupFileAddon04"
+                aria-label="Upload"
+                multiple />
+              <button class="btn btn-primary" type="button" id="upload-button">Upload</button>
+            </div>
+          </div>
+
+          <div class="button-cadastrar">
+            <button class="btn btn-primary mb-3" type="submit">Salvar Alterações</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <%- include('./partials/footer') %>
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-      crossorigin="anonymous"
-    ></script>
-</head>
-
-<body>
-  <%- include('./partials/header') %>
-
-  <div class="container" id="criacao-evento">
-        <div class="form">
-          <form id=form-cadastro method="post" action="?_method=PUT" enctype="multipart/form-data">
-                <div class="title-form">
-                    <h1>Alterar / Deletar um evento</h1>
-                </div>
-        </div>
-    <label for="picture">Link da Foto</label>
-    <input id="picture" name="picture" type="text" value="<%=evento.imagem_evento%>"/>
-
-    <div class="mb-3">
-      <label for="formFile" class="form-label">Upload da foto da capa</label>
-      <input class="form-control" type="file" id="formFile">
-    </div>
-
-    <label for="title">Título do Evento</label>
-    <input id="title" name="title" type="text" value="<%=evento.nome_evento%>"/>
-
-    <label for="date">Data do Evento</label>
-    <input id="date" name="date" type="date" value="<%=evento.data_evento%>"/>
-
-    <label for="price">Preço do Evento</label> 
-    <input id="price" name="price" type="text" value="<%=evento.preco_evento%>"/>
-
-    <label for="description">Descrição</label>
-    <input id="description" name="description" type="text" value="<%=evento.descricao_event%>"/>
-
-  <label for="category">Categoria</label>
-    <select name="category_id">
-      <% for (let category of categories) { %>
-        <option value="<%=evento.fk_categoria%>">
-          <%=category.tipo_evento%>
-      </option>
-      <% } %>
-    </select>
-
-    <div class="mt-3" id="highlights">
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" value="<%=evento.destaque_carrosel%>" id="carousel-highlight" name="carousel_highlight">
-        <label class="form-check-label" for="carousel-highlight">Evento no Carrossel</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" value="<%=evento.destaque_home%>" id="home-highlight" name="home_highlight">
-        <label class="form-check-label" for="home-highlight">Evento na Homepage</label>
-      </div>
-    </div>
-
-    <div id="input-upload">
-      <label for="formFileMultiple" class="form-label mt-3">Upload fotos do evento (selecione várias)</label>
-      <div class="input-group mb-3">
-        <input class="form-control" type="file" id="formFileMultiple" aria-describedby="inputGroupFileAddon04" aria-label="Upload" multiple>
-        <button class="btn btn-primary" type="button" id="upload-button">Upload</button>
-      </div>
-    
-      <div id="input-link-group">
-          <label for="picture" class="form-label">Link da fotos do evento</label>
-        <div class="input-group mb-3" id="input-photo-link">
-          <input type="text" class="form-control" placeholder="Cole aqui o link da foto" id="photo" name="photo[0]" aria-label="Example text with button addon" aria-describedby="button-addon1">
-          <button class="btn btn-primary" type="button" id="new-link-photos">Novo link</button>
-        </div>
-      </div>
-    </div>
-
-  <div class="button-cadastrar">
-    <button class="btn btn-primary mb-3" type="submit">Salvar Alterações</button>
-  </div>
-</form>
-
-</div> 
-
-  <%- include('./partials/footer') %>
-
-  <script src="/javascripts/index.js"></script>
-  <script src="/javascripts/cadastro.js"></script>
-
-</body>
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+    <script src="/javascripts/eventos.js"></script>
+  </body>
 </html>

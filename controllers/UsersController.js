@@ -1,18 +1,12 @@
-const database = require("../database/models");
-const bcrypt = require("bcrypt");
+const database = require('../database/models');
+const bcrypt = require('bcrypt');
 
-//função que mostra a tela de cadastro
-function tipoCadastro (req, res) {
-	res.render("tipoCadastro");
+function tipoCadastro(req, res) {
+  res.render('tipoCadastro', { userLogged: req.session.userLogged });
 }
 
-function cadastrar(req, res) {
-  res.render("cadastro");
-}
-
-async function getAllUsers(req, res) {
-	let user = await database.User.findAll();
-	res.render("users", { user });
+function cadastrarUsuario(req, res) {
+  res.render('cadastrarUsuario', { userLogged: req.session.userLogged });
 }
 
 async function createUsers(req, res) {
@@ -32,33 +26,7 @@ async function createUsers(req, res) {
     senha,
   } = req.body;
 
-	createUsers = await database.User.create({
-		first_name,
-		last_name,
-		email,
-		telefone,
-		cpf,
-		dt_aniversario,
-		genero,
-		cep,
-		numero,
-		rua,
-		cidade,
-		estado,
-		senha: bcrypt.hashSync(senha, 10),
-	});
-	res.redirect("/");
-}
-
-async function userUpdateForm(req,res) {
-	let userId = req.params.id
-	let userUpdate = await database.User.findByPk(userId);
-	res.render('userUpdate', { userUpdate })
-}
-
-async function userUpdate(req, res) {
-  let { id } = req.params;
-  const {
+  createUsers = await database.User.create({
     first_name,
     last_name,
     email,
@@ -71,49 +39,68 @@ async function userUpdate(req, res) {
     rua,
     cidade,
     estado,
-    senha,
-  } = req.body;
+    senha: bcrypt.hashSync(senha, 10),
+  });
 
-  await database.User.update({
+  return res.redirect('/');
+}
+
+function telaPerfil(req, res) {
+  return res.render('perfilUsuario', { userLogged: req.session.userLogged });
+}
+
+async function atualizarPerfil(req, res) {
+  const id = req.params.id;
+  const { first_name, last_name, email, telefone, dt_aniversario, genero, cidade, estado } = req.body;
+
+  await database.User.update(
+    {
       first_name,
       last_name,
       email,
       telefone,
-      cpf,
       dt_aniversario,
       genero,
-      cep,
-      numero,
-      rua,
       cidade,
       estado,
-      senha: bcrypt.hashSync(senha, 10),
     },
     {
       where: {
-        id,
+        id: id,
       },
-    });
-  return res.redirect("/users");
+    }
+  );
+
+  req.session.destroy((err) => {
+    return res.redirect('/login');
+  });
 }
 
-async function userDestroy(req, res) {
+async function excluirPerfil(req, res) {
   const { id } = req.params;
   await database.User.destroy({
     where: {
       id,
     },
   });
-  return res.redirect("/users");
+
+  req.session.destroy((err) => {
+    return res.redirect('/');
+  });
 }
 
+function logout(req, res) {
+  req.session.destroy((err) => {
+    return res.redirect('/');
+  });
+}
 
 module.exports = {
-	cadastrar,
-	tipoCadastro,
-	getAllUsers,
-	createUsers,
-	userUpdateForm,
-	userUpdate,
-	userDestroy
+  cadastrarUsuario,
+  tipoCadastro,
+  createUsers,
+  telaPerfil,
+  atualizarPerfil,
+  excluirPerfil,
+  logout,
 };

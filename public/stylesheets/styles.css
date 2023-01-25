@@ -5,6 +5,7 @@ html {
 
 body {
   overflow-x: hidden;
+  height: 100%;
 }
 
 /* botão primário */
@@ -38,43 +39,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 1vw;
-  padding-right: 5vw;
-}
-
-/* menu modal */
-
-#menu-modal a {
-  font-size: larger;
-  align-self: center;
-  color: #e6573f;
-  font-style: normal;
-  text-decoration: none;
-}
-
-#menu-modal a:hover {
-  font-size: larger;
-  align-self: center;
-  color: #e98371;
-  font-style: normal;
-  text-decoration: none;
-}
-
-#menu-modal {
-  display: none;
-  text-align: center;
-  padding-top: 5vh;
-  left: 0;
-  bottom: 0;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  z-index: 2;
-  background-color: #18191af9; /* Black w/ opacity */
-}
-
-#menu-modal li {
-  list-style: none;
 }
 
 .accordion-button.collapsed {
@@ -92,11 +56,40 @@ body {
   color: #fff;
 }
 
-#icones-nav {
+.icones-nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 4vw;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.icones-nav a {
+  color: #fff;
+  font-size: 2rem;
+}
+
+#box-profile,
+#box-cart {
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+#box-profile div,
+#box-cart div {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+  font-size: 20px;
+}
+
+#box-profile small {
+  font-size: 12px;
+}
+
+.icones-nav a:hover {
+  color: #c7c7c7;
 }
 
 #institucionalHome {
@@ -117,29 +110,26 @@ body {
 #eventos-natureza {
   text-align: center;
 }
-/* animação hamburguer menu */
-/* Icon 1 */
+
+.navbar-toggler {
+  border-style: none;
+}
 
 #nav-icon2 {
   width: 60px;
   height: 45px;
   position: relative;
   z-index: 5;
-  -webkit-transform: rotate(0deg);
+  /* -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
   -webkit-transition: 0.5s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
   -o-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out; */
   cursor: pointer;
 }
-
-/* Icon 2 */
-
-/* #nav-icon2 {
-} */
 
 #nav-icon2 span {
   display: block;
@@ -148,14 +138,14 @@ body {
   width: 50%;
   background: white;
   opacity: 1;
-  -webkit-transform: rotate(0deg);
+  /* -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
   -webkit-transition: 0.25s ease-in-out;
   -moz-transition: 0.25s ease-in-out;
   -o-transition: 0.25s ease-in-out;
-  transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out; */
 }
 
 #nav-icon2 span:nth-child(even) {
@@ -183,7 +173,7 @@ body {
   top: 36px;
 }
 
-#nav-icon2.open span:nth-child(1),
+/* #nav-icon2.open span:nth-child(1),
 #nav-icon2.open span:nth-child(6) {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
@@ -197,9 +187,9 @@ body {
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
-}
+} */
 
-#nav-icon2.open span:nth-child(1) {
+/* #nav-icon2.open span:nth-child(1) {
   left: 5px;
   top: 7px;
 }
@@ -227,7 +217,7 @@ body {
 #nav-icon2.open span:nth-child(6) {
   left: calc(50% - 5px);
   top: 29px;
-}
+} */
 
 #footer {
   background-color: #18191a;
@@ -269,7 +259,7 @@ body {
   border-radius: 50px;
   /* border-color: #e6573f; */
 }
-#footer .footer-newsletter form input[type="email"] {
+#footer .footer-newsletter form input[type='email'] {
   padding: 8px;
   width: calc(100% - 140px);
   background-color: #4f4f4f;
@@ -277,7 +267,7 @@ body {
   border-color: #e6573f;
   border-style: double;
 }
-#footer .footer-newsletter form input[type="submit"] {
+#footer .footer-newsletter form input[type='submit'] {
   position: absolute;
   top: 0;
   right: 0;
@@ -292,7 +282,7 @@ body {
   transition: 0.3s;
   border-radius: 50px;
 }
-#footer .footer-newsletter form input[type="submit"]:hover {
+#footer .footer-newsletter form input[type='submit']:hover {
   background: #e6573f;
 }
 
@@ -303,15 +293,6 @@ body {
 
 #footer a:hover {
   color: #e6573f;
-}
-
-#icones-nav a {
-  color: #fff;
-  font-size: 2rem;
-}
-
-#icones-nav a:hover {
-  color: #c7c7c7;
 }
 /* ICON BOX */
 .icon-box {
@@ -368,3 +349,23 @@ body {
   width: 100%;
   height: 35vh;
 }
+
+@media (max-width: 580px) {
+  .icones-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: initial;
+  }
+
+  #box-profile,
+  #box-cart {
+    padding: 0 10px;
+  }
+
+  #box-profile div,
+  #box-cart div {
+    display: none;
+  }
+} ;

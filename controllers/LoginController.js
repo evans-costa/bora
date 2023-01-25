@@ -3,13 +3,13 @@ const jwt = require("jsonwebtoken");
 const { jwtKey } = require("../config/secrets.js");
 
 function formLogin(req,res) {
-  return res.render('login')
+  return res.render('login', { userLogged: req.session.userLogged } )
 }
 
 async function login(req,res) {
   const { email } = req.body
-  const listaEventos = await database.Evento.findAll()
   const userToLogin = await database.User.findOne({
+    raw: true,
     where: { email }
   })
 
@@ -20,23 +20,15 @@ async function login(req,res) {
       { expiresIn: '1d' }
     )
     res.cookie("token", token)
-    return res.render('index', { eventos: listaEventos })
+    return res.redirect('/admin/listareventos')
+    
   }
-
-  req.session.userLogged = userToLogin.email
-  console.log(req.session)
-  return res.redirect('/login/profile')
+  delete userToLogin.senha
+  req.session.userLogged = userToLogin
+  return res.redirect(`/users/perfil/${userToLogin.id}`)
 };
-
-function viewsUserProfile(req,res) {
-  return res.render('userProfile', {
-    userLogged: req.session.userLogged
-  });
-}
-
 
 module.exports = {
     formLogin,
     login,
-    viewsUserProfile,
 }

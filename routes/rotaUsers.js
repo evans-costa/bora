@@ -1,20 +1,23 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const userMiddleware = require("../middlewares/userMiddleware");
-const UsersController = require("../controllers/UsersController");
-const authMiddleware = require("../middlewares/authMiddleware")
-// const ViewUserController = require("../controllers/ViewUsersController");
+const userMiddleware = require('../middlewares/userMiddleware');
+const UsersController = require('../controllers/UsersController');
+const loginAuthMiddleware = require('../middlewares/loginAuthMiddleware');
 
-router.get("/cadastrar/tipocadastro", UsersController.tipoCadastro)
+router.get('/cadastrar/tipocadastro', loginAuthMiddleware.logged, UsersController.tipoCadastro);
 
-router.get("/cadastrar/tipocadastro/pf", UsersController.cadastrar);
-router.post("/cadastrar/tipocadastro/pf", userMiddleware.inputValidationPf, userMiddleware.validateCadastroPf, UsersController.createUsers);
+router.get('/cadastrar/tipocadastro/pf', loginAuthMiddleware.logged, UsersController.cadastrarUsuario);
+router.post(
+  '/cadastrar/tipocadastro/pf',
+  userMiddleware.inputValidationPf,
+  userMiddleware.validateCadastroPf,
+  UsersController.createUsers
+);
 
-router.get("/", authMiddleware.validateToken, UsersController.getAllUsers);
+router.get('/perfil/:id', loginAuthMiddleware.notLogged, UsersController.telaPerfil);
+router.patch('/perfil/:id', UsersController.atualizarPerfil);
+router.delete('/perfil/:id/excluir', UsersController.excluirPerfil);
 
-router.get("/:id/editarusuario", authMiddleware.validateToken, UsersController.userUpdateForm);
-router.put("/:id/editarusuario", authMiddleware.validateToken, UsersController.userUpdate);
-router.delete("/:id/deletarusuario", authMiddleware.validateToken, UsersController.userDestroy);
-
+router.get('/sair', loginAuthMiddleware.notLogged, UsersController.logout);
 
 module.exports = router;

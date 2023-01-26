@@ -35,7 +35,11 @@
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasCart"
           aria-controls="offcanvasCart"></button>
-        <div>Carrinho</div>
+        <div>
+          Carrinho <% if (locals.carrinho) { %>
+          <span id="badge-count" class="badge btn-secondary m"><%= carrinho.length %></span>
+          <% } %>
+        </div>
       </div>
     </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
@@ -45,11 +49,13 @@
       </div>
       <div class="offcanvas-body-cart">
         <div class="cart-content">
+          <% if (locals.carrinho) { %> <% for ( let evento of carrinho ) { %>
           <div id="eventCartImage">
-            <img id="image-cart-thumb" class="rounded-float-start" src="" />
+            <img id="image-cart-thumb" class="rounded-float-start" src="<%= evento.imagem %> " />
           </div>
-          <div id="eventCartName"></div>
-          <div id="eventCartPrice"></div>
+          <div id="eventCartName"><%= evento.nome %></div>
+          <div id="eventCartPrice"><%= evento.preco %></div>
+          <% } %> <% } %>
         </div>
         <hr />
       </div>

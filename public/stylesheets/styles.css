@@ -66,6 +66,11 @@ body {
   margin-left: auto;
 }
 
+#badge-count {
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
 .icones-nav i,
 button {
   color: #fff;
@@ -79,14 +84,21 @@ button {
   display: flex;
   align-items: center;
   padding: 0 2rem;
+  padding-left: 5px;
+  font-size: 20px;
 }
 
-#box-profile div,
-#box-cart div {
+#box-profile div {
   display: flex;
   flex-direction: column;
   padding-left: 5px;
   font-size: 20px;
+}
+
+#box-cart div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #box-profile small {

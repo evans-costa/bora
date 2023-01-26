@@ -1,22 +1,38 @@
 const database = require('../database/models');
 
 const CarrinhoController = {
-  telaCarrinho: async (req, res) => {
+  adicionarEvento: async (req, res) => {
     const { id } = req.params;
-    const eventoCart = await database.Evento.findOne({
-      where: id,
+
+    const evento = await database.Evento.findOne({
+      raw: true,
+      where: { id },
     });
 
-    return res.render('carrinho', { eventoCart });
-  },
+    const eventoCarrinho = {
+      id: evento.id,
+      nome: evento.nome_evento,
+      preco: evento.preco_evento,
+      imagem: evento.imagem_evento,
+    };
 
-  cadastrarCarrinho: async (req, res) => {
-    const { id } = await database.UserEvento.create({
-      user_id: user,
-      evento_id: evento,
-    });
+    if (req.session.carrinho) {
+      const carrinho = req.session.carrinho;
+      carrinho.push(eventoCarrinho);
 
-    return res.render('/carrinho');
+      req.session.carrinho = carrinho;
+      console.log(req.session.carrinho);
+
+      return res.redirect('/eventos');
+    }
+
+    const carrinho = [];
+    carrinho.push(eventoCarrinho);
+
+    req.session.carrinho = carrinho;
+    console.log(req.session.carrinho);
+
+    return res.redirect('/eventos');
   },
 };
 

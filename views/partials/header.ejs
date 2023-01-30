@@ -1,7 +1,3 @@
-<!-- NOTA:
-  - Fazer offcanvas do carrinho 
--->
-
 <nav class="navbar navbar-dark bg-dark" id="nav-header">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
@@ -35,7 +31,11 @@
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasCart"
           aria-controls="offcanvasCart"></button>
-        <div>Carrinho</div>
+        <div>
+          Carrinho <% if (locals.carrinho) { %>
+          <span id="badge-count" class="badge btn-secondary m"><%= carrinho.length %></span>
+          <% } %>
+        </div>
       </div>
     </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
@@ -44,14 +44,20 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body-cart">
-        <div class="cart-content">
-          <div id="eventCartImage">
-            <img id="image-cart-thumb" class="rounded-float-start" src="" />
+        <div class="row justify-content-start align-items-center" id="cart-content">
+          <% if (locals.carrinho) { %> <% for ( let evento of carrinho ) { %>
+          <div class="col-4" id="eventCartImage">
+            <img id="image-cart-thumb" class="rounded-float-start" src="<%= evento.imagem %> " />
           </div>
-          <div id="eventCartName"></div>
-          <div id="eventCartPrice"></div>
+          <div class="col-4" id="eventCartName"><%= evento.nome %></div>
+          <div class="col-4" id="eventCartPrice">R$ <%= evento.preco %></div>
+          <% } %> <% } %>
         </div>
         <hr />
+      </div>
+      <div class="mt-auto mx-auto" id="cart-buttons-modal">
+        <a class="btn btn-outline-light m-3" href="/eventos" role="button">Continue comprando</a>
+        <a class="btn btn-primary m-3" href="/carrinho" role="button">Ir para o carrinho</a>
       </div>
     </div>
     <button

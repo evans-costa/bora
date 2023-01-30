@@ -6,6 +6,7 @@ const HomeController = {
     return res.render('index', {
       eventos: listaEventos,
       userLogged: req.session.userLogged,
+      carrinho: req.session.carrinho,
     });
   },
 };

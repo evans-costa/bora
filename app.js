@@ -18,6 +18,7 @@ const quemSomosRouter = require('./routes/quemSomosRoute');
 const carrinhoRouter = require('./routes/rotaCarrinho');
 
 const userDataMiddleware = require('./middlewares/userDataMiddleware');
+const carrinhoDataMiddleware = require('./middlewares/carrinhoDataMiddleware');
 
 const app = express();
 
@@ -31,6 +32,8 @@ app.use(
 app.use(cookieParser());
 
 app.use(userDataMiddleware);
+app.use(carrinhoDataMiddleware);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

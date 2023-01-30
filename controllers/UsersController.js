@@ -46,7 +46,7 @@ async function createUsers(req, res) {
 }
 
 function telaPerfil(req, res) {
-  return res.render('perfilUsuario', { userLogged: req.session.userLogged });
+  return res.render('perfilUsuario', { userLogged: req.session.userLogged, carrinho: req.session.carrinho });
 }
 
 async function atualizarPerfil(req, res) {

@@ -16,7 +16,7 @@
   <body>
     <%- include('./partials/header') %>
     <div class="container vh-100">
-      <h2>Carrinho de compras</h2>
+      <h2 id="cart-title">Carrinho de compras</h2>
       <div class="table-responsive w-70">
         <table class="table align-middle table-striped mt-4">
           <thead>
@@ -49,7 +49,7 @@
           </tbody>
         </table>
         <div class="float-end text-end">
-          <h2>Subtotal</h2>
+          <h2 id="subtotal">Subtotal</h2>
           <% let soma = 0 %> <% for (let i = 0; i < carrinho.length; i++) { %> <% soma +=
           Number.parseInt(carrinho[i].preco)%> <% } %>
           <h4>R$ <%=soma.toFixed(2)%></h4>

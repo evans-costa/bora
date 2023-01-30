@@ -114,17 +114,6 @@ button {
   flex-direction: column;
 }
 
-.cart-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cart-content div {
-  font-weight: 300;
-  font-size: 20px;
-}
-
 #eventCartImage img {
   width: 100px;
   height: 100px;

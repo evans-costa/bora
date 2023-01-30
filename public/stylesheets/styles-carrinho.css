@@ -1,0 +1,17 @@
+#img-carrinho {
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  padding: 20px;
+}
+
+#cart-buttons {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 2rem 0;
+}

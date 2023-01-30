@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: auto;
   height: 100%;
 }
 

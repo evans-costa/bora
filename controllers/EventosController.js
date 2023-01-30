@@ -3,22 +3,29 @@ const database = require('../database/models');
 const EventosController = {
   telaEventos: async (req, res) => {
     const listaEventos = await database.Evento.findAll();
-    return res.render('eventos', { eventos: listaEventos, userLogged: req.session.userLogged });
+    return res.render('eventos', {
+      eventos: listaEventos,
+      userLogged: req.session.userLogged,
+      carrinho: req.session.carrinho,
+    });
   },
 
   eventoPorId: async (req, res) => {
     const { id } = req.params;
     const evento = await database.Evento.findOne({
-      raw: true,
       where: { id },
     });
 
-    return res.render('evento', { evento, userLogged: req.session.userLogged });
+    return res.render('evento', { evento, userLogged: req.session.userLogged, carrinho: req.session.carrinho });
   },
 
   telaCadastroEvento: async (req, res) => {
     const findAllCategories = await database.Categoria.findAll();
-    return res.render('cadastrarEvento', { categories: findAllCategories, userLogged: req.session.userLogged });
+    return res.render('cadastrarEvento', {
+      categories: findAllCategories,
+      userLogged: req.session.userLogged,
+      carrinho: req.session.carrinho,
+    });
   },
 
   criarEvento: async (req, res) => {

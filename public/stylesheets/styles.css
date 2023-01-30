@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: auto;
   height: 100%;
   padding-top: 4.9rem;
   display: flex;
@@ -80,6 +80,11 @@ body {
   margin-left: auto;
 }
 
+#badge-count {
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
 .icones-nav i,
 button {
   color: #fff;
@@ -93,14 +98,21 @@ button {
   display: flex;
   align-items: center;
   padding: 0 2rem;
+  padding-left: 5px;
+  font-size: 20px;
 }
 
-#box-profile div,
-#box-cart div {
+#box-profile div {
   display: flex;
   flex-direction: column;
   padding-left: 5px;
   font-size: 20px;
+}
+
+#box-cart div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #box-profile small {
@@ -114,17 +126,6 @@ button {
 .offcanvas-body-cart {
   display: flex;
   flex-direction: column;
-}
-
-.cart-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cart-content div {
-  font-weight: 300;
-  font-size: 20px;
 }
 
 #eventCartImage img {

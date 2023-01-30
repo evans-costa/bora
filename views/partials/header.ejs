@@ -6,15 +6,20 @@
         alt="Logo"
         width="60"
         height="50"
-        class="d-inline-block align-text-center" />
+        class="d-inline-block align-text-center"
+      />
     </a>
     <div class="icones-nav">
       <div id="box-profile">
         <% if (locals.userIsLogged) { %>
-        <a href="/users/perfil/<%=userLogged.id%>"><i id="profile-icon" class="bi bi-file-person"></i></a>
+        <a href="/users/perfil/<%=userLogged.id%>"
+          ><i id="profile-icon" class="bi bi-file-person"></i
+        ></a>
         <div>Olá, <%=userLogged.first_name %>!</div>
         <% } else if (locals.adminIsLogged) { %>
-        <a href="/admin/listareventos"><i id="admin-icon" class="bi bi-person-gear"></i></a>
+        <a href="/admin/listareventos"
+          ><i id="admin-icon" class="bi bi-person-gear"></i
+        ></a>
         <div>Olá, Administrador!</div>
         <% } else { %>
         <a href="/login"><i id="guest-icon" class="bi bi-file-person"></i></a>
@@ -38,10 +43,22 @@
         </div>
       </div>
     </div>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasCart"
+      aria-labelledby="offcanvasCartLabel"
+    >
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasCartLabel">Carrinho de Compras</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <h5 class="offcanvas-title" id="offcanvasCartLabel">
+          Carrinho de Compras
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="offcanvas-body-cart">
         <div class="row justify-content-start align-items-center" id="cart-content">
@@ -65,7 +82,8 @@
       type="button"
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasDarkNavbar"
-      aria-controls="offcanvasDarkNavbar">
+      aria-controls="offcanvasDarkNavbar"
+    >
       <div class="navbar-toggler-icon" id="nav-icon2">
         <span></span>
         <span></span>
@@ -79,36 +97,51 @@
       class="offcanvas offcanvas-end text-bg-dark"
       tabindex="-1"
       id="offcanvasDarkNavbar"
-      aria-labelledby="offcanvasDarkNavbarLabel">
+      aria-labelledby="offcanvasDarkNavbarLabel"
+    >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
-          <% if (locals.userIsLogged) { %> Olá, <%=userLogged.first_name %>! <% } else if (locals.adminIsLogged) { %>
-          Administrador <% } else { %> Olá, faça seu login! <% } %>
+          <% if (locals.userIsLogged) { %> Olá, <%=userLogged.first_name %>! <%
+          } else if (locals.adminIsLogged) { %> Administrador <% } else { %>
+          Olá, faça seu login! <% } %>
         </h5>
-        <button type="button" class="btn-close btn-close-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close btn-close-light"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
           <% if (locals.adminIsLogged) { %>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/listarusuarios">Listagem de Usuários</a>
+            <a class="nav-link" href="/admin/listarusuarios"
+              >Listagem de Usuários</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/listareventos">Listagem de Eventos</a>
+            <a class="nav-link" href="/admin/listareventos"
+              >Listagem de Eventos</a
+            >
           </li>
           <% } %> <% if (locals.userIsLogged) { %>
           <li class="nav-item">
-            <a class="nav-link" href="/users/perfil/<%= userLogged.id %> ">Perfil</a>
+            <a class="nav-link" href="/users/perfil/<%= userLogged.id %> "
+              >Perfil</a
+            >
           </li>
           <% } else { %>
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/users/cadastrar/tipocadastro">Cadastrar</a>
+            <a class="nav-link" href="/users/cadastrar/tipocadastro"
+              >Cadastrar</a
+            >
           </li>
           <% } %>
           <li class="nav-item">

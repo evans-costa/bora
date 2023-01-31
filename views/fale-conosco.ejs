@@ -28,19 +28,19 @@
         </p>
       </section>
 
-      <form class="commentForm">
+      <form class="commentForm" method="post">
         <strong>Deixe a sua Mensagem</strong>
 
-        <textarea placeholder="deixe um comentário"></textarea>
+        <textarea name="message" placeholder="deixe um comentário"></textarea>
 
         <div class="inputBox">
           <div>
             <label for="name">Nome Completo</label>
-            <input type="text" id="name" placeholder="Digite seu nome" />
+            <input type="text" id="name" name="full_name" placeholder="Digite seu nome" />
           </div>
           <div>
             <label for="email">Informe seu Email</label>
-            <input type="text" id="email" placeholder="Digite seu Email" />
+            <input type="text" id="email" name="email" placeholder="Digite seu Email" />
           </div>
         </div>
 

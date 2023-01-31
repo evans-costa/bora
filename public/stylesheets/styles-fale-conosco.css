@@ -62,7 +62,6 @@ main {
 }
 
 .commentForm footer {
-  visibility: hidden;
   max-width: 0;
 }
 

@@ -1,8 +1,8 @@
-const database = require('../database/models');
+const database = require("../database/models");
 
 const CarrinhoController = {
   telaCarrinho: async (req, res) => {
-    return res.render('carrinho', {
+    return res.render("carrinho", {
       userLogged: req.session.userLogged,
       carrinho: req.session.carrinho,
     });
@@ -28,8 +28,9 @@ const CarrinhoController = {
       carrinho.push(eventoCarrinho);
 
       req.session.carrinho = carrinho;
+      console.log(carrinho);
 
-      return res.redirect('/carrinho');
+      return res.redirect("/carrinho");
     }
 
     const carrinho = [];
@@ -37,7 +38,7 @@ const CarrinhoController = {
 
     req.session.carrinho = carrinho;
 
-    return res.redirect('/carrinho');
+    return res.redirect("/carrinho");
   },
 
   excluirEvento: async (req, res) => {
@@ -50,9 +51,9 @@ const CarrinhoController = {
       carrinho.splice(index, 1);
 
       if (carrinho.length === 0) {
-        return res.redirect('/eventos');
+        return res.redirect("/eventos");
       } else {
-        return res.redirect('/carrinho');
+        return res.redirect("/carrinho");
       }
     }
   },

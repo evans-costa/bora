@@ -35,30 +35,20 @@
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasCart"
+
           aria-controls="offcanvasCart"></button>
         <div>
           Carrinho <% if (locals.carrinho) { %>
           <span id="badge-count" class="badge btn-secondary m"><%= carrinho.length %></span>
           <% } %>
         </div>
+
       </div>
     </div>
-    <div
-      class="offcanvas offcanvas-end"
-      tabindex="-1"
-      id="offcanvasCart"
-      aria-labelledby="offcanvasCartLabel"
-    >
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasCartLabel">
-          Carrinho de Compras
-        </h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
+        <h5 class="offcanvas-title" id="offcanvasCartLabel">Carrinho de Compras</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body-cart">
         <div class="row justify-content-start align-items-center" id="cart-content">

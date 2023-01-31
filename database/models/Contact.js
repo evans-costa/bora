@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
 				autoIncrement: true,
 				primaryKey: true,
 			},
-			nome: {
+			full_name: {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
 			},
 			fk_user: {
 				type: DataTypes.INTEGER,
-				allowNull: false,
+				allowNull: true,
 			},
 		},
 		{

@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const EventosController = require("../controllers/PagamentoController")
+const PagamentoController = require("../controllers/PagamentoController");
+const loginAuthMiddleware = require("../middlewares/loginAuthMiddleware");
 
 
-router.get('/', EventosController.index)
+router.get('/', loginAuthMiddleware.notLogged, PagamentoController.telaPagamento);
+router.post('/', loginAuthMiddleware.notLogged, PagamentoController.criarPedido);
 
 
 module.exports = router;

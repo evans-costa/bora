@@ -28,7 +28,6 @@ const CarrinhoController = {
       carrinho.push(eventoCarrinho);
 
       req.session.carrinho = carrinho;
-      console.log(carrinho);
 
       return res.redirect("/carrinho");
     }

@@ -8,6 +8,6 @@ router.get('/', loginAuthMiddleware.notLogged, CarrinhoController.telaCarrinho);
 
 router.get('/:id', loginAuthMiddleware.notLogged, carrinhoMiddleware.findDuplicate, CarrinhoController.adicionarEvento);
 
-router.get('/:id/excluirevento', CarrinhoController.excluirEvento);
+router.get('/:id/excluirevento', loginAuthMiddleware.notLogged, CarrinhoController.excluirEvento);
 
 module.exports = router;

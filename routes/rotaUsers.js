@@ -27,8 +27,8 @@ router.get(
   loginAuthMiddleware.notLogged,
   UsersController.telaPerfil
 );
-router.patch("/perfil/:id", UsersController.atualizarPerfil);
-router.delete("/perfil/:id/excluir", UsersController.excluirPerfil);
+router.patch("/perfil/:id", loginAuthMiddleware.notLogged, UsersController.atualizarPerfil);
+router.delete("/perfil/:id/excluir", loginAuthMiddleware.notLogged, UsersController.excluirPerfil);
 
 router.get("/sair", loginAuthMiddleware.notLogged, UsersController.logout);
 

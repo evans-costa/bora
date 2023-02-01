@@ -1,0 +1,17 @@
+#liveToast {
+  z-index: 3;
+  top: 12vh;
+  right: 0;
+  position: fixed;
+}
+
+#imagem-evento {
+  height: 5vh;
+  width: auto;
+  margin-right: 2vw;
+}
+
+.btn-close {
+  height: 1vh;
+  width: 1vw;
+}

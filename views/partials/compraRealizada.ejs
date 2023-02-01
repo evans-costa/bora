@@ -1,22 +1,9 @@
-<div
-  class="toast"
-  role="alert"
-  aria-live="assertive"
-  aria-atomic="true"
-  id="liveToast"
->
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="liveToast" data-bs-delay="5800">
   <div class="toast-header">
     <img src="<%=evento.imagem_evento%>" alt="..." id="imagem-evento" />
-    <strong class="me-auto"
-      >Sua compra de <%=evento.nome_evento%> não pode ser realizada</strong
-    >
+    <strong class="me-auto">Sua compra de <%=evento.nome_evento%> não pode ser realizada</strong>
     <small class="text-muted"></small>
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="toast"
-      aria-label="Close"
-    ></button>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
   </div>
   <div
     class="progress"
@@ -24,8 +11,7 @@
     aria-label="Example 1px high"
     aria-valuemin="0"
     aria-valuemax="100"
-    style="height: 5px"
-  >
+    style="height: 5px">
     <div class="progress-bar" id="barra"></div>
   </div>
   <div class="toast-body">Evento já adicionado ao carrinho</div>

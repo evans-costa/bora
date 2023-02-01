@@ -4,8 +4,7 @@ function findDuplicate(req, res, next) {
 
     for (let evento of carrinho) {
       if (evento.id == req.params.id) {
-        return
-
+        return;
       }
     }
   }

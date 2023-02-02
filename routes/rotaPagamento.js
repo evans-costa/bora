@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const PagamentoController = require("../controllers/PagamentoController");
-const loginAuthMiddleware = require("../middlewares/loginAuthMiddleware");
+const isLoggedMiddleware = require("../middlewares/isLoggedMiddleware");
 
 
-router.get('/', loginAuthMiddleware.notLogged, PagamentoController.telaPagamento);
-router.post('/', loginAuthMiddleware.notLogged, PagamentoController.criarPedido);
+router.get('/', isLoggedMiddleware.notLogged, PagamentoController.telaPagamento);
+router.post('/', isLoggedMiddleware.notLogged, PagamentoController.criarPedido);
 
 
 module.exports = router;

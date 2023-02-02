@@ -2,17 +2,17 @@ const express = require("express");
 const router = express.Router();
 const userMiddleware = require("../middlewares/userMiddleware");
 const UsersController = require("../controllers/UsersController");
-const loginAuthMiddleware = require("../middlewares/loginAuthMiddleware");
+const isLoggedMiddleware = require("../middlewares/isLoggedMiddleware");
 
 router.get(
   "/cadastrar/tipocadastro",
-  loginAuthMiddleware.logged,
+  isLoggedMiddleware.logged,
   UsersController.tipoCadastro
 );
 
 router.get(
   "/cadastrar/tipocadastro/pf",
-  loginAuthMiddleware.logged,
+  isLoggedMiddleware.logged,
   UsersController.cadastrarUsuario
 );
 router.post(
@@ -24,12 +24,12 @@ router.post(
 
 router.get(
   "/perfil/:id",
-  loginAuthMiddleware.notLogged,
+  isLoggedMiddleware.notLogged,
   UsersController.telaPerfil
 );
-router.patch("/perfil/:id", loginAuthMiddleware.notLogged, UsersController.atualizarPerfil);
-router.delete("/perfil/:id/excluir", loginAuthMiddleware.notLogged, UsersController.excluirPerfil);
+router.patch("/perfil/:id", isLoggedMiddleware.notLogged, UsersController.atualizarPerfil);
+router.delete("/perfil/:id/excluir", isLoggedMiddleware.notLogged, UsersController.excluirPerfil);
 
-router.get("/sair", loginAuthMiddleware.notLogged, UsersController.logout);
+router.get("/sair", isLoggedMiddleware.notLogged, UsersController.logout);
 
 module.exports = router;

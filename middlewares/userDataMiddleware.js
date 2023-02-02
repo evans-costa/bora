@@ -9,7 +9,7 @@ function userData(req, res, next) {
     res.locals.userIsLogged = true;
   } else if (req.cookies.token) {
     res.locals.adminIsLogged = true;
-  } else {
+  } else if (req.session.funcionarioLogged) {
     res.locals.funcionarioIsLogged = true;
   }
   next();

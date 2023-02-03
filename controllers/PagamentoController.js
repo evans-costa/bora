@@ -5,15 +5,21 @@ const PagamentoController = {
     return res.render('telaPagamento', { userLogged: req.session.userLogged, carrinho: req.session.carrinho });
   },
 
-  criarPedido: async (req, res) => {
-    const user = req.session.userLogged;
+  pedidoEvento: async (req, res) => {
     const carrinho = req.session.carrinho;
+    const user = req.session.userLogged;
+
+    const pedido = await database.Pedidos.findOne({
+      where: {
+        user_id: user.id
+      }
+    });
 
     for (let evento of carrinho) {
-      await database.UserEvento.create({
+      await database.PedidoEventos.create({
         evento_id: evento.id,
-        user_id: user.id,
-        data_pedido: Date.now()
+        pedido_id: pedido.id,
+        preco: evento.preco
       });
     }
 

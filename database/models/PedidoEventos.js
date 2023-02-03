@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const UserEvento = sequelize.define(
-    "UserEvento", {
+  const PedidoEventos = sequelize.define(
+    "PedidoEventos", {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -10,16 +10,19 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    user_id: {
+    pedido_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    }
-
+    },
+    preco: {
+      type: DataTypes.DECIMAL(8, 2),
+      allowNull: false,
+    },
   },
     {
-      tableName: "user_evento",
+      tableName: "pedido_eventos",
       timestamps: false,
     }
   );
-  return UserEvento;
+  return PedidoEventos;
 };

@@ -5,6 +5,15 @@
   position: fixed;
 }
 
+.btn-active {
+  background-color: orange;
+  border-color: rgb(250, 179, 47);
+}
+
+.disabled {
+  pointer-events: none;
+}
+
 #imagem-evento {
   height: 5vh;
   width: auto;
@@ -14,4 +23,9 @@
 .btn-close {
   height: 1vh;
   width: 1vw;
+}
+
+.btn-innactive {
+  background-color: grey;
+  color: darkgray;
 }

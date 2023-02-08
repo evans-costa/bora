@@ -15,6 +15,7 @@ router.get(
   isLoggedMiddleware.logged,
   UsersController.cadastrarUsuario
 );
+
 router.post(
   "/cadastrar/tipocadastro/pf",
   userMiddleware.inputValidationPf,

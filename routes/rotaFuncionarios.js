@@ -1,11 +1,43 @@
 const express = require("express");
 const router = express.Router();
-const FuncionarioController = require("../controllers/FuncionariosController");
-const funcionarioMiddleware = require("../middlewares/funcionarioMiddleware")
+const multerUpload = require("../config/multer");
+const FuncionariosController = require("../controllers/FuncionariosController");
+const funcionarioMiddleware = require("../middlewares/funcionarioMiddleware");
+const authStaffMiddleware = require("../middlewares/authMiddlewareStaff");
+const staffLoggedMiddleware = require("../middlewares/staffLoggedMiddleware");
 
-router.get("/")
+router.get("/", staffLoggedMiddleware.notLogged, FuncionariosController.telaFuncionarios);
 
-router.get("/cadastrar/tipocadastro/pj", FuncionarioController.cadastrarFuncionario);
-router.post("/cadastrar/tipocadastro/pj", funcionarioMiddleware.inputValidationPj, funcionarioMiddleware.validateCadastroPj, FuncionarioController.createFuncionario);
+router.post("/login",
+  authStaffMiddleware.inputValidation,
+  authStaffMiddleware.validateStaff,
+  FuncionariosController.loginFuncionario
+);
+router.get("/sair", staffLoggedMiddleware.notLogged, FuncionariosController.logout);
 
-module.exports = router
+router.get("/:staffid/listareventos", staffLoggedMiddleware.notLogged, FuncionariosController.telaListarEventos);
+router.get("/:staffid/listareventos/pesquisar", staffLoggedMiddleware.notLogged, FuncionariosController.pesquisarEvento);
+
+router.get(
+  "/:staffid/evento/:id/editarevento",
+  staffLoggedMiddleware.notLogged,
+  FuncionariosController.telaEditarEvento
+);
+
+
+router.put(
+  "/:staffid/evento/:id/editarevento",
+  staffLoggedMiddleware.notLogged,
+  multerUpload.single("file"),
+  FuncionariosController.atualizarEventoPorId
+);
+router.delete(
+  "/:staffid/evento/:id/deletarevento",
+  staffLoggedMiddleware.notLogged,
+  FuncionariosController.excluirEventoPorId
+);
+
+router.get("/cadastrar/tipocadastro/pj", staffLoggedMiddleware.logged, FuncionariosController.cadastrarFuncionario);
+router.post("/cadastrar/tipocadastro/pj", funcionarioMiddleware.inputValidationPj, funcionarioMiddleware.validateCadastroPj, FuncionariosController.createFuncionario);
+
+module.exports = router;

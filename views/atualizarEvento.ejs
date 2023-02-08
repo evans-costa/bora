@@ -19,7 +19,7 @@
         <div class="title-form">
           <h1>Atualizar Evento - <%= evento.nome_evento %></h1>
         </div>
-        <form id="form-evento" method="post" enctype="multipart/form-data">
+        <form id="form-evento" method="post" action="?_method=PUT" enctype="multipart/form-data">
           <label for="picture">Link da foto da capa</label>
           <input id="picture" name="picture" type="text" value="<%= evento.imagem_evento %> " />
 

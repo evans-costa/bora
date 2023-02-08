@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const { jwtKey } = require("../config/secrets.js");
 
 function formLogin(req, res) {
-  return res.render("login", { userLogged: req.session.userLogged });
+  return res.render("login", { userLogged: req.session.userLogged, funcionarioLogged: req.session.funcionarioLogged });
 }
 
 async function login(req, res) {
@@ -26,20 +26,7 @@ async function login(req, res) {
   return res.redirect(`/users/perfil/${userToLogin.id}`);
 }
 
-async function loginFuncionario(req, res) {
-  const { email } = req.body;
-  const staffToLogin = await database.Funcionario.findOne({
-    raw: true,
-    where: { email_empresa: email },
-  });
-
-  delete staffToLogin.senha;
-  req.session.funcioarioLogged = staffToLogin;
-  return res.redirect("/funcionarios");
-}
-
 module.exports = {
   formLogin,
   login,
-  loginFuncionario
 };

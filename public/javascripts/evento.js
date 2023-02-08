@@ -18,6 +18,7 @@ function barra() {
         progressBar.style.width = "100%";
         btContent.classList.remove('disabled')
         btContent.innerHTML = ' <i class="bi bi-cart"></i> COMPRAR'
+        toast.hide();
       }, 1000);
 
     } else {

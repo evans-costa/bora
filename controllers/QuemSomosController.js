@@ -1,5 +1,5 @@
 function quemSomosView(req, res) {
-  return res.render('quemSomos', { userLogged: req.session.userLogged, carrinho: req.session.carrinho });
+  return res.render('quemSomos', { userLogged: req.session.userLogged, funcionarioLogged: req.session.funcionarioLogged, carrinho: req.session.carrinho });
 }
 
 module.exports = {

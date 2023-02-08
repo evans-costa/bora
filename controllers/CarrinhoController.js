@@ -4,6 +4,7 @@ const CarrinhoController = {
   telaCarrinho: async (req, res) => {
     return res.render("carrinho", {
       userLogged: req.session.userLogged,
+      funcionarioLogged: req.session.funcionarioLogged,
       carrinho: req.session.carrinho,
     });
   },

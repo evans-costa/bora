@@ -1,5 +1,6 @@
 const database = require("../database/models");
 const bcrypt = require("bcrypt");
+const { Sequelize } = require('sequelize');
 
 const AdminController = {
   telaAdmin: (req, res) => {
@@ -25,7 +26,7 @@ const AdminController = {
       }
     });
 
-    return res.render('editarEventos', { eventos: listaEventos, userLogged: req.session.userLogged });
+    return res.render('listaEventos', { eventos: listaEventos, userLogged: req.session.userLogged });
   },
 
   telaEditarEvento: async (req, res) => {
@@ -77,7 +78,7 @@ const AdminController = {
   // CRUD USUÁRIOS
   telaListarUsuarios: async (req, res) => {
     const user = await database.User.findAll();
-    res.render("listaUsuarios", { user, userLogged: req.session.userLogged });
+    res.render("listaUsuarios", { user });
   },
 
   telaEditarUsuario: async (req, res) => {
@@ -140,6 +141,53 @@ const AdminController = {
     return res.redirect("/admin/listarusuarios");
   },
 
+  //CRUD FUNCIONARIOS
+  telaListarFuncionarios: async (req, res) => {
+    const getFuncionarios = await database.Funcionario.findAll();
+    res.render("listaFuncionarios", { funcionarios: getFuncionarios });
+  },
+
+  telaEditarFuncionario: async (req, res) => {
+    const { id } = req.params;
+    const getFuncionario = await database.Funcionario.findOne({
+      where: { id }
+    });
+    const findAllDepartments = await database.Departamento.findAll();
+    res.render('atualizarFuncionario', { funcionario: getFuncionario, departamentos: findAllDepartments });
+  },
+
+  atualizarFuncionarioPorId: async (req, res) => {
+    const { id } = req.params;
+    const { nome_completo, email_empresa, cnpj, dt_nascimento, cpf, dt_admissao, departamento_id, cargo } = req.body;
+
+    await database.Funcionario.update({
+      nome_completo,
+      email_empresa,
+      cnpj,
+      dt_nascimento,
+      cpf,
+      dt_admissao,
+      fk_departamento: departamento_id,
+      cargo
+    },
+      {
+        where: {
+          id,
+        },
+      });
+
+    return res.redirect("/admin/listarfuncionarios");
+  },
+
+  excluirFuncionarioPorId: async (req, res) => {
+    const { id } = req.params;
+    await database.Funcionario.destroy({
+      where: {
+        id,
+      },
+    });
+    return res.redirect("/admin/listarfuncionarios");
+  },
 
 };
 

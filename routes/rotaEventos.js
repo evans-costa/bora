@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const EventosController = require('../controllers/EventosController');
 const multerUpload = require('../config/multer');
+const staffLoggedMiddleware = require("../middlewares/staffLoggedMiddleware");
 
 // Ir para a tela eventos
 router.get('/', EventosController.telaEventos);
@@ -12,12 +13,12 @@ router.get('/:id/evento', EventosController.eventoPorId);
 // Ir para a tela de cadastro e criar um novo Evento
 router.get(
   '/cadastroevento',
-  // loginMiddleware.validateToken,
+  staffLoggedMiddleware.notLogged,
   EventosController.telaCadastroEvento
 );
 router.post(
   '/cadastroevento',
-  // loginMiddleware.validateToken,
+  staffLoggedMiddleware.notLogged,
   multerUpload.single('file'),
   EventosController.criarEvento
 );

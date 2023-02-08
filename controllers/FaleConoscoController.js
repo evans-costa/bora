@@ -3,7 +3,7 @@ const db = require("../database/models");
 function entrarEmContato(req, res) {
 
   console.log(req.body);
-  res.render('faleConosco', { userLogged: req.session.userLogged });
+  res.render('faleConosco', { userLogged: req.session.userLogged, funcionarioLogged: req.session.funcionarioLogged, });
 }
 
 async function faleConoscoCreate(req, res) {

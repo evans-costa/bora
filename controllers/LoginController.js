@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const { jwtKey } = require("../config/secrets.js");
 
 function formLogin(req, res) {
-  return res.render("login", { userLogged: req.session.userLogged });
+  return res.render("login", { userLogged: req.session.userLogged, funcionarioLogged: req.session.funcionarioLogged });
 }
 
 async function login(req, res) {

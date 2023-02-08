@@ -37,6 +37,9 @@ module.exports = (sequelize, DataTypes) => {
       destaque_carrosel: {
         type: DataTypes.STRING,
       },
+      fK_funcionario: {
+        type: DataTypes.INTEGER,
+      }
     },
     {
       tableName: "eventos",
@@ -62,6 +65,13 @@ module.exports = (sequelize, DataTypes) => {
     Evento.belongsToMany(models.Pedidos, {
       through: "pedido_eventos",
       foreignKey: "evento_id"
+    });
+  };
+
+  Evento.associate = (models) => {
+    Evento.belongsTo(models.Funcionario, {
+      foreignKey: "fk_funcionario",
+      as: "funcionario"
     });
   };
   return Evento;

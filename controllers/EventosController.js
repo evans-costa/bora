@@ -6,6 +6,7 @@ const EventosController = {
     return res.render('eventos', {
       eventos: listaEventos,
       userLogged: req.session.userLogged,
+      funcionarioLogged: req.session.funcionarioLogged,
       carrinho: req.session.carrinho,
     });
   },
@@ -16,20 +17,20 @@ const EventosController = {
       where: { id },
     });
 
-    return res.render('evento', { evento, userLogged: req.session.userLogged, carrinho: req.session.carrinho });
+    return res.render('evento', { evento, userLogged: req.session.userLogged, funcionarioLogged: req.session.funcionarioLogged, carrinho: req.session.carrinho });
   },
 
   telaCadastroEvento: async (req, res) => {
     const findAllCategories = await database.Categoria.findAll();
     return res.render('cadastrarEvento', {
       categories: findAllCategories,
-      userLogged: req.session.userLogged,
-      carrinho: req.session.carrinho,
+      funcionarioLogged: req.session.funcionarioLogged,
     });
   },
 
   criarEvento: async (req, res) => {
     const { picture, title, description, date, price, category_id, home_highlight, carousel_highlight } = req.body;
+    const funcionario = req.session.funcionarioLogged;
 
     let fileLocation = '';
 
@@ -48,6 +49,7 @@ const EventosController = {
       imagem_evento: fileLocation,
       destaque_home: home_highlight,
       destaque_carrosel: carousel_highlight,
+      fk_funcionario: funcionario.id
     });
 
     return res.redirect('/');

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/stylesheets/styles.css" />
     <link rel="stylesheet" href="/stylesheets/events-list.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
-    <title>Administrador - Lista de Eventos</title>
+    <title>Administrador - Lista de Funcionários</title>
   </head>
 
   <body>
@@ -43,18 +43,8 @@
             <a class="nav-link" href="/admin/listareventos">Lista de Eventos</a>
             <a class="nav-link" href="/admin/listarusuarios">Lista de Usuários</a>
             <a class="nav-link" href="/admin/listarfuncionarios">Lista de Funcionários</a>
-            <a class="nav-link" href="/eventos/cadastroevento">Cadastrar Evento</a>
             <a class="nav-link" href="/admin/sair">Sair</a>
           </div>
-          <form class="d-flex" role="search" method="GET" action="/admin/listareventos/pesquisar">
-            <input
-              class="form-control me-2"
-              type="search"
-              name="key"
-              placeholder="Pesquisar Evento"
-              aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-          </form>
         </div>
       </div>
     </nav>
@@ -64,22 +54,26 @@
         <thead>
           <tr>
             <th scope="col">ID #</th>
-            <th scope="col">Nome do Evento</th>
-            <th scope="col">Data</th>
+            <th scope="col">Nome do Funcionário</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">CNPJ</th>
             <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
-          <% for (let evento of eventos ) { %>
+          <% for (let funcionario of funcionarios ) { %>
           <tr>
-            <th scope="row"><%=evento.id%></th>
-            <td><%=evento.nome_evento%></td>
-            <td><%=evento.data_evento%></td>
+            <th scope="row"><%=funcionario.id%></th>
+            <td><%=funcionario.nome_completo%></td>
+            <td><%=funcionario.email_empresa%></td>
+            <td><%=funcionario.cnpj%></td>
             <td>
               <div class="btn-group" role="group" aria-label="action edition buttons">
-                <a href="<%=evento.id%>/evento/editarevento" class="btn btn-primary">Ver / Alterar Dados</a>
-                <form method="post" action="<%=evento.id%>/evento/deletarevento?_method=DELETE">
-                  <button class="btn btn-danger" type="submit">Excluir Evento</button>
+                <a href="<%=funcionario.id%>/funcionario/editarfuncionario" class="btn btn-primary"
+                  >Ver / Alterar Dados</a
+                >
+                <form method="post" action="<%=funcionario.id%>/funcionario/deletarfuncionario?_method=DELETE">
+                  <button class="btn btn-danger" type="submit">Excluir Funcionário</button>
                 </form>
               </div>
             </td>

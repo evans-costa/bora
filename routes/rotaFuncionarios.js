@@ -1,11 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const FuncionarioController = require("../controllers/FuncionariosController");
-const funcionarioMiddleware = require("../middlewares/funcionarioMiddleware")
+const FuncionariosController = require("../controllers/FuncionariosController");
+const funcionarioMiddleware = require("../middlewares/funcionarioMiddleware");
+const authStaffMiddleware = require("../middlewares/authMiddlewareStaff");
 
-router.get("/")
+router.get("/", FuncionariosController.telaFuncionarios);
 
-router.get("/cadastrar/tipocadastro/pj", FuncionarioController.cadastrarFuncionario);
-router.post("/cadastrar/tipocadastro/pj", funcionarioMiddleware.inputValidationPj, funcionarioMiddleware.validateCadastroPj, FuncionarioController.createFuncionario);
+router.post("/login",
+  authStaffMiddleware.inputValidation,
+  authStaffMiddleware.validateStaff,
+  FuncionariosController.loginFuncionario);
 
-module.exports = router
+router.get("/cadastrar/tipocadastro/pj", FuncionariosController.cadastrarFuncionario);
+router.post("/cadastrar/tipocadastro/pj", funcionarioMiddleware.inputValidationPj, funcionarioMiddleware.validateCadastroPj, FuncionariosController.createFuncionario);
+
+module.exports = router;

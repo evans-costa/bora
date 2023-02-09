@@ -63,15 +63,16 @@ module.exports = (sequelize, DataTypes) => {
 
   Evento.associate = (models) => {
     Evento.belongsToMany(models.Pedidos, {
-      through: "pedido_eventos",
-      foreignKey: "evento_id"
+      as: 'pedidos',
+      through: models.PedidoEventos,
+      foreignKey: "evento_id",
+      otherKey: "pedido_id",
     });
   };
 
   Evento.associate = (models) => {
     Evento.belongsTo(models.Funcionario, {
       foreignKey: "fk_funcionario",
-      as: "funcionario"
     });
   };
   return Evento;

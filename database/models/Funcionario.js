@@ -55,7 +55,6 @@ module.exports = (sequelize, DataTypes) => {
   Funcionario.associate = (models) => {
     Funcionario.belongsTo(models.Departamento, {
       foreignKey: "fk_departamento",
-      as: "departamento",
     });
   };
 

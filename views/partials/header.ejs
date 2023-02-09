@@ -17,7 +17,9 @@
         <a href="/admin/listareventos"><i id="admin-icon" class="bi bi-person-gear"></i></a>
         <div>Olá, Administrador!</div>
         <% } else if (locals.funcionarioIsLogged) { %>
-        <a href="/"><i id="staff-icon" class="bi bi-person-vcard"></i></a>
+        <a href="/funcionarios/<%= funcionarioLogged.id %>/listareventos"
+          ><i id="staff-icon" class="bi bi-person-vcard"></i
+        ></a>
         <div>Olá, <%=funcionarioLogged.nome_completo%>!</div>
         <% } else { %>
         <a href="/login"><i id="guest-icon" class="bi bi-file-person"></i></a>
@@ -103,9 +105,25 @@
           <li class="nav-item">
             <a class="nav-link" href="/admin/listareventos">Listagem de Eventos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/sair">Sair</a>
+          </li>
           <% } %> <% if (locals.userIsLogged) { %>
           <li class="nav-item">
+            <a class="nav-link" href="/users/sair">Sair</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/users/perfil/<%= userLogged.id %> ">Perfil</a>
+          </li>
+          <% } %> <% if (locals.funcionarioIsLogged) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/funcionarios/<%= funcionarioLogged.id %>/listareventos">Listagem de Eventos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/eventos/cadastroevento">Cadastrar Eventos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/funcionarios/sair">Sair</a>
           </li>
           <% } else { %>
           <li class="nav-item">
@@ -114,7 +132,6 @@
           <li class="nav-item">
             <a class="nav-link" href="/users/cadastrar/tipocadastro">Cadastrar</a>
           </li>
-          <% } %>
           <li class="nav-item">
             <a class="nav-link" href="/eventos">Eventos</a>
           </li>
@@ -124,6 +141,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/faleconosco">Fale Conosco</a>
           </li>
+          <% } %>
         </ul>
       </div>
     </div>

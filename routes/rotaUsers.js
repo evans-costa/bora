@@ -28,6 +28,13 @@ router.get(
   isLoggedMiddleware.notLogged,
   UsersController.telaPerfil
 );
+
+router.get(
+  "/perfil/:id/pedido/:pedidoid",
+  isLoggedMiddleware.notLogged,
+  UsersController.telaPedidosUser
+);
+
 router.patch("/perfil/:id", isLoggedMiddleware.notLogged, UsersController.atualizarPerfil);
 router.delete("/perfil/:id/excluir", isLoggedMiddleware.notLogged, UsersController.excluirPerfil);
 

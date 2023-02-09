@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       through: models.PedidoEventos,
       foreignKey: "pedido_id",
       otherKey: "evento_id",
-      as: "eventos"
+      as: "evento"
     });
   };
 

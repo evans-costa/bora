@@ -53,20 +53,26 @@ async function telaPerfil(req, res) {
     }
   });
 
+  return res.render('perfilUsuario', { pedidos: getPedido, userLogged: req.session.userLogged, carrinho: req.session.carrinho });
+}
+
+async function telaPedidosUser(req, res) {
+  const pedidoId = req.params.pedidoid;
+
   const getItensPedido = await database.Pedidos.findAll({
     where: {
-      user_id: id
+      id: pedidoId
     },
     include: [{
       model: database.Evento,
-      as: "eventos",
+      as: "evento",
       required: true
     }],
     raw: true,
     nest: true,
   });
 
-  return res.render('perfilUsuario', { pedidos: getPedido, itens: getItensPedido, userLogged: req.session.userLogged, carrinho: req.session.carrinho });
+  return res.render('pedidosUsuario', { itens: getItensPedido, userLogged: req.session.userLogged, carrinho: req.session.carrinho });
 }
 
 async function atualizarPerfil(req, res) {
@@ -120,6 +126,7 @@ module.exports = {
   tipoCadastro,
   createUsers,
   telaPerfil,
+  telaPedidosUser,
   atualizarPerfil,
   excluirPerfil,
   logout,

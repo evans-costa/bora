@@ -210,7 +210,49 @@
         </div>
         <div class="col-cards">
           <div class="card">
-            <button class="btn btn-primary">Pedidos</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pedidosModal">
+              Pedidos
+            </button>
+            <div
+              class="modal fade"
+              id="pedidosModal"
+              tabindex="-1"
+              aria-labelledby="pedidosModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="pedidosModalLabel">Pedidos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col"># Pedido</th>
+                          <th scope="col">Data</th>
+                          <th scope="col">Detalhes</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% for (let pedido of pedidos) { %>
+                        <tr>
+                          <th scope="row"><%= pedido.id %></th>
+                          <td><%= pedido.data.toDateString("pt-br") %></td>
+                          <td>
+                            <button type="button" class="btn btn-primary">Detalhes</button>
+                          </td>
+                        </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-body">
               <p class="card-text">Clique para ver seus pedidos na plataforma.</p>
             </div>

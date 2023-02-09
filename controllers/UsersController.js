@@ -45,8 +45,28 @@ async function createUsers(req, res) {
   return res.redirect('/');
 }
 
-function telaPerfil(req, res) {
-  return res.render('perfilUsuario', { userLogged: req.session.userLogged, carrinho: req.session.carrinho });
+async function telaPerfil(req, res) {
+  const { id } = req.params;
+  const getPedido = await database.Pedidos.findAll({
+    where: {
+      user_id: id
+    }
+  });
+
+  const getItensPedido = await database.Pedidos.findAll({
+    where: {
+      user_id: id
+    },
+    include: [{
+      model: database.Evento,
+      as: "eventos",
+      required: true
+    }],
+    raw: true,
+    nest: true,
+  });
+
+  return res.render('perfilUsuario', { pedidos: getPedido, itens: getItensPedido, userLogged: req.session.userLogged, carrinho: req.session.carrinho });
 }
 
 async function atualizarPerfil(req, res) {

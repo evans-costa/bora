@@ -23,10 +23,21 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Pedidos.associate = (models) => {
-    Pedidos.belongsToMany(models.Evento, {
-      through: "pedido_eventos",
-      foreignKey: "pedido_id"
+    Pedidos.belongsTo(models.User, {
+      foreignKey: "user_id",
     });
   };
+
+  Pedidos.associate = (models) => {
+    Pedidos.belongsToMany(models.Evento, {
+      through: models.PedidoEventos,
+      foreignKey: "pedido_id",
+      otherKey: "evento_id",
+      as: "eventos"
+    });
+  };
+
+
+
   return Pedidos;
 };

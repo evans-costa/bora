@@ -9,16 +9,12 @@ const PagamentoController = {
     const carrinho = req.session.carrinho;
     const user = req.session.userLogged;
 
-    const pedido = await database.Pedidos.findOne({
-      where: {
-        user_id: user.id
-      }
-    });
+    console.log(carrinho);
 
     for (let evento of carrinho) {
       await database.PedidoEventos.create({
         evento_id: evento.id,
-        pedido_id: pedido.id,
+        pedido_id: carrinho.pedidoId,
         preco: evento.preco
       });
     }

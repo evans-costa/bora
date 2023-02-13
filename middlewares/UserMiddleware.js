@@ -1,34 +1,34 @@
 const { body, validationResult } = require("express-validator");
 const database = require("../database/models");
 
-function validateCadastroPf (req, res, next) {
+function validateCadastroPf(req, res, next) {
   const errors = validationResult(req);
-	if (!errors.isEmpty()) {
-		return res.render("cadastro", {
-			errors: errors.mapped(),
-			oldData: req.body,
-		});
-	}
-  next()
+  if (!errors.isEmpty()) {
+    return res.render("cadastrarUsuario", {
+      errors: errors.mapped(),
+      oldData: req.body,
+    });
+  }
+  next();
 }
 
 const cpfExist = async (value, { req }) => {
-  const { cpf } = req.body
+  const { cpf } = req.body;
   const getCpf = await database.User.findOne({
     where: { cpf }
   });
 
-  if (getCpf) throw new Error ("Este CPF já está cadastrado")
-}
+  if (getCpf) throw new Error("Este CPF já está cadastrado");
+};
 
 const emailExist = async (value, { req }) => {
-  const { email } = req.body
+  const { email } = req.body;
   const getEmail = await database.User.findOne({
     where: { email }
   });
 
-  if (getEmail) throw new Error ("Este e-mail já está cadastrado")
-}
+  if (getEmail) throw new Error("Este e-mail já está cadastrado");
+};
 
 const inputValidationPf = [
   body("first_name").notEmpty()
@@ -78,4 +78,4 @@ const inputValidationPf = [
 module.exports = {
   inputValidationPf,
   validateCadastroPf,
-}
+};

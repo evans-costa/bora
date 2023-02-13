@@ -3,43 +3,43 @@ const database = require("../database/models");
 
 async function validateCadastroPj(req, res, next) {
   const errors = validationResult(req);
-  const findAllDepartments = await database.Departamento.findAll()
+  const findAllDepartments = await database.Departamento.findAll();
   if (!errors.isEmpty()) {
-    return res.render("cadastrarUsuario", {
+    return res.render("cadastrarFuncionario", {
       errors: errors.mapped(),
       oldData: req.body,
       departamentos: findAllDepartments
     });
   }
-  next()
+  next();
 }
 
 const cpfExist = async (value, { req }) => {
-  const { cpf } = req.body
+  const { cpf } = req.body;
   const getCpf = await database.Funcionario.findOne({
     where: { cpf }
   });
 
-  if (getCpf) throw new Error("Este CPF já está cadastrado")
-}
+  if (getCpf) throw new Error("Este CPF já está cadastrado");
+};
 
 const cnpjExist = async (value, { req }) => {
-  const { cnpj } = req.body
+  const { cnpj } = req.body;
   const getCnpj = await database.Funcionario.findOne({
     where: { cnpj }
   });
 
-  if (getCnpj) throw new Error("Este CNPJ já está cadastrado")
-}
+  if (getCnpj) throw new Error("Este CNPJ já está cadastrado");
+};
 
 const emailExist = async (value, { req }) => {
-  const { email_empresa } = req.body
+  const { email_empresa } = req.body;
   const getEmail = await database.Funcionario.findOne({
     where: { email_empresa }
   });
 
-  if (getEmail) throw new Error("Este e-mail já está cadastrado")
-}
+  if (getEmail) throw new Error("Este e-mail já está cadastrado");
+};
 
 const inputValidationPj = [
   body("nome_completo").notEmpty()
@@ -86,4 +86,4 @@ const inputValidationPj = [
 module.exports = {
   inputValidationPj,
   validateCadastroPj
-}
+};

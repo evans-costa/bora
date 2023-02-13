@@ -195,13 +195,13 @@ inputCep.addEventListener("keypress", () => {
 
 inputCep.addEventListener("blur", (event) => {
   const cep = event.target.value;
-  fetch(`https://brasilapi.com.br/api/cep/v2/${cep}`)
-    .then((response) => response.json())
-    .then((data) => {
-      inputRua.value = data.street;
-      inputCidade.value = data.city;
-      inputEstado.value = data.state;
-    });
+	fetch(`https://brasilapi.com.br/api/cep/v2/${cep}`)
+		.then((response) => response.json())
+		.then((data) => {
+			inputRua.value = data.street;
+			inputCidade.value = data.city;
+			inputEstado.value = data.state;
+		});
 
   if (inputCep.value == "") {
     labelCep.setAttribute("style", "color: rgb(179, 15, 59)");
@@ -305,12 +305,3 @@ formCadastro.addEventListener("submit", function cadastrar(event) {
     event.preventDefault();
   }
 });
-
-// funcionalidade alterar o conteudo baseado na seleção do toggle 
-
-var conteudoPf = "<div id='formulario-completo' class='container ml-1 mt-5'>";
-
-function sampleFunction() {
-  document.getElementById("formularioPf").classList.toggle('hidden')
-  document.getElementById("formularioPj").classList.toggle('show')
-}

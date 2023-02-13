@@ -1,16 +1,16 @@
 const { body, validationResult } = require("express-validator");
 const database = require("../database/models");
 
-async function validateCadastroPj (req, res, next) {
+async function validateCadastroPj(req, res, next) {
   const errors = validationResult(req);
   const findAllDepartments = await database.Departamento.findAll()
-	if (!errors.isEmpty()) {
-		return res.render("cadastrarFuncionario", {
-			errors: errors.mapped(),
-			oldData: req.body,
+  if (!errors.isEmpty()) {
+    return res.render("cadastrarUsuario", {
+      errors: errors.mapped(),
+      oldData: req.body,
       departamentos: findAllDepartments
-		});
-	}
+    });
+  }
   next()
 }
 
@@ -20,7 +20,7 @@ const cpfExist = async (value, { req }) => {
     where: { cpf }
   });
 
-  if (getCpf) throw new Error ("Este CPF já está cadastrado")
+  if (getCpf) throw new Error("Este CPF já está cadastrado")
 }
 
 const cnpjExist = async (value, { req }) => {
@@ -29,7 +29,7 @@ const cnpjExist = async (value, { req }) => {
     where: { cnpj }
   });
 
-  if (getCnpj) throw new Error ("Este CNPJ já está cadastrado")
+  if (getCnpj) throw new Error("Este CNPJ já está cadastrado")
 }
 
 const emailExist = async (value, { req }) => {
@@ -38,7 +38,7 @@ const emailExist = async (value, { req }) => {
     where: { email_empresa }
   });
 
-  if (getEmail) throw new Error ("Este e-mail já está cadastrado")
+  if (getEmail) throw new Error("Este e-mail já está cadastrado")
 }
 
 const inputValidationPj = [

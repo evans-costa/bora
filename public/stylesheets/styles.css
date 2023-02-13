@@ -468,6 +468,7 @@ button {
 
   #box-profile div,
   #box-cart div {
+    width: 0;
     display: none;
   }
 }

@@ -75,55 +75,6 @@ input::-webkit-inner-spin-button {
   margin-bottom: 10px;
 }
 
-#pf-label {
-  align-self: center;
-  width: 300px;
-  height: 100px;
-  position: relative;
-  display: block;
-  background: #ebebeb;
-  border-radius: 200px;
-  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 4),
-    inset 0px -5px 15px rgba(255, 255, 255 0.4);
-  cursor: pointer;
-  margin-bottom: 2vh;
-  margin-top: 2vh;
-  transition: 0.3s;
-}
-
-#pf-label:after {
-  content: "";
-  width: 80px;
-  height: 80px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: linear-gradient(180deg, #ffcc89, #d8860b);
-  border-radius: 180px;
-  box-shadow: 0px 5px 10px rgba (0, 0, 0.2);
-  transition: 0.3s;
-}
-
-input[type="checkbox"] {
-  width: 0;
-  height: 0;
-  visibility: hidden;
-}
-
-input:checked + #pf-label {
-  background: #343434;
-}
-
-input:checked + #pf-label:after {
-  left: 290px;
-  transform: translateX(-100%);
-  background: linear-gradient(180deg, #15015f, #240099);
-}
-
-#pf-label:active:after {
-  width: 120px;
-}
-
 @media (max-width: 768px) {
   #formulario-completo {
     width: 80%;
@@ -137,47 +88,4 @@ input:checked + #pf-label:after {
   .button-cadastrar button {
     width: 100%;
   }
-}
-
-#person-icon,
-#building-icon {
-  position: absolute;
-  font-size: 3rem;
-  top: 10px;
-  color: white;
-  z-index: 100;
-}
-
-#person-icon {
-  left: 25px;
-  transition: 0.3s;
-}
-
-#building-icon {
-  right: 25px;
-  transition: 0.3;
-}
-
-input:checked + label #person-icon {
-  color: #7e7e7e;
-}
-
-input:checked + label #building-icon {
-  color: #fff;
-}
-
-.tipoCadastro {
-  align-self: center;
-  display: flex;
-  width: 300px;
-  justify-content: space-between;
-  align-items: start;
-}
-
-.hidden {
-  display: none;
-}
-
-.show {
-  display: block;
 }

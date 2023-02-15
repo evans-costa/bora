@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css');
 
 html {
   position: relative;
@@ -301,7 +301,7 @@ button {
   border-radius: 50px;
   /* border-color: #e6573f; */
 }
-#footer .footer-newsletter form input[type="email"] {
+#footer .footer-newsletter form input[type='email'] {
   padding: 8px;
   width: calc(100% - 140px);
   background-color: #4f4f4f;
@@ -309,7 +309,7 @@ button {
   border-color: #e6573f;
   border-style: double;
 }
-#footer .footer-newsletter form input[type="submit"] {
+#footer .footer-newsletter form input[type='submit'] {
   position: absolute;
   top: 0;
   right: 0;
@@ -324,7 +324,7 @@ button {
   transition: 0.3s;
   border-radius: 50px;
 }
-#footer .footer-newsletter form input[type="submit"]:hover {
+#footer .footer-newsletter form input[type='submit']:hover {
   background: #e6573f;
 }
 
@@ -423,6 +423,8 @@ button {
 .carousel-inner > .carousel-item > img {
   width: 100%;
   height: 35vh;
+
+  object-fit: cover;
 }
 
 .whatsapp {

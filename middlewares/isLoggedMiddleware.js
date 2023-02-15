@@ -1,18 +1,19 @@
 function logged(req, res, next) {
+  const userLogged = req.session.userLogged;
   if (req.session.userLogged) {
-    return res.redirect('/users/perfil')
+    return res.redirect(`/users/perfil/${userLogged.id}`);
   }
-  next()
+  next();
 }
 
 function notLogged(req, res, next) {
   if (!req.session.userLogged) {
-    return res.redirect('/login')
+    return res.redirect('/login');
   }
-  next()
+  next();
 }
 
 module.exports = {
   logged,
   notLogged
-}
+};

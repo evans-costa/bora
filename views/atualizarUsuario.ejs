@@ -242,49 +242,6 @@
             <% } %>
           </div>
 
-          <div class="finalizar-cadastro">
-            <div class="finalizar-title">
-              <h2>Finalizar Cadastro</h2>
-            </div>
-
-            <div class="form-group">
-              <label id="labelSenha" for="senha">Senha</label>
-              <input
-                type="password"
-                name="senha"
-                class="form-control"
-                id="senha"
-                placeholder="Digite sua senha"
-              />
-              <% if(locals.errors && errors.senha) { %>
-              <div class="error-msg"><%=errors.senha.msg%></div>
-              <% } %>
-            </div>
-
-            <div class="form-group">
-              <label id="labelConfSenha" for="confirmarSenha"
-                >Confirme sua Senha</label
-              >
-              <input
-                type="password"
-                name="confirmaSenha"
-                class="form-control"
-                id="confirmaSenha"
-                placeholder="Confirme sua senha"
-              />
-            </div>
-
-            <div class="container" id="regras-senha">
-              <p>Sua senha deve conter no mínimo:</p>
-              <ul>
-                <li>Uma letra minúscula</li>
-                <li>Uma letra maiúscula</li>
-                <li>Um caractere especial</li>
-                <li>Pelo menos 8 caracteres</li>
-              </ul>
-            </div>
-          </div>
-
           <div class="button-cadastrar d-flex justify-content-center mb-3">
             <button type="submit" class="btn btn-primary">
               Atualizar Cadastro

@@ -78,6 +78,6 @@ Algumas melhorias que estão em vista para a melhora desse projeto são:
 
 ## Licença
 
-The MIT License (MIT) 2023 - Evandro Costa. Por favor, dê uma olhada na licença para mais detalhes.
+The MIT License (MIT) 2023 - Evandro Costa. Por favor, dê uma olhada em LICENSE para mais detalhes.
 
 ---

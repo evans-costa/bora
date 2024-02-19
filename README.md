@@ -6,11 +6,11 @@
 <h4 align="center">Um e-commerce de eventos</h4>  
 
 <p align="center">
-  <a href="#key-features">Principais Features</a> •
-  <a href="#how-to-use">Instalar e rodar o projeto</a> •
-  <a href="#credits">Melhorias - TODO</a> •
-  <a href="#credits">Contribuidores</a> •
-  <a href="#license">Licença</a>
+  <a href="#principais-features">Principais Features</a> •
+  <a href="#instalar-e-rodar-o-projeto">Instalar e rodar o projeto</a> •
+  <a href="#melhorias">Melhorias</a> •
+  <a href="#contribuidores">Contribuidores</a> •
+  <a href="#licença">Licença</a>
 </p>
 
 ## Principais Features
@@ -58,7 +58,7 @@ $ npm run start
 3. Pode ser preenchido com **qualquer email**, mesmo que ele não exista
 4. Uma vez cadastrado, pode ser feito o login acessando http://localhost:3000/login
 
-## Melhorias - TODO
+## Melhorias
 
 Algumas melhorias que estão em vista para a melhora desse projeto são:
 
